@@ -1,0 +1,34 @@
+<h1>Wena choro!!</h1>
+
+<p id="notice"><%= notice %></p>
+
+<style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;}
+.tg .tg-yw4l{vertical-align:top}
+</style>
+<table class="tg">
+  <tr>
+    <th class="tg-031e">Position</th>
+    <th class="tg-yw4l">Location</th>
+    <th class="tg-yw4l">Stardate</th>
+    <th class="tg-yw4l">Deadline</th>
+  </tr>
+    
+    
+    <% for subject in @offer %>
+  <tr>
+    <td class="tg-yw4l"> <%= subject.position %> </td>
+    <td class="tg-yw4l"> <%= subject.location %> </td>
+    <td class="tg-yw4l"> <%= subject.startDate %> </td>
+    <td class="tg-yw4l"> <%= subject.deadlineDate %> </td>
+  </tr>
+    <% end %>
+</table>
+
+<div>
+    
+
+    
+</div>

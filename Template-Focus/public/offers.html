@@ -99,115 +99,121 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</form>
 				</div>
 			</div>
-		</div>
-    <div class="container" ng-controller="OffersCtrl">
-        <form name="Codenx" novalidate>
-        <table class="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Position</th>
-              <th>Location</th>
-              <th>Description</th>
-              <th>&nbsp;</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><input class="form-control" ng-model="offer.name" required="" placeholder="Offer Name"></td>
-              <td><input class="form-control" ng-model="offer.position" placeholder="Position"></td>
-              <td><input class="form-control" ng-model="offer.location" placeholder="Location"></td>
-              <td><input class="form-control" ng-model="offer.description" placeholder="Description"></td>
-              <td><button class="btn btn-primary" ng-click="add(offer)" ng-if="!offer._id" type="submit" ng-disabled="!Codenx.$valid">Add Offer</button>
-                <div class="btn-group">
-                  <button class="btn btn-info" ng-click="update(offer)" ng-if="offer._id" type="submit">Update</button>
-                  <button class="btn" ng-click="deselect()" ng-if="offer._id">Clear</button>
+        </div>              
+            
+        <div class="container" ng-controller="OffersCtrl">
+            <form name="Codenx" novalidate>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input class="form-control" ng-model="offer.name" required="" placeholder="Offer Name"></td>
+                  <td><input class="form-control" ng-model="offer.position" placeholder="Position"></td>
+                  <td><input class="form-control" ng-model="offer.location" placeholder="Location"></td>
+                  <td><input class="form-control" ng-model="offer.description" placeholder="Description"></td>
+                  <td><button class="btn btn-primary" ng-click="add(offer)" ng-if="!offer._id" type="submit" ng-disabled="!Codenx.$valid">Add Offer</button>
+                    <div class="btn-group">
+                      <button class="btn btn-info" ng-click="update(offer)" ng-if="offer._id" type="submit">Update</button>
+                      <button class="btn" ng-click="deselect()" ng-if="offer._id">Clear</button>
+                    </div>
+                  </td>
+                </tr>            
+              </tbody>
+            </table>
+            </form>
+            <div ng-repeat="offer in offers" class="row">
+              <div class="col-sm-2 col-md-8">
+                <div class="thumbnail">
+                  <div class="caption">
+                    <h2>{{offer.name}}</h2>
+                    <h3>{{offer.position}}</h3>
+                    <h3>{{offer.location}}</h3>
+                    <h3>{{offer.description}}</h3>
+                    <div class="btn-group">
+                      <button class="btn btn-danger" ng-click="remove(offer)">Remove</button>
+                      <button class="btn btn-warning" ng-click="edit(offer._id)">Edit</button>
+                    </div>
+                  </div>
                 </div>
-              </td>
-            </tr>
-            <tr ng-repeat="offer in offers">
-              <td>{{offer.name}}</td>
-              <td>{{offer.position}}</td>
-              <td>{{offer.location}}</td>
-              <td>{{offer.description}}</td>
-              <td>
-                <div class="btn-group">
-                  <button class="btn btn-danger" ng-click="remove(offer)">Remove</button>
-                  <button class="btn btn-warning" ng-click="edit(offer._id)">Edit</button>
+              </div>
+            </div>
+        </div>
+
+
+        <!--footer-->
+        <div class="footer">
+            <div class="container">
+                <div class="footer-info">
+                    <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
+                        <h4 class="footer-logo"><a href="index.html"> Lifeware <b> Works </b> <span class="tag"> Kinectrollogy </span> </a></h4>
+                        <p>© 2016 Lifeware . All rights reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a></p>
+                    </div>
+                    <div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
+                        <h3>Popular</h3>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="contact.html">Contact Us</a></li>
+                        </ul>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        </form>
+            </div>
+        </div>
+        <!--//footer-->				
+        <!-- the jScrollPane script -->
+        <script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
+                <script type="text/javascript" id="sourcecode">
+                    $(function()
+                    {
+                        $('.scroll-pane').jScrollPane();
+                    });
+                </script>
+        <!-- //the jScrollPane script -->
+        <script type="text/javascript" src="js/jquery.mousewheel.js"></script>
+        <!-- the mousewheel plugin -->
+        <!--search jQuery-->
+        <script src="js/main.js"></script>
+        <!--//search jQuery-->
+        <!--smooth-scrolling-of-move-up-->
+        <script type="text/javascript">
+            $(document).ready(function() {
 
-    </div>
-    <!--footer-->
-	<div class="footer">
-		<div class="container">
-			<div class="footer-info">
-				<div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".5s">
-					<h4 class="footer-logo"><a href="index.html"> Lifeware <b> Works </b> <span class="tag"> Kinectrollogy </span> </a></h4>
-					<p>© 2016 Lifeware . All rights reserved | Design by <a href="http://w3layouts.com" target="_blank">W3layouts</a></p>
-				</div>
-				<div class="col-md-4 footer-grids wow fadeInUp animated" data-wow-delay=".7s">
-					<h3>Popular</h3>
-					<ul>
-						<li><a href="about.html">About Us</a></li>
-						<li><a href="contact.html">Contact Us</a></li>
-					</ul>
-				</div>
-				<div class="clearfix"></div>
-			</div>
-		</div>
-	</div>
-	<!--//footer-->				
-	<!-- the jScrollPane script -->
-	<script type="text/javascript" src="js/jquery.jscrollpane.min.js"></script>
-			<script type="text/javascript" id="sourcecode">
-				$(function()
-				{
-					$('.scroll-pane').jScrollPane();
-				});
-			</script>
-	<!-- //the jScrollPane script -->
-	<script type="text/javascript" src="js/jquery.mousewheel.js"></script>
-	<!-- the mousewheel plugin -->
-	<!--search jQuery-->
-	<script src="js/main.js"></script>
-	<!--//search jQuery-->
-	<!--smooth-scrolling-of-move-up-->
-	<script type="text/javascript">
-		$(document).ready(function() {
-		
-			var defaults = {
-				containerID: 'toTop', // fading element id
-				containerHoverID: 'toTopHover', // fading element hover id
-				scrollSpeed: 1200,
-				easingType: 'linear' 
-			};
-			
-			$().UItoTop({ easingType: 'easeOutQuart' });
-			
-		});
-	</script>
-	<!--//smooth-scrolling-of-move-up-->
-	<!--Bootstrap core JavaScript
-    ================================================== -->
-    <!--Placed at the end of the document so the pages load faster -->
-    <script src="js/bootstrap.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/offers.js"></script>
+                var defaults = {
+                    containerID: 'toTop', // fading element id
+                    containerHoverID: 'toTopHover', // fading element hover id
+                    scrollSpeed: 1200,
+                    easingType: 'linear' 
+                };
 
-    <div data-loading></div>
-    <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+                $().UItoTop({ easingType: 'easeOutQuart' });
 
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-resource.min.js"></script>
-    <script src="js/angular-animate.min.js"></script>
-    <script src="js/ngProgress.min.js"></script>
-    <script src="js/toaster.js"></script>
-    <script src="app/app.js"></script>
-    <script src="app/offers.js"></script>
-    </body>
+            });
+        </script>
+        <!--//smooth-scrolling-of-move-up-->
+        <!--Bootstrap core JavaScript
+        ================================================== -->
+        <!--Placed at the end of the document so the pages load faster -->
+        <script src="js/bootstrap.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/offers.js"></script>
+
+        <div data-loading></div>
+        <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
+
+        <script src="js/angular.min.js"></script>
+        <script src="js/angular-resource.min.js"></script>
+        <script src="js/angular-animate.min.js"></script>
+        <script src="js/ngProgress.min.js"></script>
+        <script src="js/toaster.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/offers.js"></script>
+        </body>
 </html>

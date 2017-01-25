@@ -119,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="container" ng-controller="OffersCtrl">
             <form name="Codenx" novalidate>
             </form>
-            <div ng-repeat="offer in offers" class="row">
+            <div ng-repeat="offer in offers|limitTo:-2" class="row">
               <div class="col-sm-2 col-md-8">
                 <div class="thumbnail">
                   <div class="caption">

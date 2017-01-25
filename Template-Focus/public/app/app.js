@@ -42,9 +42,9 @@ app.directive('loading',   ['$http', 'ngProgress', function ($http, ngProgress)
     };
 }]);
 
-// Create a resource factory to access products table from database 
-app.factory('Product', function($resource) {
-  return $resource('/api/products/:id', { id: '@_id' }, {
+// Create a resource factory to access offers table from database 
+app.factory('Offer', function($resource) {
+  return $resource('/api/offers/:id', { id: '@_id' }, {
     update: { // We need to define this method manually as it is not provided with ng-resource
       method: 'PUT'
     }

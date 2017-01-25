@@ -85,7 +85,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<ul class="dropdown-menu multi-column multi-column1">
 										<div class="col-sm-2 menu-grids menulist1">
 											<ul class="multi-column-dropdown ">
-												<li><a class="list" href="products.html">All</a></li>
+												<li><a class="list" href="offers.html">All</a></li>
 											</ul>
 										</div>	
 								</ul>
@@ -100,38 +100,40 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
-    <div class="container" ng-controller="ProductsCtrl">
+    <div class="container" ng-controller="OffersCtrl">
         <form name="Codenx" novalidate>
         <table class="table">
           <thead>
             <tr>
               <th>Name</th>
-              <th>SKU</th>
-              <th>Price</th>
-              <th>Action</th>
+              <th>Position</th>
+              <th>Location</th>
+              <th>Description</th>
               <th>&nbsp;</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><input class="form-control" ng-model="product.name" required="" placeholder="Product Name"></td>
-              <td><input class="form-control" ng-model="product.sku" placeholder="Stock Control Unit"></td>
-              <td><input class="form-control" ng-model="product.price" placeholder="Should be a number"></td>
-              <td><button class="btn btn-primary" ng-click="add(product)" ng-if="!product._id" type="submit" ng-disabled="!Codenx.$valid">Add Product</button>
+              <td><input class="form-control" ng-model="offer.name" required="" placeholder="Offer Name"></td>
+              <td><input class="form-control" ng-model="offer.position" placeholder="Position"></td>
+              <td><input class="form-control" ng-model="offer.location" placeholder="Location"></td>
+              <td><input class="form-control" ng-model="offer.description" placeholder="Description"></td>
+              <td><button class="btn btn-primary" ng-click="add(offer)" ng-if="!offer._id" type="submit" ng-disabled="!Codenx.$valid">Add Offer</button>
                 <div class="btn-group">
-                  <button class="btn btn-info" ng-click="update(product)" ng-if="product._id" type="submit">Update</button>
-                  <button class="btn" ng-click="deselect()" ng-if="product._id">Clear</button>
+                  <button class="btn btn-info" ng-click="update(offer)" ng-if="offer._id" type="submit">Update</button>
+                  <button class="btn" ng-click="deselect()" ng-if="offer._id">Clear</button>
                 </div>
               </td>
             </tr>
-            <tr ng-repeat="product in products">
-              <td>{{product.name}}</td>
-              <td>{{product.sku}}</td>
-              <td>{{product.price}}</td>
+            <tr ng-repeat="offer in offers">
+              <td>{{offer.name}}</td>
+              <td>{{offer.position}}</td>
+              <td>{{offer.location}}</td>
+              <td>{{offer.description}}</td>
               <td>
                 <div class="btn-group">
-                  <button class="btn btn-danger" ng-click="remove(product)">Remove</button>
-                  <button class="btn btn-warning" ng-click="edit(product._id)">Edit</button>
+                  <button class="btn btn-danger" ng-click="remove(offer)">Remove</button>
+                  <button class="btn btn-warning" ng-click="edit(offer._id)">Edit</button>
                 </div>
               </td>
             </tr>
@@ -195,7 +197,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--Placed at the end of the document so the pages load faster -->
     <script src="js/bootstrap.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/products.js"></script>
+    <script src="app/offers.js"></script>
 
     <div data-loading></div>
     <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
@@ -206,6 +208,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="js/ngProgress.min.js"></script>
     <script src="js/toaster.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/products.js"></script>
+    <script src="app/offers.js"></script>
     </body>
 </html>

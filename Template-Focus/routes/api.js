@@ -3,10 +3,10 @@
 var express = require('express');
 var router = express.Router();
 
-//Product
-var Product = require('../models/product');
-Product.methods(['get', 'put', 'post', 'delete']);
-Product.register(router, '/products');
+//Offer
+var Offer = require('../models/offer');
+Offer.methods(['get', 'put', 'post', 'delete']);
+Offer.register(router, '/offers');
 
 // Return router
 module.exports = router;

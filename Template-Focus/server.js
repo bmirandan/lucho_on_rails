@@ -6,7 +6,7 @@ var bodyParser = require('body-parser');
 
 // MongoDB
 
-mongoose.connect(process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/products-demo');
+mongoose.connect(process.env.OPENSHIFT_MONGODB_DB_URL || 'mongodb://localhost/offers-demo');
 // mongoose.connection.on('error', function(){});
 
 // Express

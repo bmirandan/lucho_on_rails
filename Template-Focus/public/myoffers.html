@@ -1,12 +1,7 @@
 <!DOCTYPE>
-<html>
+<html ng-app="myApp">
 <head>
   <title>Lifeware Works</title>
-<style>
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-display: none !important;
-}
-</style>
 <!-- for-mobile-apps -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -24,9 +19,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="js/modernizr.custom.js"></script>
 <link rel="stylesheet" type="text/css" href="css/jquery-ui.css">
 <!--//js-->
-<!--cart-->
-<script src="js/simpleCart.min.js"></script>
-<!--cart-->
 <!--web-fonts-->
 <link href='//fonts.googleapis.com/css?family=Raleway:400,100,100italic,200,200italic,300,400italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic' rel='stylesheet' type='text/css'><link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
 <link href='//fonts.googleapis.com/css?family=Pompiere' rel='stylesheet' type='text/css'>
@@ -51,6 +43,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		});
 </script>
 <!--//end-smooth-scrolling-->    
+    
+<style>
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+display: none !important;
+}
+</style>
+    
 </head>
 <body ng-cloak ng-app="myApp">
         <div class="header-two navbar navbar-default"><!--header-two-->
@@ -115,15 +114,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h3>{{offer.description}}</h3>
                         </div>  
                   </div>
-                <div class="btn-group">
-                  <button class="btn btn-info" ng-click="update(offer)" ng-if="offer._id" type="submit">Update</button>
-                  <button class="btn" ng-click="deselect()" ng-if="offer._id">Clear</button>
-                </div>
+                  <div class="btn-group" ng-controller = "MainCtrl">
+                    <button class="btn btn-danger" ng-click="remove(offer)">Eliminar</button>
+                    <button class="btn btn-warning" onclick="location.href='editpost.html';" ng-click='shareMyData(offer);'>Editar</button>
+                  </div>
                 </div>
               </div>
             </div>
         </div>
-
 
         <!--footer-->
         <div class="footer">
@@ -180,7 +178,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!--Placed at the end of the document so the pages load faster -->
         <script src="js/bootstrap.js"></script>
         <script src="app/app.js"></script>
-        <script src="app/offers.js"></script>
 
         <div data-loading></div>
         <toaster-container toaster-options="{'time-out': 3000, 'close-button':true, 'animation-class': 'toast-top-center'}"></toaster-container>
@@ -191,6 +188,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <script src="js/ngProgress.min.js"></script>
         <script src="js/toaster.js"></script>
         <script src="app/app.js"></script>
-        <script src="app/offers.js"></script>
         </body>
 </html>

@@ -65,17 +65,90 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-        <div class="container" ng-controller="OffersCtrl">
-            <br>
-            <center>Post agregado</center>
-            <br>
-            <center><img src="images/ok2.jpg" alt="ok-Logo" ></center>
-            <br>
-            <center><button class="btn btn-info" onclick="location.href = 'myoffers.html';" type="submit">Continuar</button></center>
-            <br>
+        <div class="top-nav navbar navbar-default"><!--header-three-->
+			<div class="container">
+				<nav class="navbar" role="navigation">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+					</div>
+					<!--navbar-header-->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav top-nav-info">
+							<li><a href="index.html" class="active">Home</a></li>
+                            <li><a href="post.html">Publicar aviso</a></li>
+                            <li><a href="myoffers.html">Mis avisos</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<b class="caret"></b></a>
+								<ul class="dropdown-menu multi-column multi-column1">
+										<div class="col-sm-2 menu-grids menulist1">
+											<ul class="multi-column-dropdown ">
+												<li><a class="list" href="offers.html">All</a></li>
+											</ul>
+										</div>	
+								</ul>
+							</li>
+					</div>
+					<!--//navbar-header-->
+				</nav>
+			</div>
+        </div>      
+        <br>
+        <center><h3>Datos Actuales</h3></center>
+        <br>
+        <div class="container" ng-controller="MainCtrl2">
+            <script>
+                var id = "{{sharedData[0]._id}}"
+            </script>
+            <form name="Codenx" novalidate>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>&nbsp;</th>
+                </tr>
+                  <td>{{sharedData[0].name}}</td>
+                  <td>{{sharedData[0].position}}</td>
+                  <td>{{sharedData[0].location}}</td>
+                  <td>{{sharedData[0].description}}</td>                  
+              </thead>
+            </table>
+            </form>
         </div>
-
-
+        <br>
+        <center><h3>Datos Nuevos</h3></center>
+        <br>
+        <div class="container" ng-controller="OffersCtrl">
+            <form name="Codenx" novalidate>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Position</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><input class="form-control" ng-model="offer.name" placeholder="{{sharedData[0].name}}" ></td>
+                  <td><input class="form-control" ng-model="offer.position" placeholder="{{sharedData[0].position}}"></td>
+                  <td><input class="form-control" ng-model="offer.location" placeholder="{{sharedData[0].location}}"></td>
+                  <td><input class="form-control" ng-model="offer.description" placeholder="{{sharedData[0].description}}"></td>
+                  <td><button class="btn btn-info" ng-click="update(offer)" type="submit">Actualizar</button></td>
+                </tr>
+            </tbody>
+            </table>
+            </form>
+        </div>
         <!--footer-->
         <div class="footer">
             <div class="container">
@@ -141,5 +214,5 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <script src="js/ngProgress.min.js"></script>
         <script src="js/toaster.js"></script>
         <script src="app/app.js"></script>
-        </body>
+</body>
 </html>

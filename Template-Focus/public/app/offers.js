@@ -12,6 +12,7 @@ app.controller('OffersCtrl', function($scope, Offer, ngProgress, toaster) {
       Offer.save(offer,function(offer){
         refresh();
       });
+      location.href = 'okpost.html';
     };
 
     $scope.update = function(offer) {

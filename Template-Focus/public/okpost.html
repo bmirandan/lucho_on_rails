@@ -65,57 +65,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="clearfix"> </div>
 			</div>
 		</div>
-        <div class="top-nav navbar navbar-default"><!--header-three-->
-			<div class="container">
-				<nav class="navbar" role="navigation">
-					<div class="navbar-header">
-						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
-					</div>
-					<!--navbar-header-->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav top-nav-info">
-							<li><a href="index.html" class="active">Home</a></li>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<b class="caret"></b></a>
-								<ul class="dropdown-menu multi-column multi-column1">
-										<div class="col-sm-2 menu-grids menulist1">
-											<ul class="multi-column-dropdown ">
-												<li><a class="list" href="offers.html">All</a></li>
-											</ul>
-										</div>	
-								</ul>
-							</li>
-					</div>
-					<!--//navbar-header-->
-				</nav>
-				<div id="cd-search" class="cd-search">
-					<form>
-						<input type="search" placeholder="Search...">
-					</form>
-				</div>
-			</div>
-        </div>              
         <div class="container" ng-controller="OffersCtrl">
             <br>
-            <div ng-repeat="offer in offers" class="row">
-              <div class="col-sm-2 col-md-8">
-                <div class="thumbnail">
-                  <div class="caption">
-                        <div ng-controller='MainCtrl'>
-                            <a href="single.html" ng-click='shareMyData(offer);'><h2>{{offer.name}}</h2></a>
-                            <h3>{{offer.position}}</h3>
-                            <h3>{{offer.location}}</h3>
-                            <h3>{{offer.description}}</h3>
-                        </div>  
-                  </div>
-                </div>
-              </div>
-            </div>
+            <center>Post agregado</center>
+            <br>
+            <center><img src="images/ok2.jpg" alt="ok-Logo" ></center>
+            <br>
+            <center><button class="btn btn-info" onclick="location.href = 'myoffers.html';" type="submit">Continuar</button></center>
+            <br>
         </div>
 
 

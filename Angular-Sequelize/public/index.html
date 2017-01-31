@@ -60,7 +60,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     angular.module('myApp',['ngResource']);
         function Ctrl($scope,$resource) {
             var Geonames = $resource(
-                'http://localhost:8000/companys/', {}, 
+                'http://localhost:8000/offers/', {}, 
                 {
                     query: { method: 'GET', isArray: true }
                 }
@@ -144,10 +144,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="thumbnail">
                   <div class="caption">
                         <div ng-controller='Ctrl'>
-                            <a href="single.html" ng-click='shareMyData(offer);'><h2>{{obj.rut}}</h2></a>
-                            <h3>{{obj.name}}</h3>
-                            <h3>{{obj.username}}</h3>
-                            <h3>{{obj.password}}</h3>
+                            <a href="single.html" ng-click='shareMyData(offer);'><h2>{{obj.title}}</h2></a>
+                            <h3>{{obj.position}}</h3>
+                            <h3>{{obj.location}}</h3>
+                            <h3>{{obj.description}}</h3>
                         </div>  
                   </div>
                 </div>

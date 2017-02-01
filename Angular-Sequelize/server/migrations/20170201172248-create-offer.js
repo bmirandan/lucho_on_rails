@@ -1,17 +1,23 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Authors', {
+    return queryInterface.createTable('Offers', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      title: {
         type: Sequelize.STRING
       },
-      bio: {
+      position: {
+        type: Sequelize.STRING
+      },
+      location: {
+        type: Sequelize.STRING
+      },
+      description: {
         type: Sequelize.TEXT
       },
       created_at: {
@@ -21,10 +27,21 @@ module.exports = {
       updated_at: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+        
+         user_id: {
+          type: Sequelize.INTEGER,
+          onDelete: "CASCADE",
+          allowNull: false,
+          references: {
+            model: 'Users',
+            key: 'id'
+          }
+        }
+      
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Authors');
+    return queryInterface.dropTable('Offers');
   }
 };

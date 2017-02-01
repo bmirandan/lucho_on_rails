@@ -8,14 +8,17 @@ module.exports = function (router) {
   router.put('/companys', companys.update);
   router.delete('/companys/:id', companys.delete);
     
-  
-    router.get('/users', users.index);
-    router.post('/users', users.create);
-     router.get('/users/:id', users.show);
+  router.get('/offers', offers.index);
   router.get('/offers/:id', offers.show);
   router.post('/offers', offers.create);
   router.put('/offers', offers.update);
   router.delete('/offers/:id', offers.delete);
+
+  router.get('/users', users.index);
+  router.get('/users/:id', users.show);
+  router.post('/users', users.create);
+  router.put('/users', users.update);
+  router.delete('/users/:id', users.delete);
 
   return router
 };

@@ -9,9 +9,21 @@ module.exports = function(sequelize, DataTypes) {
       underscored:true,
       classMethods: {
       associate: function(models) {
+          
+         
+    
+          
+        Offer.belongsTo(models.User, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+          
         // associations can be defined here
       }
     }
   });
+    
   return Offer;
 };

@@ -1,9 +1,8 @@
 User = require('../models/').User;
+
 module.exports= {
-  //Get a list of all users using model.findAll()
   index(req, res) {
-    User.findAll({
-    })
+    User.findAll()
       .then(function (users) {
         res.status(200).json(users);
       })
@@ -12,19 +11,16 @@ module.exports= {
       });
   },
 
-  //Get an company by the unique ID using model.findById()
   show(req, res) {
-    User.findById(req.params.id, {
-    })
-    .then(function (company) {
-      res.status(200).json(company);
+    User.findById(req.params.id)
+    .then(function (user) {
+      res.status(200).json(user);
     })
     .catch(function (error){
       res.status(500).json(error);
     });
   },
 
-  //Create a new company using model.create()
   create(req, res) {
     User.create(req.body)
       .then(function (newUser) {
@@ -35,7 +31,6 @@ module.exports= {
       });
   },
 
-  //Edit an existing company details using model.update()
   update(req, res) {
     User.update(req.body, {
       where: {
@@ -50,7 +45,6 @@ module.exports= {
     });
   },
 
-  //Delete an existing company by the unique ID using model.destroy()
   delete(req, res) {
     User.destroy({
       where: {

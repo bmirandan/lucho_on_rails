@@ -11,7 +11,12 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
           
          
-    
+     Offer.belongsTo(models.Company, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
           
         Offer.belongsTo(models.User, {
           onDelete: "CASCADE",

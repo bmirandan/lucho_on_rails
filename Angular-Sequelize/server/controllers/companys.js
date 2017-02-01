@@ -1,8 +1,10 @@
 Company = require('../models/').Company;
+Offer = require('../models/').Offer;
 module.exports= {
   //Get a list of all companys using model.findAll()
   index(req, res) {
     Company.findAll({
+        include: Offer
     })
       .then(function (companys) {
         res.status(200).json(companys);
@@ -15,6 +17,7 @@ module.exports= {
   //Get an company by the unique ID using model.findById()
   show(req, res) {
     Company.findById(req.params.id, {
+        include: Offer
     })
     .then(function (company) {
       res.status(200).json(company);

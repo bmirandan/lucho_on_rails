@@ -21,6 +21,7 @@ module.exports = function(sequelize, DataTypes) {
         });
           
         // associations can be defined here
+        // Offer.hasMany(models.Company,{foreignKey: 'id'});
       }
     }
   });

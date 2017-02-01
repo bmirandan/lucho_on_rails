@@ -1,24 +1,15 @@
 'use strict';
 module.exports = {
   up: function(queryInterface, Sequelize) {
-    return queryInterface.createTable('Offers', {
+    return queryInterface.createTable('user_applications', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      title: {
-        type: Sequelize.STRING
-      },
-      position: {
-        type: Sequelize.STRING
-      },
-      location: {
-        type: Sequelize.STRING
-      },
-      description: {
-        type: Sequelize.TEXT
+      applyDate: {
+        type: Sequelize.DATE
       },
       created_at: {
         allowNull: false,
@@ -29,20 +20,29 @@ module.exports = {
         type: Sequelize.DATE
       },
         
-              
-         company_id: {
+        
+        user_id: {
           type: Sequelize.INTEGER,
           onDelete: "CASCADE",
           allowNull: false,
           references: {
-            model: 'Companies',
+            model: 'Users',
             key: 'id'
           }
-        }
-      
+        },
+        
+       offer_id: {
+          type: Sequelize.INTEGER,
+          onDelete: "CASCADE",
+          allowNull: false,
+          references: {
+            model: 'Offers',
+            key: 'id'
+          }
+        }    
     });
   },
   down: function(queryInterface, Sequelize) {
-    return queryInterface.dropTable('Offers');
+    return queryInterface.dropTable('user_applications');
   }
 };

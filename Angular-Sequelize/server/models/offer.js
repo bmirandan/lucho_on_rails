@@ -18,12 +18,7 @@ module.exports = function(sequelize, DataTypes) {
           }
         });
           
-        Offer.belongsTo(models.User, {
-          onDelete: "CASCADE",
-          foreignKey: {
-            allowNull: false
-          }
-        });
+      Offer.hasMany(models.user_application);
           
         // associations can be defined here
         // Offer.hasMany(models.Company,{foreignKey: 'id'});

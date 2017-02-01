@@ -1,0 +1,3 @@
+sequelize model:create --name= user_application --attributes applyDate:date  --underscored --force
+
+

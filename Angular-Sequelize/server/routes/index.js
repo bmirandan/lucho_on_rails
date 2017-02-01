@@ -1,14 +1,14 @@
-var companys = require('../controllers/companys');
+var companies = require('../controllers/companies');
 var offers = require('../controllers/offers');
 var users = require('../controllers/users');
 var user_applications = require('../controllers/user_applications');
 
 module.exports = function (router) {
-  router.get('/companys', companys.index);
-  router.get('/companys/:id', companys.show);
-  router.post('/companys', companys.create);
-  router.put('/companys', companys.update);
-  router.delete('/companys/:id', companys.delete);
+  router.get('/companies', companies.index);
+  router.get('/companies/:id', companies.show);
+  router.post('/companies', companies.create);
+  router.put('/companies', companies.update);
+  router.delete('/companies/:id', companies.delete);
     
   router.get('/offers', offers.index);
   router.get('/offers/:id', offers.show);

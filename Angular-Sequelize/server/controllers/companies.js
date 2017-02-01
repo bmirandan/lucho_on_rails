@@ -1,13 +1,13 @@
 Company = require('../models/').Company;
 Offer = require('../models/').Offer;
 module.exports= {
-  //Get a list of all companys using model.findAll()
+  //Get a list of all companies using model.findAll()
   index(req, res) {
     Company.findAll({
         include: Offer
     })
-      .then(function (companys) {
-        res.status(200).json(companys);
+      .then(function (companies) {
+        res.status(200).json(companies);
       })
       .catch(function (error) {
         res.status(500).json(error);

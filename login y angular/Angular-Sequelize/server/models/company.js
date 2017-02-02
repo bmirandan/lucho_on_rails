@@ -3,7 +3,8 @@ module.exports = function(sequelize, DataTypes) {
   var Company = sequelize.define('Company', {
     id: { 
         type: DataTypes.INTEGER,
-        allowNull: false
+        allowNull: false,
+        primaryKey: true
         },
     name: { 
         type: DataTypes.STRING,

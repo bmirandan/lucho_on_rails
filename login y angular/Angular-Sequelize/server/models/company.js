@@ -1,10 +1,22 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Company = sequelize.define('Company', {
-    rut: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    username: DataTypes.STRING,
-    password: DataTypes.STRING
+    id: { 
+        type: DataTypes.INTEGER,
+        allowNull: false
+        },
+    name: { 
+        type: DataTypes.STRING,
+        allowNull: false    
+    },
+    username: { 
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    password: { 
+        type: DataTypes.STRING,
+        allowNull: false
+    }
   }, {
     underscored: true,
     classMethods: {
@@ -19,3 +31,5 @@ module.exports = function(sequelize, DataTypes) {
 );    
   return Company;
 };
+
+

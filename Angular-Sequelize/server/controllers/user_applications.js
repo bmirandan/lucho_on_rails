@@ -1,46 +1,38 @@
-Company = require('../models/').Company;
-Offer = require('../models/').Offer;
+user_application = require('../models/').user_application;
+
 module.exports= {
-  //Get a list of all companys using model.findAll()
   index(req, res) {
-    Company.findAll({
-        include: Offer
-    })
-      .then(function (companys) {
-        res.status(200).json(companys);
+    user_application.findAll()
+      .then(function (user_applications) {
+        res.status(200).json(user_applications);
       })
       .catch(function (error) {
         res.status(500).json(error);
       });
   },
 
-  //Get an company by the unique ID using model.findById()
   show(req, res) {
-    Company.findById(req.params.id, {
-        include: Offer
-    })
-    .then(function (company) {
-      res.status(200).json(company);
+    user_application.findById(req.params.id)
+    .then(function (user_application) {
+      res.status(200).json(user_application);
     })
     .catch(function (error){
       res.status(500).json(error);
     });
   },
 
-  //Create a new company using model.create()
   create(req, res) {
-    Company.create(req.body)
-      .then(function (newCompany) {
-        res.status(200).json(newCompany);
+    user_application.create(req.body)
+      .then(function (newuser_application) {
+        res.status(200).json(newuser_application);
       })
       .catch(function (error){
         res.status(500).json(error);
       });
   },
 
-  //Edit an existing company details using model.update()
   update(req, res) {
-    Company.update(req.body, {
+    user_application.update(req.body, {
       where: {
         id: req.params.id
       }
@@ -53,9 +45,8 @@ module.exports= {
     });
   },
 
-  //Delete an existing company by the unique ID using model.destroy()
   delete(req, res) {
-    Company.destroy({
+    user_application.destroy({
       where: {
         id: req.params.id
       }

@@ -1,0 +1,71 @@
+<div class="ibox ">
+	<div class="ibox-title">
+		<h5>Mapa de eventos</h5>
+	</div>
+	<div class="ibox-content">
+
+		<form role="form" class="form-inline ng-pristine ng-valid">
+			<div class="btn-group dropdown open" uib-dropdown="">
+				<button type="button" class="btn btn-default dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
+					{{selectedDriver!==undefined?selectedDriver.name:'Todos'}}<span class="caret"></span>
+				</button>
+				<ul role="menu" uib-dropdown-menu="" class="dropdown-menu">
+					<li ng-repeat="d in drivers"><a ng-click="selectDriver(d)">{{d.name}}</a></li>
+					<li class="divider"></li>
+					<li><a ng-click="selectDriver()">Todos</a></li>
+				</ul>
+			</div>
+
+			<div class="btn-group dropdown open" uib-dropdown="">
+				<button type="button" class="btn btn-default dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
+					{{getMapModeString(mapMode)}}<span class="caret"></span>
+				</button>
+				<ul role="menu" uib-dropdown-menu="" class="dropdown-menu">
+					<li><a ng-click="setMapMode('heatmap')">{{getMapModeString('heatmap')}}</a></li>
+					<li><a ng-click="setMapMode('markers')">{{getMapModeString('markers')}}</a></li>
+				</ul>
+			</div>
+
+			<div data-toggle="buttons" class="btn-group" uib-dropdown>
+
+				<label class="btn btn-sm btn-white active" ng-model="dateFilterEvents" uib-btn-radio="'last-day'" ng-click="filterEventDetails()"> Último día </label>
+
+				<label class="btn btn-sm btn-white" ng-model="dateFilterEvents" uib-btn-radio="'last-week'" ng-click="filterEventDetails()"> Última semana </label>
+
+				<label class="btn btn-sm btn-white" ng-model="dateFilterEvents" uib-btn-radio="'all'" ng-click="filterEventDetails()">
+					Histórico </label>
+
+				<label class="btn btn-sm btn-white" ng-model="dateFilterEvents" uib-btn-radio="'range'" ng-click="filterEventDetails()"> Período </label>
+
+			</div>
+
+			<div ng-show="dateFilterEvents=='range'">
+				<!--<div class="row">
+					<div class="col-xs-6">-->
+				Desde
+				<div class="input-group date ">
+					<input class="form-control" date-time ng-model="startDate" view="date" auto-close="true" min-view="date" format="YYYY-MM-DD" date-change="updateStartDate">
+					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+				</div>
+				<!--</div>
+					<div class="col-xs-6">-->
+				Hasta
+				<div class="input-group date ">
+					<input class="form-control" date-time ng-model="finishDate" view="date" auto-close="true" min-view="date" format="YYYY-MM-DD" date-change="updateFinishDate">
+					<span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+				</div>
+				<!--</div>
+				</div>-->
+			</div>
+
+
+		</form>
+		<!-- <section id="map" ng-controller="GoogleMaps">-->
+		<div ui-map="myMap" ui-options="mapOptions" class="google-map"></div>
+		<br>
+		<div ng-show="processedEvents.length">Hay {{processedEvents.length}} eventos en el período seleccionado</div>
+		<div ng-show="!processedEvents.length">No hay eventos en el período seleccionado</div>
+
+
+	</div>
+</div>

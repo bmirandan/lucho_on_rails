@@ -1,0 +1,31 @@
+{
+  "name": "duc-server",
+  "version": "1.0.0",
+  "description": "server side duc (cellphone usage detector) app for processing incoming events and providing a resful api of the system data",
+  "main": "main.js",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "connect": "^3.5.0",
+    "connect-multiparty": "*",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "deferred": "^0.7.5",
+    "epilogue": "^0.7.0",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "fast-csv": "^2.3.0",
+    "http": "0.0.0",
+    "jsonwebtoken": "^7.1.9",
+    "lodash": "^4.16.2",
+    "method-override": "^2.3.6",
+    "moment": "^2.15.1",
+    "multiparty": "^4.1.2",
+    "mysql": "^2.11.1",
+    "node-schedule": "^1.1.1",
+    "nodemailer": "^2.6.4",
+    "passport": "^0.3.2",
+    "passport-local-sequelize": "^0.6.0",
+    "sequelize": "^3.24.3",
+    "sequelize-cli": "^2.4.0"
+  }
+}

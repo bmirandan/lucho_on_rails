@@ -1,1 +1,0 @@
-rails generate scaffold Offer position:string location:string startDate:datetime deadlineDate:datetime

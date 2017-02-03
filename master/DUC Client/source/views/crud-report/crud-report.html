@@ -1,0 +1,155 @@
+<div class="ibox float-e-margins">
+	<div class="ibox-title">
+		<h5>Reportes</h5>
+		<span class="label label-primary">!!!</span>
+		<div class="ibox-tools">
+			<a class="collapse-link">
+				<i class="fa fa-chevron-up"></i>
+			</a>
+		</div>
+	</div>
+
+	<div class="ibox-content">
+
+
+		<button type="button" class="btn btn-w-m btn-primary" ng-click="showAddReportField()">Agregar nuevo reporte</button>
+		<div class="hr-line-dashed"></div>
+
+		<div ng-show="addReportVisible">
+			<h3>Reglas de envio de reportes</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Destinatario</th>
+						<th>Frecuencia del reporte</th>
+						<th>
+							<p class="text-right">Acciones</p>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						
+						<td><input ng-model="newReportName" class="form-control" placeholder="Nombre"></td>
+						<td><input ng-model="newReportEmail" class="form-control" placeholder="e-mail"</td>
+						<td>
+							<div class="btn-group dropdown open" uib-dropdown="" class="col-md-6">
+								<button type="button" class="btn btn-default dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
+									{{getReportFrecuencyLabel(newReportFrecuency)}}<span class="caret"></span>
+								</button>
+								<ul role="menu" uib-dropdown-menu="" class="dropdown-menu">
+									<li><a ng-click="newReportFrecuency='day'">{{getReportFrecuencyLabel('day')}}</a></li>
+									
+									<li><a ng-click="newReportFrecuency='month'">{{getReportFrecuencyLabel('month')}}</a></li>
+									
+									<li><a ng-click="newReportFrecuency='week'">{{getReportFrecuencyLabel('week')}}</a></li>
+								</ul>
+							</div>
+						</td>
+						<td>
+							<p class="text-right">
+								<button type="button" class="btn btn-w-m btn-success" ng-click="addNewReport(newReportName, newReportEmail,newReportFrecuency)">Agregar</button>
+								<button type="button" class="btn btn-w-m btn-danger" ng-click="hideAddReportField()">Cancelar</button>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="hr-line-dashed"></div>
+		</div>
+		<div ng-show="editReportVisible">
+
+			<h3>Editar datos </h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>E-mail</th>
+						<th>Frecuencia del reporte</th>
+						<th>
+							<p class="text-right">Acciones</p>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<td>{{editingReportIndex}}</td>
+						<td>{{oldReport.name}}</td>
+						<td>{{oldReport.email}}</td>
+						<td>{{getReportFrecuencyLabel(oldReport.reportFrecuency)}}</td>
+						<td>&nbsp;</td>
+					</tr>
+					<tr>
+						<td>&nbsp;</td>
+						<td><input class="form-control" ng-model="reportNameEdit" placeholder="Reingrese nombre"></td>
+						<td>
+							<input class="form-control" ng-model="reportEmailEdit" placeholder="Reingrese e-mail">
+						</td>
+						<td>
+
+							<div class="btn-group dropdown open" uib-dropdown="" class="col-md-6">
+								<button type="button" class="btn btn-default dropdown-toggle" uib-dropdown-toggle="" aria-haspopup="true" aria-expanded="true">
+									{{getReportFrecuencyLabel(reportFrecuencyEdit)}}<span class="caret"></span>
+								</button>
+								<ul role="menu" uib-dropdown-menu="" class="dropdown-menu">
+									<li><a ng-click="reportFrecuencyEdit='day'">{{getReportFrecuencyLabel('day')}}</a></li>
+									
+									<li><a ng-click="reportFrecuencyEdit='week'">{{getReportFrecuencyLabel('week')}}</a></li>
+									
+									<li><a ng-click="reportFrecuencyEdit='month'">{{getReportFrecuencyLabel('month')}}</a></li>
+								</ul>
+							</div>
+
+
+						</td>
+						<td>
+							<p class="text-right">
+								<button type="button" class="btn btn-w-m btn-success" ng-click="editReportUpdate(reportNameEdit, reportEmailEdit, reportFrecuencyEdit)">Actualizar</button>
+								<button type="button" class="btn btn-w-m btn-danger" ng-click="cancelReportEdit()">Cancelar</button>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="hr-line-dashed"></div>
+
+		</div>
+		<table class="table" ng-show="reportList.length">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Destinatario</th>
+					<th>Email</th>
+					<th>Frecuencia del reporte</th>
+					<th>
+						<p class="text-right">Acciones</p>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="c in reportList |orderBy:'id'">
+					<td>{{$index+1}}</td>
+					<td>{{c.name}}</td>
+					<td>{{c.email}}</td>
+					<td>{{getReportFrecuencyLabel(c.reportFrecuency)}}</td>
+					<td>
+						<p class="text-right">
+							<button type="button" class="btn btn-w-m btn-success" ng-click="editReport(c,$index+1)">Editar</button>
+							<button type="button" class="btn btn-w-m btn-danger" ng-click="deleteReport(c.id)">Eliminar</button>
+						</p>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+		<div ng-show="!reportList || reportList.length== 0">
+			<div class="alert alert-warning">No hay registros</div>
+		</div>
+
+	</div>
+</div>

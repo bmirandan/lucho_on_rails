@@ -1,0 +1,108 @@
+<!--
+* INSPINIA - Responsive Admin Theme
+* Version 2.5
+*
+-->
+
+<!DOCTYPE html>
+<html ng-app="inspinia">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Page title set in pageTitle directive -->
+    <title page-title></title>
+
+    <!-- Font awesome -->
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <!-- Bootstrap and Fonts -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Main Inspinia CSS files -->
+    <link href="css/animate.css" rel="stylesheet">
+    <link id="loadBefore" href="css/style.css" rel="stylesheet">
+	
+	<link href="css/plugins/angular-notify/angular-notify.min.css" rel="stylesheet">
+	<link href="css/plugins/vis/vis.min.css" rel="stylesheet">
+	<link href="css/plugins/vis/vis-custom.css" rel="stylesheet">
+
+</head>
+
+<!-- ControllerAs syntax -->
+<!-- Main controller with serveral data used in Inspinia theme on diferent view -->
+<body class="gray-bg" ng-controller="MainCtrl as main">
+
+<!-- Main view  -->
+<div ui-view></div>
+    
+<!-- Lodash -->
+    
+<script src="js/lodash/lodash.js"></script>   
+<script src="js/moment/moment-with-locales.min.js"></script>
+    
+<!-- jQuery and Bootstrap -->
+<script src="js/jquery/jquery-2.1.1.min.js"></script>
+<script src="js/plugins/jquery-ui/jquery-ui.js"></script>
+<script src="js/bootstrap/bootstrap.min.js"></script>
+	
+	<script>
+		moment.locale("es");
+	</script>
+
+<!-- MetsiMenu -->
+<script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+
+<!-- SlimScroll -->
+<script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+<!-- Peace JS -->
+<script src="js/plugins/pace/pace.min.js"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="js/inspinia.js"></script>
+     
+<script type="text/javascript"
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCaH4i8YbKxoDppDd00y5HfqmhsnPImdCA&libraries=visualization,geometry" >
+</script>   
+
+<!-- Main Angular scripts-->
+<script src="js/angular/angular.min.js"></script>
+<script src="js/angular/angular-cookies.min.js"></script>
+<script src="js/angular/angular-resource.min.js"></script>
+<script src="js/plugins/oclazyload/dist/ocLazyLoad.min.js"></script>
+<script src="js/ui-router/angular-ui-router.min.js"></script>
+<script src="js/bootstrap/ui-bootstrap-tpls-1.1.2.min.js"></script>
+	<script  src="js/plugins/angular-notify/angular-notify.min.js"></script>
+	<script src="js/plugins/vis/vis.min.js"></script>
+	<script src="js/plugins/vis/angular-vis.js"></script>
+    
+<!-- Anglar App Script -->
+<script src="js/app.js"></script>
+<script src="js/services.js"></script>
+<script src="js/config.js"></script>
+<script src="js/directives.js"></script>
+<!--<script src="js/controllers.js"></script>-->
+	<script src="js/controllers/crud-duc.js"></script>
+	<script src="js/controllers/crud-truck.js"></script>
+	<script src="js/controllers/crud-users.js"></script>
+	<script src="js/controllers/driver-ranking.js"></script>
+	<script src="js/controllers/duc-state.js"></script>
+	<script src="js/controllers/events-detail.js"></script>
+	<script src="js/controllers/events-map.js"></script>
+	<script src="js/controllers/login.js"></script>
+	<script src="js/controllers/logout.js"></script>
+	<script src="js/controllers/main.js"></script>
+	<script src="js/controllers/crud-report.js"></script>
+	<script  src="js/controllers/report.js"></script>
+	
+	
+<script src="js/customDirectives.js"></script>
+    
+    
+
+</body>
+</html>

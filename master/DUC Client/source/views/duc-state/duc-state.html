@@ -1,0 +1,52 @@
+<div class="ibox float-e-margins">
+	<div class="ibox-title">
+		<h5>Estado de dispositivos DUC</h5>
+		<div class="ibox-tools">
+			<a class="collapse-link">
+				<i class="fa fa-chevron-up"></i>
+			</a>
+		</div>
+	</div>
+	<div class="ibox-content">
+		<div ng-show="ducStates.length>0">
+			
+			<div ng-show="ducStates.length>paginationNumPerPage">
+				<p>Mostrando del {{paginationNumPerPage*(paginationCurrentPage-1)+1}} al {{paginationNumPerPage*paginationCurrentPage}} de {{ducStates.length}} entradas</p>
+			</div>
+			<div ng-show="ducStates.length<=paginationNumPerPage">
+				<p>Mostrando las {{ducStates.length}} entradas</p>
+			</div>
+			
+			
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Estado (Energía)</th>
+						<th>Camión Asignado</th>
+						<th>Último conductor</th>
+						<th>Última comunicación</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="c in paginationGetPageItems() |orderBy:'createdAt'">
+						<td>{{$index+1}}</td>
+						<td>
+							<p><span ng-class="ParseDucStateClass(c.connectionState)"> {{ParseDucStateLabel(c.connectionState)}} </span>{{ParseDucStateMessage(c.connectionState,c.batteryLevel)}} </p>
+						</td>
+						<td> {{getTruckById(c.truckId).name}}</td>
+						<td> {{getDriverById(c.driverId).name}} </td>
+						<td> {{ MyHumanize(c.createdAt) }} </td>
+					</tr>
+				</tbody>
+			</table>
+
+		</div>
+
+		<ul ng-show="paginationNumOfElements>0 && ducStates.length > paginationNumPerPage" uib-pagination total-items="ducStates.length" ng-model="paginationCurrentPage" class="pagination-sm" boundary-link-numbers="true" items-per-page="paginationNumPerPage" previous-text="&lsaquo;" next-text="&rsaquo;" first-text="&laquo;" last-text="&raquo;"></ul>
+
+		<div ng-show="paginationNumOfElements == 0 || ducStates.length == 0" class="alert alert-warning">No hay registro de estado de dispositivos DUC</div>
+
+	</div>
+
+</div>

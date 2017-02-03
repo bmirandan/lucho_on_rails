@@ -1,0 +1,154 @@
+<div class="ibox float-e-margins">
+	<div class="ibox-title">
+		<h5>Usuarios del sistema</h5>
+		<span class="label label-primary">!!!</span>
+		<div class="ibox-tools">
+			<a class="collapse-link">
+				<i class="fa fa-chevron-up"></i>
+			</a>
+		</div>
+	</div>
+	<div class="ibox-content">
+
+		<button type="button" class="btn btn-w-m btn-primary" ng-click="showAddUserField()">Agregar nuevo usuario</button>
+		<div class="hr-line-dashed"></div>
+
+		<div ng-show="addUserVisible">
+			<h3>Agregar nuevo usuario</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>Contraseña</th>
+						<th>Es admin</th>
+						<th>
+							<p class="text-right">Acciones</p>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<td></td>
+						<td>
+							<input ng-model="newUser" class="form-control" placeholder="Nombre">
+						</td>
+						<td>
+							<input type="password" ng-model="newPassword" class="form-control" placeholder="Contraseña">
+						</td>
+						<td>
+							<div class="checkbox" >
+								<label>
+									<input type="checkbox" value="false" ng-model="newIsAdmin">Es admin</label>
+							</div>
+						</td>
+						<td>
+							<p class="text-right">
+								<button type="button" class="btn btn-w-m btn-success" ng-click="addNewUser(newUser,newPassword, newIsAdmin)">Agregar</button>
+								<button type="button" class="btn btn-w-m btn-danger" ng-click="hideAddUserField()">Cancelar</button>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="hr-line-dashed"></div>
+
+		</div>
+
+
+		<div ng-show="editUserVisible">
+
+			<h3>Editar datos de usuario</h3>
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nombre</th>
+						<th>Contraseña</th>
+						<th>Es Admin</th>
+						<th>
+							<p class="text-right">Acciones</p>
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<td>{{editingIndex}}</td>
+						<td>{{oldUser.name}}</td>
+						<td>{{oldUser.hash}}</td>
+						<td>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" ng-model="oldUser.isAdmin" disabled>Es admin</label>
+							</div>
+						</td>
+					</tr>
+					<tr>
+						<td></td>
+						<td>
+							&nbsp;
+							<!--<input class="form-control" ng-model="userNameEdit" placeholder="Nuevo nombre">-->
+						</td>
+						<td>
+							<input type="password" class="form-control" ng-model="userPasswordEdit" placeholder="Nueva contraseña">
+						</td>
+						<td>
+							<div class="checkbox">
+								<label>
+									<input type="checkbox" ng-model="userIsAdminEdit">Es admin</label>
+							</div>
+						</td>
+						<td>
+							<p class="text-right">
+								<button type="button" class="btn btn-w-m btn-success" ng-click="editUserUpdate(userIsAdminEdit, userPasswordEdit )">Actualizar</button>
+								<button type="button" class="btn btn-w-m btn-danger" ng-click="cancelEdit()">Cancelar</button>
+							</p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			<div class="hr-line-dashed"></div>
+
+		</div>
+
+		<table class="table">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Nombre</th>
+					<!--<th>Contraseña</th>-->
+					<th>Es admin</th>
+					<th>
+						<p class="text-right">Acciones</p>
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+
+				<tr ng-repeat="c in userList |orderBy:'name'">
+					<td>{{$index+1}}</td>
+					<td>{{c.name}}</td>
+					<!--<td>{{c.hash}}</td>-->
+					<td>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="c.isAdmin" disabled>Es admin</label>
+						</div>
+					</td>
+					<td>
+						<div ng-show="c.name!=$root.globals.currentUser.username">
+							<p class="text-right">
+								<button type="button" class="btn btn-w-m btn-success" ng-click="editUser(c,$index+1)">Editar</button>
+								<button type="button" class="btn btn-w-m btn-danger" ng-click="deleteUser(c.id)" >Eliminar</button>
+							</p>
+						</div>
+					</td>
+				</tr>
+
+			</tbody>
+		</table>
+
+	</div>
+</div>

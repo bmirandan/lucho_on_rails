@@ -1,0 +1,125 @@
+<div class="ibox float-e-margins">
+    <div class="ibox-title">
+        <h5>Vehiculos - Dispositivos D.U.C</h5>
+        <span class="label label-primary">!!!</span>
+        <div class="ibox-tools">
+            <a class="collapse-link">
+                <i class="fa fa-chevron-up"></i>
+            </a>
+        </div>
+    </div>
+    <div class="ibox-content">
+
+        <button type="button" class="btn btn-w-m btn-primary" ng-click="showAddMappingField()">Agregar nueva vinculación</button>
+        <div class="hr-line-dashed"></div>
+
+        <div ng-show="addMappingVisible">
+            <h3>Vincular vehículos con disposito</h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Vehículo</th>
+                        <th>Dispositivo D.U.C.</th>
+                        <th>
+                            <p class="text-right">Acciones</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input ng-model="newMappingTruck" class="form-control" placeholder="Nombre del vehiculo">
+                        </td>
+                        <td>
+                            <input ng-model="newMappingDuc" class="form-control" placeholder="Identificador de disposito D.U.C.">
+                        </td>
+                        <td>
+                            <p class="text-right">
+                                <button type="button" class="btn btn-w-m btn-success" ng-click="addNewMapTruckDuc(newUser,newPassword)">Agregar</button>
+                                <button type="button" class="btn btn-w-m btn-danger" ng-click="hideAddMappingField()">Cancelar</button>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="hr-line-dashed"></div>
+
+        </div>
+
+
+        <div ng-show="editMappingVisible">
+
+            <h3>Editar datos </h3>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                         <th>Vehículo</th>
+                        <th>Dispositivo D.U.C.</th>
+                        <th>
+                            <p class="text-right">Acciones</p>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    <tr>
+                        <td>{{editingMappingIndex}}</td>
+                        <td>{{oldMapping.truckName}}</td>
+                        <td>{{oldMapping.ducName}}</td>
+                        <td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                            <input class="form-control" ng-model="truckNameEdit" placeholder="Nuevo nombre">
+                        </td>
+                        <td>
+                            <input class="form-control" ng-model="truckNameEdit" placeholder="Nueva contraseña">
+                        </td>
+                        <td>
+                            <p class="text-right">
+                                <button type="button" class="btn btn-w-m btn-success" ng-click="editMappingUpdate(truckNameEdit, truckNameEdit)">Actualizar</button>
+                                <button type="button" class="btn btn-w-m btn-danger" ng-click="cancelMappingEdit()">Cancelar</button>
+                            </p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <div class="hr-line-dashed"></div>
+
+        </div>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                      <th>Vehículo</th>
+                        <th>Dispositivo D.U.C.</th>
+                    <th>                        <p class="text-right">Acciones</p>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr ng-repeat="c in mappingList |orderBy:'name'">
+                    <td>{{$index+1}}</td>
+                    <td>{{c.truckName}}</td>
+                    <td>{{c.ducName}}</td>
+                    <td>
+                        <p class="text-right">
+                            <button type="button" class="btn btn-w-m btn-success" ng-click="editMapping(c,$index+1)">Editar</button>
+                            <button type="button" class="btn btn-w-m btn-danger" ng-click="deteleMapping(c.id)">Eliminar</button>
+                        </p>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+
+    </div>
+</div>

@@ -21,21 +21,7 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-   <script language="javascript">
-    angular.module('myApp',['ngResource']);
-        function Ctrl($scope,$resource) {
-            var Geonames = $resource(
-                'http://localhost:8000/offers/', {}, 
-                {
-                    query: { method: 'GET', isArray: true }
-                }
-            );
-            $scope.objs = Geonames.query();
-        };
-    Ctrl.$inject = ['$scope','$resource'];
-</script>      
+
     <script src="assets/js/chart-master/Chart.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -45,7 +31,7 @@
     <![endif]-->
   </head>
 
-  <body ng-app="myApp"  >
+  <body>
 
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
@@ -307,46 +293,66 @@
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
-   
-			
-        <div class="container" ng-controller="Ctrl">
-            <form name="Codenx" novalidate>
-            </form>
-            <div class="col-lg-3 ds">
-                <h3>Ultimas Ofertas</h3>
-            <div ng-repeat="obj in objs|limitTo:-2" class="row">
-            
-                
-                      
-                        <div ng-controller='Ctrl'>
+                  
+                  <div class="col-lg-3 ds">
+                    <!--COMPLETED ACTIONS DONUTS CHART-->
+						<h3>NOTIFICATIONS</h3>
+                                        
+                      <!-- First Action -->
                       <div class="desc">
                       	<div class="thumb">
                       		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
                       	</div>
                       	<div class="details">
-                      		<p><muted>{{obj.created_at}}</muted><br/>
-                      		
-                                
-                                  <a href="single.html" ng-click='shareMyData(offer);'> {{obj.title}}</a>  <a>{{obj.description}} </a>.<br/>
+                      		<p><muted>2 Minutes Ago</muted><br/>
+                      		   <a href="#">James Brown</a> subscribed to your newsletter.<br/>
                       		</p>
-                                
-                               
-                                
-                           
+                      	</div>
+                      </div>
+                      <!-- Second Action -->
+                      <div class="desc">
+                      	<div class="thumb">
+                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                      	</div>
+                      	<div class="details">
+                      		<p><muted>3 Hours Ago</muted><br/>
+                      		   <a href="#">Diana Kennedy</a> purchased a year subscription.<br/>
                       		</p>
-                 
-                </div>
-            
-                </div>
-            </div>  
-       
-              
-              
-            
-                                        
-                      <!-- First Action -->
-                     
-                  
+                      	</div>
+                      </div>
+                      <!-- Third Action -->
+                      <div class="desc">
+                      	<div class="thumb">
+                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                      	</div>
+                      	<div class="details">
+                      		<p><muted>7 Hours Ago</muted><br/>
+                      		   <a href="#">Brandon Page</a> purchased a year subscription.<br/>
+                      		</p>
+                      	</div>
+                      </div>
+                      <!-- Fourth Action -->
+                      <div class="desc">
+                      	<div class="thumb">
+                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                      	</div>
+                      	<div class="details">
+                      		<p><muted>11 Hours Ago</muted><br/>
+                      		   <a href="#">Mark Twain</a> commented your post.<br/>
+                      		</p>
+                      	</div>
+                      </div>
+                      <!-- Fifth Action -->
+                      <div class="desc">
+                      	<div class="thumb">
+                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                      	</div>
+                      	<div class="details">
+                      		<p><muted>18 Hours Ago</muted><br/>
+                      		   <a href="#">Daniel Pratt</a> purchased a wallet in your store.<br/>
+                      		</p>
+                      	</div>
+                      </div>
                   </div><!-- /col-lg-3 -->
               </div><! --/row -->
           </section>

@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <!DOCTYPE html>
+
+
+
+
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -21,7 +25,21 @@
     <!-- Custom styles for this template -->
     <link href="assets/css/style.css" rel="stylesheet">
     <link href="assets/css/style-responsive.css" rel="stylesheet">
-
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+   <script language="javascript">
+    angular.module('myApp',['ngResource']);
+        function Ctrl($scope,$resource) {
+            var Geonames = $resource(
+                'http://localhost:8000/offers/', {}, 
+                {
+                    query: { method: 'GET', isArray: true }
+                }
+            );
+            $scope.objs = Geonames.query();
+        };
+    Ctrl.$inject = ['$scope','$resource'];
+</script>      
     <script src="assets/js/chart-master/Chart.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -31,7 +49,7 @@
     <![endif]-->
   </head>
 
-  <body>
+  <body ng-app="myApp"  >
 
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
@@ -187,7 +205,7 @@
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="index.html">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -292,72 +310,56 @@
                   
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->                  
-                  
-                  <div class="col-lg-3 ds">
-                    <!--COMPLETED ACTIONS DONUTS CHART-->
-						<h3>NOTIFICATIONS</h3>
+      *********************************************************************************************************************************************************** -->  
+              
+              
+
+   <div class="col-lg-3 ds">
+			<h3>Ultimas Ofertas</h3>
+        <div class="" ng-controller="Ctrl">
+            <div ng-repeat="obj in objs|limitTo:-2" class="">
+                <div ng-controller='Ctrl'>
+                   <div class="desc">
+                   <div class="thumb">
+                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
+                      	</div>
+                      	<div class="details">
+                      		<p><muted>{{obj.created_at}}</muted><br/>
+                      		
+                                
+                                  <a href="single.html" ng-click='shareMyData(offer);'> {{obj.title}}</a>  <a>{{obj.description}} </a>.<br/>
+                      		</p>
+                                
+                               
+                                
+                           
+                      		</p>
+                 
+                </div>
+       
+            </div>  
+       
+              
+              
+            
                                         
                       <!-- First Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>2 Minutes Ago</muted><br/>
-                      		   <a href="#">James Brown</a> subscribed to your newsletter.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Second Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>3 Hours Ago</muted><br/>
-                      		   <a href="#">Diana Kennedy</a> purchased a year subscription.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Third Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>7 Hours Ago</muted><br/>
-                      		   <a href="#">Brandon Page</a> purchased a year subscription.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Fourth Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>11 Hours Ago</muted><br/>
-                      		   <a href="#">Mark Twain</a> commented your post.<br/>
-                      		</p>
-                      	</div>
-                      </div>
-                      <!-- Fifth Action -->
-                      <div class="desc">
-                      	<div class="thumb">
-                      		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
-                      	</div>
-                      	<div class="details">
-                      		<p><muted>18 Hours Ago</muted><br/>
-                      		   <a href="#">Daniel Pratt</a> purchased a wallet in your store.<br/>
-                      		</p>
-                      	</div>
-                      </div>
+                     
+                  
                   </div><!-- /col-lg-3 -->
-              </div><! --/row -->
+              </div>
+              </div>
           </section>
       </section>
+          
+        
+                  
+      <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->                  
+                  
 
+      
       <!--main content end-->
       <!--footer start-->
       <footer class="site-footer">

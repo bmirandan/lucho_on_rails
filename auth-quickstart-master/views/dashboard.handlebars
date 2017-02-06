@@ -1,3 +1,19 @@
+{{#section 'head'}}
+
+<script language="javascript">
+    angular.module('myApp',['ngResource']);
+        function Ctrl($scope,$resource) {
+            var Geonames = $resource(
+                'http://localhost:8080/'+'offers/', {}, 
+                {
+                    query: { method: 'GET', isArray: true }
+                }
+            );
+            $scope.objs = Geonames.query();
+        };
+    Ctrl.$inject = ['$scope','$resource'];
+      </script>
+{{/section}}
 
 <section id="container" >
       <!-- **********************************************************************************************************************************************************
@@ -87,7 +103,7 @@
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="index.html">Logout</a></li>
+                    <li><a class="logout" href="/logout">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -106,7 +122,7 @@
               	  <h5 class="centered">Toph Beifong </h5>
               	  	
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a class="active" href="#">
                           <i class="fa fa-dashboard"></i>
                           <span> Home </span>
                       </a>
@@ -160,12 +176,12 @@
                       
                       	<div class="details">
                             
-                               <p>{{obj.company_id}}</p><br/>
-                                <p><muted>{{obj.created_at}}</muted><br/>
+                               <p style="color: #000">{{obj.location}}</p><br/>
+                                <p><muted>{{obj.location}}</muted><br/>
                       		
                                 
-                                  <a href="single.html" ng-click='shareMyData(offer);'> {{obj.title}}</a> </br>  
-                                <a>{{obj.description}} </a>.<br/>
+                                  <a href="single.html" ng-click='shareMyData(offer);'> {{obj.companyId}}</a> </br>  
+                                <a>{{obj.createdAt}} </a>.<br/>
                       		</p>
                                 
                                
@@ -187,5 +203,6 @@
                   </div><!-- /col-lg-3 -->
               </div>
               </div>
+    </div>
           </section>
       </section>

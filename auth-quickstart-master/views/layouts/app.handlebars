@@ -15,19 +15,7 @@
     <link href="/styles/assets/css/style-responsive.css" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-   <script language="javascript">
-    angular.module('myApp',['ngResource']);
-        function Ctrl($scope,$resource) {
-            var Geonames = $resource(
-                'http://localhost:8080/'+'offers/', {}, 
-                {
-                    query: { method: 'GET', isArray: true }
-                }
-            );
-            $scope.objs = Geonames.query();
-        };
-    Ctrl.$inject = ['$scope','$resource'];
-      </script>
+
       
 
          
@@ -40,7 +28,7 @@
   
   {{{_sections.head}}}
 </head>
-<body>
+<body ng-app="myApp" >
     {{{body}}}
     
     <!-- Bootstrap -->

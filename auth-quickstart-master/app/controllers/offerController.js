@@ -1,17 +1,23 @@
 var Model = require('../model/models.js')
- 
-module.exports.index = function(req, res) {
-    Model.Offer.findAll()
-      .then(function (offers) {
-        res.status(200).json(offers);
+
+module.exports= {
+  //Get a list of all companies using model.findAll()
+  index(req, res) {
+    Model.Offer.findAll({
+        
+    })
+      .then(function (companies) {
+        res.status(200).json(companies);
       })
       .catch(function (error) {
         res.status(500).json(error);
       });
   },
 
-  module.exports.show = function(req, res) {
-    Model.Offer.findById(req.params.id)
+  //Get an offer by the unique ID using model.findById()
+  show(req, res) {
+    Model.Offer.findById(req.params.id, {
+    })
     .then(function (offer) {
       res.status(200).json(offer);
     })
@@ -20,7 +26,8 @@ module.exports.index = function(req, res) {
     });
   },
 
-  module.exports.create = function(req, res) {
+  //Create a new offer using model.create()
+  create(req, res) {
     Model.Offer.create(req.body)
       .then(function (newOffer) {
         res.status(200).json(newOffer);
@@ -30,7 +37,8 @@ module.exports.index = function(req, res) {
       });
   },
 
-  module.exports.update = function(req, res) {
+  //Edit an existing offer details using model.update()
+  update(req, res) {
     Model.Offer.update(req.body, {
       where: {
         id: req.params.id
@@ -44,7 +52,8 @@ module.exports.index = function(req, res) {
     });
   },
 
-  module.exports.delete = function(req, res) {
+  //Delete an existing offer by the unique ID using model.destroy()
+  delete(req, res) {
     Model.Offer.destroy({
       where: {
         id: req.params.id
@@ -57,4 +66,4 @@ module.exports.index = function(req, res) {
       res.status(500).json(error);
     });
   }
-
+};

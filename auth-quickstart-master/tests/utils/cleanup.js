@@ -12,12 +12,21 @@ module.exports = function(callback) {
     }).then(callback)
   }),
   
-    Model.Offer.sync({ force: true }).then(function() {
+  Model.Offer.sync({ force: true }).then(function() {
     // create username with username: user and 
     // password: user
     Model.Offer.create({
       title:'save me ',
       location: 'sabe you location'
+    }).then(callback)
+  }),
+  
+  Model.Company.sync({ force: true }).then(function() {
+    Model.Company.create({
+      id: '2',
+      name: 'hh',
+      username: 'ss',
+      password: 'gg'
     }).then(callback)
   })
 }

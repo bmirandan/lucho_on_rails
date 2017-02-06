@@ -1,6 +1,7 @@
 var passport = require('passport'),
     signupController = require('../controllers/signupController.js'),
-    offers = require('../controllers/offers.js');
+    companyController = require('../controllers/companyController.js'),
+    offerController = require('../controllers/offerController.js');
 
 module.exports = function(express) {
   var router = express.Router()
@@ -16,12 +17,17 @@ module.exports = function(express) {
   router.post('/signup', signupController.signup)
   
   
-   router.get('/offers', offers.index)
-   router.get('/offers', offers.show)
-   router.post('/offers', offers.create)
-   router.put('/offers', offers.update)
-   router.delete('/offers', offers.delete)
-   
+  router.get('/offers', offerController.index)
+  router.get('/offers', offerController.show)
+  router.post('/offers', offerController.create)
+  router.put('/offers', offerController.update)
+  router.delete('/offers', offerController.delete)
+
+  router.get('/companies', companyController.index)
+  router.get('/companies/:id', companyController.show);
+  router.post('/companies', companyController.create);
+  router.put('/companies', companyController.update);
+  router.delete('/companies/:id', companyController.delete);  
 
 
   router.post('/login', passport.authenticate('local', {

@@ -6,6 +6,17 @@ module.exports = {
       applyDate: {
         type: Sequelize.DATE
       },
+        
+    email:{
+          type: Sequelize.STRING,
+    allowNull: false,
+    unique: true,
+    validate: {
+      is: /^[a-z0-9\_\-]+$/i,
+      isEmail: true,
+        
+    } , 
+        
       created_at: {
         allowNull: false,
         type: Sequelize.DATE
@@ -15,7 +26,7 @@ module.exports = {
         type: Sequelize.DATE
       },
         
-        
+         
       user_rut: {
           type: Sequelize.INTEGER,
           onDelete: "CASCADE",
@@ -33,7 +44,7 @@ module.exports = {
           references: {
             model: 'Offers',
             key: 'id'
-          }
+          },
         }    
     });
   },

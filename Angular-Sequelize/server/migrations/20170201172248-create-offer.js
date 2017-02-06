@@ -30,7 +30,7 @@ module.exports = {
       },
         
               
-         company_id: {
+         company_rut: {
           type: Sequelize.INTEGER,
           onDelete: "CASCADE",
           allowNull: false,

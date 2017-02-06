@@ -1,10 +1,22 @@
 'use strict';
 module.exports = function(sequelize, DataTypes) {
   var Offer = sequelize.define('Offer', {
-    title: DataTypes.STRING,
-    position: DataTypes.STRING,
-    location: DataTypes.STRING,
-    description: DataTypes.TEXT
+    title: { type: DataTypes.STRING,
+               allowNull: false
+              },
+      position:{
+        type: DataTypes.STRING,
+        allowNull: false
+              },
+      
+    location:{
+        type: DataTypes.STRING,
+        allowNull: false
+              },
+      description:{
+        type: DataTypes.TEXT,
+        allowNull: false
+              },
   }, {
       underscored:true,
       classMethods: {

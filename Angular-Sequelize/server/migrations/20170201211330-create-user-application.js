@@ -2,12 +2,7 @@
 module.exports = {
   up: function(queryInterface, Sequelize) {
     return queryInterface.createTable('user_applications', {
-      id: {
-        allowNull: false,
-        autoIncrement: true,
-        primaryKey: true,
-        type: Sequelize.INTEGER
-      },
+
       applyDate: {
         type: Sequelize.DATE
       },
@@ -21,7 +16,7 @@ module.exports = {
       },
         
         
-        user_id: {
+      user_rut: {
           type: Sequelize.INTEGER,
           onDelete: "CASCADE",
           allowNull: false,

@@ -4,13 +4,11 @@ module.exports = {
     return queryInterface.createTable('Companies', {
       id: {
         allowNull: false,
-        autoIncrement: true,
+        autoIncrement: false,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      rut: {
-        type: Sequelize.INTEGER
-      },
+      
       name: {
         type: Sequelize.STRING
       },

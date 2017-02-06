@@ -28,5 +28,11 @@ module.exports = function(callback) {
       username: 'ss',
       password: 'gg'
     }).then(callback)
+  }),
+      
+  Model.User_application.sync({ force: true }).then(function() {
+    Model.User_application.create({
+      applyDate: '2017-02-06T18:29:46.019Z'
+    }).then(callback)
   })
 }

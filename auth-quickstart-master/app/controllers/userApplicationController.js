@@ -1,9 +1,9 @@
 var Model = require('../model/models.js')
  
 module.exports.index = function(req, res) {
-    Model.Offer.findAll()
-      .then(function (offers) {
-        res.status(200).json(offers);
+    Model.User_application.findAll()
+      .then(function (userApplications) {
+        res.status(200).json(userApplications);
       })
       .catch(function (error) {
         res.status(500).json(error);
@@ -11,9 +11,9 @@ module.exports.index = function(req, res) {
   },
 
   module.exports.show = function(req, res) {
-    Model.Offer.findById(req.params.id)
+    Model.User_application.findById(req.params.id)
     .then(function (offer) {
-      res.status(200).json(offer);
+      res.status(200).json(userApplication);
     })
     .catch(function (error){
       res.status(500).json(error);
@@ -21,9 +21,9 @@ module.exports.index = function(req, res) {
   },
 
   module.exports.create = function(req, res) {
-    Model.Offer.create(req.body)
-      .then(function (newOffer) {
-        res.status(200).json(newOffer);
+    Model.User_application.create(req.body)
+      .then(function (newUser_application) {
+        res.status(200).json(newUser_application);
       })
       .catch(function (error){
         res.status(500).json(error);
@@ -31,7 +31,7 @@ module.exports.index = function(req, res) {
   },
 
   module.exports.update = function(req, res) {
-    Model.Offer.update(req.body, {
+    Model.User_application.update(req.body, {
       where: {
         id: req.params.id
       }
@@ -45,7 +45,7 @@ module.exports.index = function(req, res) {
   },
 
   module.exports.delete = function(req, res) {
-    Model.Offer.destroy({
+    Model.User_application.destroy({
       where: {
         id: req.params.id
       }

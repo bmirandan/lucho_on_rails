@@ -55,6 +55,13 @@ module.exports = function(express) {
     req.logout()
     res.redirect('/')
   })
+  
+
+   
+     router.get('/myapply', isAuthenticated, function(req, res) {
+    res.render('myapply')
+  })
+
 
   return router
 }

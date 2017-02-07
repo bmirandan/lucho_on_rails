@@ -1,5 +1,8 @@
 {{#section 'head'}}
-
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
 <script language="javascript">
     angular.module('myApp',['ngResource']);
         function Ctrl($scope,$resource) {
@@ -119,17 +122,17 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="profile.html"><img src="/styles/assets/img/ui-sam.png" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Toph Beifong </h5>
+              	  <h5 class="centered">Nombre Usuario </h5>
               	  	
                   <li class="mt">
-                      <a class="active" href="#">
+                      <a class="active" href="/dashboard">
                           <i class="fa fa-dashboard"></i>
                           <span> Home </span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="/myapply" >
                           <i class="fa fa-desktop"></i>
                           <span>Mis Postulaciones</span>
                       </a>

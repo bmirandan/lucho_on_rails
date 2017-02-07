@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize')
-var Model = require('./models.js')
+
 var attributes = {
     applyDate: { 
         type: Sequelize.DATE,

@@ -1,7 +1,7 @@
 var Model = require('../model/models.js')
  
 module.exports.index = function(req, res) {
-    Model.User_application.findAll()
+    Model.UserApplication.findAll()
       .then(function (userApplications) {
         res.status(200).json(userApplications);
       })
@@ -11,7 +11,7 @@ module.exports.index = function(req, res) {
   },
 
   module.exports.show = function(req, res) {
-    Model.User_application.findById(req.params.id)
+    Model.UserApplication.findById(req.params.id)
     .then(function (offer) {
       res.status(200).json(userApplication);
     })
@@ -21,7 +21,7 @@ module.exports.index = function(req, res) {
   },
 
   module.exports.create = function(req, res) {
-    Model.User_application.create(req.body)
+    Model.UserApplication.create(req.body)
       .then(function (newUser_application) {
         res.status(200).json(newUser_application);
       })
@@ -31,7 +31,7 @@ module.exports.index = function(req, res) {
   },
 
   module.exports.update = function(req, res) {
-    Model.User_application.update(req.body, {
+    Model.UserApplication.update(req.body, {
       where: {
         id: req.params.id
       }
@@ -45,7 +45,7 @@ module.exports.index = function(req, res) {
   },
 
   module.exports.delete = function(req, res) {
-    Model.User_application.destroy({
+    Model.UserApplication.destroy({
       where: {
         id: req.params.id
       }

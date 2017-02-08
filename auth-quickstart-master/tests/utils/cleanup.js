@@ -4,7 +4,7 @@ var connection = require('../../app/sequelize.js')
 module.exports = function(callback) {
     
     connection.sync().then(function () {
-    
+        
         Model.User.create({
           id:'1',
           email:'hola@hola.com',

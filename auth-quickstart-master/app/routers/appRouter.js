@@ -19,21 +19,21 @@ module.exports = function(express) {
   
   
   router.get('/offers', offerController.index)
-  router.get('/offers', offerController.show)
+  router.get('/offers/:id', offerController.show)
   router.post('/offers', offerController.create)
-  router.put('/offers', offerController.update)
-  router.delete('/offers', offerController.delete)
+  router.put('/offers/:id', offerController.update)
+  router.delete('/offers/:id', offerController.delete)
 
   router.get('/companies', companyController.index)
   router.get('/companies/:id', companyController.show);
   router.post('/companies', companyController.create);
-  router.put('/companies', companyController.update);
+  router.put('/companies/:id', companyController.update);
   router.delete('/companies/:id', companyController.delete); 
     
   router.get('/userApplications', userApplicationController.index)
   router.get('/userApplications/:id', userApplicationController.show);
   router.post('/userApplications', userApplicationController.create);
-  router.put('/userApplications', userApplicationController.update);
+  router.put('/userApplications/:id', userApplicationController.update);
   router.delete('/userApplications/:id', userApplicationController.delete); 
 
 

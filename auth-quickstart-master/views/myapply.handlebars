@@ -1,12 +1,26 @@
 {{#section 'head'}}
-<link href="assets/css/style.css" rel="stylesheet">
-<link href="assets/css/style-responsive.css" rel="stylesheet">
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <link href="assets/css/style.css" rel="stylesheet">
+    <link href="assets/css/style-responsive.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-
+<script language="javascript">
+    
+    
+    angular.module('myApp',['ngResource']);
+        function Ctrl($scope,$resource) {
+            var Geonames = $resource(
+                'http://localhost:8080/'+'userApplications/', {}, 
+                {
+                    query: { method: 'GET', isArray: true }
+                }
+            );
+            $scope.objs = Geonames.query();
+        };
+    Ctrl.$inject = ['$scope','$resource'];
+      </script>
 
 {{/section}}
-<body ></body>
+
 <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS

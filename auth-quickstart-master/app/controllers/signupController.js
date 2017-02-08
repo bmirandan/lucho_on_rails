@@ -2,7 +2,10 @@ var bcrypt = require('bcrypt-nodejs'),
     Model = require('../model/models.js')
 
 module.exports.show = function(req, res) {
-  res.render('signup')
+    //res.render('signup')
+    res.sendFile('signup.html', {
+        root: './views'
+    });
 }
 
 module.exports.signup = function(req, res) {
@@ -12,12 +15,16 @@ module.exports.signup = function(req, res) {
   
   if (!username || !password || !password2) {
     req.flash('error', "Please, fill in all the fields.")
-    res.redirect('signup')
+    res.sendFile('signup.html', {
+        root: './views'
+    });
   }
   
   if (password !== password2) {
     req.flash('error', "Please, enter the same password twice.")
-    res.redirect('signup')
+    res.sendFile('signup.html', {
+        root: './views'
+    });
   }
   
   var salt = bcrypt.genSaltSync(10)
@@ -30,9 +37,11 @@ module.exports.signup = function(req, res) {
   }
   
   Model.User.create(newUser).then(function() {
-    res.redirect('/')
+    res.redirect('/home')
   }).catch(function(error) {
     req.flash('error', "Please, choose a different username.")
-    res.redirect('/signup')
+    res.sendFile('signup.html', {
+        root: './views'
+    });
   })
 }

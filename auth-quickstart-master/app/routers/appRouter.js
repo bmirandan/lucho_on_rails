@@ -39,11 +39,17 @@ module.exports = function(express) {
 
   router.post('/login', passport.authenticate('local', {
       successRedirect: '/dashboard',
-      failureRedirect: '/',
+      failureRedirect: '/home',
       failureFlash: true 
   }))
-
+  
   router.get('/', function(req, res) {
+    res.sendFile('landpage.html', {
+        root: './views'
+    });
+  })
+
+  router.get('/home', function(req, res) {
     res.sendFile('home.html', {
         root: './views'
     });

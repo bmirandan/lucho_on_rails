@@ -44,7 +44,7 @@ module.exports = function(express) {
   }))
   
   router.get('/', function(req, res) {
-    res.sendFile('landpage.html', {
+    res.sendFile('index.html', {
         root: './views'
     });
   })
@@ -59,7 +59,8 @@ module.exports = function(express) {
     res.sendFile('dashboard.html', {
         root: './views'
     });
-  })
+  }) 
+  
 
   router.get('/logout', function(req, res) {
     req.logout()

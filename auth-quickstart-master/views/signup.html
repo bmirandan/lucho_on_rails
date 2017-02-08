@@ -16,6 +16,31 @@
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
 
+    <!--Escritura API-->
+    <script>
+    var app = angular.module("myApp", []);
+    app.controller("HttpGetController", function ($scope, $http) {
+
+        $scope.SendData = function () {
+           // use $.param jQuery function to serialize data from JSON 
+            var data = {
+                'title': $scope.title,
+                'location': $scope.location,
+                'companyId': $scope.companyId
+            };
+            $http.post('http://localhost:8080/offers/', data)
+            .success(function (data, status, headers, config) {
+                
+            })
+            .error(function (data, status, header, config) {
+                
+            });
+        };
+
+    });
+    </script>
+    <!--Escritura API-->
+    
     <script src="/styles/assets/js/chart-master/Chart.js"></script>
     
   <title>Lifeware Works</title>
@@ -63,6 +88,14 @@
           
             
 </div>
+    
+    <div ng-controller="HttpGetController">
+            <p style="color: #000">Title:</p> <input type="text" style="color: #000" ng-model="title" required />
+            <p style="color: #000">Location:</p> <input type="text" style="color: #000" ng-model="location" required />
+            <p style="color: #000">Company Id:</p> <input type="text" style="color: #000" ng-model="companyId" required />
+            <button style="color: #000" ng-click="SendData()">Submit</button>
+            <hr />
+        </div>
     
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

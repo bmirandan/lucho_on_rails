@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+    
+    <link href="/styles/assets/css/bootstrap.css" rel="stylesheet">
+    <!--external css-->
+    <link href="/styles/assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="/styles/assets/css/zabuto_calendar.css">
+    <link rel="stylesheet" type="text/css" href="/styles/assets/js/gritter/css/jquery.gritter.css" />
+    <link rel="stylesheet" type="text/css" href="/styles/assets/lineicons/style.css">    
+    
+    <!-- Custom styles for this template -->
+    <link href="/styles/assets/css/style.css" rel="stylesheet">
+    <link href="/styles/assets/css/style-responsive.css" rel="stylesheet">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+
+    <script src="/styles/assets/js/chart-master/Chart.js"></script>
+    
+  <title>Lifeware Works</title>
+  <!-- Bootstrap -->
+
+</head>
+<body ng-app="myApp" >
+    
+    <div id="login-page">
+	  	<div class="container">
+	  	
+		      <form  method="POST" action="signup" class="form-login" >
+		        <h2 class="form-login-heading">Create an account</h2>
+                  
+            
+		        <div class="login-wrap">
+                    
+
+                
+    <!--
+    {{#if errorMessage}}
+      <div class="alert alert-danger">
+        {{errorMessage}}
+      </div>
+    {{/if}}
+    -->
+      
+      
+    <label for="inputUsername" class="sr-only">Username</label><br/>
+    <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Username" required autofocus>
+    <label for="inputPassword" class="sr-only">Password</label><br/>
+    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required>
+    <label for="inputPassword" class="sr-only">Repeat Password</label><br/>
+    <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Repeat Password" required> <br/>
+  </form>
+    <button class="btn btn-theme btn-block" type="submit">Sign up</button> <br/>
+  </form>
+             <div class="registration">
+		               
+		                <a class="" href="/">
+		                    Log In
+		                </a>
+		            </div>
+</div>
+          
+            
+</div>
+    
+    <!-- Bootstrap -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+
+    
+    
+      
+      <!--main content end-->
+      <!--footer start-->
+      <footer style=" margin-top:30px ;bottom: 0; "class="site-footer">
+          <div class="text-center">
+              2017 - Lifeware.
+              <a href="index.html#" class="go-top">
+                  <i class="fa fa-angle-up"></i>
+              </a>
+          </div>
+      </footer>
+      <!--footer end-->
+  </section>
+
+    <!-- js placed at the end of the document so the pages load faster -->
+    <script src="/styles/assets/js/jquery.js"></script>
+    <script src="/styles/assets/js/jquery-1.8.3.min.js"></script>
+    <script src="/styles/assets/js/bootstrap.min.js"></script>
+    <script class="include" type="text/javascript" src="/styles/assets/js/jquery.dcjqaccordion.2.7.js"></script>
+    <script src="/styles/assets/js/jquery.scrollTo.min.js"></script>
+    <script src="/styles/assets/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="/styles/assets/js/jquery.sparkline.js"></script>
+
+
+    <!--common script for all pages-->
+    <script src="/styles/assets/js/common-scripts.js"></script>
+    
+    <script type="text/javascript" src="/styles/assets/js/gritter/js/jquery.gritter.js"></script>
+    <script type="text/javascript" src="/styles/assets/js/gritter-conf.js"></script>
+
+    <!--script for this page-->
+    <script src="/styles/assets/js/sparkline-chart.js"></script>    
+	<script src="/styles/assets/js/zabuto_calendar.js"></script>	
+	
+	
+	
+	<script type="application/javascript">
+        $(document).ready(function () {
+            $("#date-popover").popover({html: true, trigger: "manual"});
+            $("#date-popover").hide();
+            $("#date-popover").click(function (e) {
+                $(this).hide();
+            });
+        
+            $("#my-calendar").zabuto_calendar({
+                action: function () {
+                    return myDateFunction(this.id, false);
+                },
+                action_nav: function () {
+                    return myNavFunction(this.id);
+                },
+                ajax: {
+                    url: "show_data.php?action=1",
+                    modal: true
+                },
+                legend: [
+                    {type: "text", label: "Special event", badge: "00"},
+                    {type: "block", label: "Regular event", }
+                ]
+            });
+        });
+        
+        
+        
+        function myNavFunction(id) {
+            $("#date-popover").hide();
+            var nav = $("#" + id).data("navigation");
+            var to = $("#" + id).data("to");
+            console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+        }
+    </script>
+    </body>
+    
+</html>
+
+

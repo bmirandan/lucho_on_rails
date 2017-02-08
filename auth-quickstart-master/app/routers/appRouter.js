@@ -44,11 +44,15 @@ module.exports = function(express) {
   }))
 
   router.get('/', function(req, res) {
-    res.render('home')
+    res.sendFile('home.html', {
+        root: './views'
+    });
   })
 
   router.get('/dashboard', isAuthenticated, function(req, res) {
-    res.render('dashboard')
+    res.sendFile('dashboard.html', {
+        root: './views'
+    });
   })
 
   router.get('/logout', function(req, res) {
@@ -58,8 +62,10 @@ module.exports = function(express) {
   
 
    
-     router.get('/myapply', isAuthenticated, function(req, res) {
-    res.render('myapply')
+  router.get('/myapply', isAuthenticated, function(req, res) {
+    res.sendFile('myapply.html', {
+        root: './views'
+    });
   })
 
 

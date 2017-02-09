@@ -152,10 +152,9 @@
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
+      <!--<aside>  
+<div id="sidebar"  class="nav-collapse ">
+             
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="profile.html"><img src="assets/img/ui-sam.png" class="img-circle" width="60"></a></p>
@@ -186,10 +185,11 @@
               
 
               </ul>
-              <!-- sidebar menu end-->
+
           </div>
-      </aside>
-      <!--sidebar end-->
+      </aside> 
+    
+    -->
       
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
@@ -205,12 +205,13 @@
               
               
 
-   <div class="col-lg-3 ds">
-			<h3>Ultimas Ofertas</h3>
+    <div class="col-lg-3 ds">
+			<h3>Mis postulaciones</h3>
         <div class="" ng-controller="Ctrl">
-            <div ng-repeat="obj in objs|limitTo:-5" class="">
+            <div ng-repeat="obj in objs" class="">
                 <div ng-controller='Ctrl'>
-                 ass="thumb">
+                   <div class="desc">
+                   <div class="thumb">
                       		<span class="badge bg-theme"><i class="fa fa-clock-o"></i></span>
                       
                             

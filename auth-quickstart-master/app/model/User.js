@@ -1,6 +1,9 @@
 var Sequelize = require('sequelize')
 
 var attributes = {
+    
+    
+    // info basica 
   username: {
     type: Sequelize.STRING,
     allowNull: false,
@@ -24,7 +27,32 @@ var attributes = {
   password: {
     type: Sequelize.STRING,
   },
-  salt: {
+
+
+    // < begin info primer form.
+    
+  telephone:{ 
+  type: Sequelize.STRING},
+
+  birthDate:{ 
+    type: Sequelize.STRING},
+    
+  address:{ 
+    type: Sequelize.STRING},
+    
+  state:{ 
+    type: Sequelize.STRING},
+    
+    // end info primer form >
+    
+  // Variables de control form completado. 
+  form1:{type: Sequelize.BOOL},
+  form2:{type: Sequelize.BOOL},  
+  form3:{type: Sequelize.BOOL},
+  form4:{type: Sequelize.BOOL},
+  //    
+    
+   salt: {
     type: Sequelize.STRING
   }
 }

@@ -20,21 +20,21 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
     
- <!--   <script language="javascript">
+    <script language="javascript">
         angular.module('myApp',['ngResource']);
             function Ctrl($scope,$resource) {
                 var Geonames = $resource(
-                    'http://localhost:8080/offers/', {}, 
+                    'http://localhost:8080/users/'+'3', {}, 
                     {
                         query: { method: 'GET', isArray: true }
                     }
                 );
-                $scope.objs = Geonames.query();
+                $scope.obj = Geonames.query();
             };
         Ctrl.$inject = ['$scope','$resource'];
     </script> 
     
---> 
+
     
    <!--Busqueda API-->
     
@@ -48,9 +48,8 @@
         $scope.SendData = function () {
            // use $.param jQuery function to serialize data from JSON 
             var data = {
-                'title': $scope.title,
-                'location': $scope.location,
-                'companyId': $scope.companyId
+                'username': $scope.username
+               
             };
             $http.post('http://localhost:8080/user/'+'3', data)
             .success(function (data, status, headers, config) {
@@ -64,7 +63,33 @@
     });
     </script>
     <!--Escritura API-->
-      
+      <script>
+    
+  (function () {
+  'use strict'
+
+  angular
+    .module('myApp')
+    .directive('searchBar', searchBar);
+
+  function searchBar () {
+    return {
+      restrict: 'E',
+      scope: {
+        busqueda: '='
+      },
+          template: '<div class="form-group">'
+                + '<input type="text" '
+                +        'class="form-control"'
+                +        'placeholder="Introduce tu texto a buscar"'
+                +        'value= {{busqueda}} '
+                +' </div> '
+    }
+  }
+
+})();
+    
+    </script>
     <script src="/styles/assets/js/chart-master/Chart.js"></script>
     
   <title>Lifeware Works</title>
@@ -77,6 +102,7 @@
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
+        
       <header class="header black-bg">
               <div class="sidebar-toggle-box">
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
@@ -106,7 +132,9 @@
                                     <span class="photo"><img alt="avatar" src="/styles/assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Lifeware Work</span>
-                                    <span class="time"> user.createdAt </span>
+                                        <div ng-controller='Ctrl'>
+                                    <span class="time">  </span>
+                                        </div>
                                     </span>
                                     <span class="message">
                                     Debes rellenar la forma para que <br/>tengamos tus datos. Si  no lo haces<br/>te te llamaremos para en unos días.
@@ -117,8 +145,11 @@
                           
                         </ul>
                     </li>
+                    
+                    <li>   <search-bar busqueda=textoBusqueda> </search-bar> </li>
                     <!-- inbox dropdown end -->
                 </ul>
+              
                 <!--  notification end -->
             </div>
             <div class="top-menu">
@@ -139,8 +170,12 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
               	  <p class="centered"><a href="profile.html"><img src="/styles/assets/img/ui-sam.png" class="img-circle" width="60"></a></p>
-              	  <h5 class="centered">Nombre Usuario </h5>
-              	  	
+                   <div ng-controller='Ctrl'>
+                          <div ng-repeat="obj in objs" class="">
+                <div ng-controller='Ctrl'>
+              	  <h5 class="centered"> {{obj.username}} </h5>
+                </div>
+                  </div>
                   <li class="mt">
                       <a class="" href="/dashboard">
                           <i class="fa fa-dashboard"></i>

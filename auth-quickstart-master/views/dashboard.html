@@ -63,34 +63,10 @@
     });
     </script>
     <!--Escritura API-->
-      <script>
-    
-  (function () {
-  'use strict'
-
-  angular
-    .module('myApp')
-    .directive('searchBar', searchBar);
-
-  function searchBar () {
-    return {
-      restrict: 'E',
-      scope: {
-        busqueda: '='
-      },
-          template: '<div class="form-group">'
-                + '<input type="text" '
-                +        'class="form-control"'
-                +        'placeholder="Introduce tu texto a buscar"'
-                +        'value= {{busqueda}} '
-                +' </div> '
-    }
-  }
-
-})();
-    
-    </script>
+     
     <script src="/styles/assets/js/chart-master/Chart.js"></script>
+    
+    <script src="/app/directiva.js"> </script>
     
   <title>Lifeware Works</title>
   <!-- Bootstrap -->
@@ -145,8 +121,17 @@
                           
                         </ul>
                     </li>
+              
                     
-                    <li>   <search-bar busqueda=textoBusqueda> </search-bar> </li>
+                <li>
+                    
+                <div ng-controller="Controller">
+                <div searchBar> </div>
+                </div>
+                    
+                
+                    
+                </li>    
                     <!-- inbox dropdown end -->
                 </ul>
               
@@ -218,31 +203,34 @@
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->  
-              <div class="col-lg-8 ds" > 
+     <div style="margin-left:7%" class="col-lg-8 ds" > 
                   
 	  	<div ng-controller="HttpGetController">
-            <h3>Ultimas Ofertas</h3>
+            <h3>Información de Contacto</h3>
 		<form >
             <br>
-            <p style="color: #000">Nombre</p> 
+            <p style="color: #000"> Recuerda rellenar todos los campos, una vez completado presione <b>Continuar</b>, para seguir rellenando la encuesta o <b>Finalizar</b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            </p>
+            <br>
+            <h2 style="color: #000">Nombre</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="name" required />
             <br>
-            <p style="color: #000">Rut</p> 
+            <h2 style="color: #000">Rut</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="rut" required />
             <br>
-            <p style="color: #000">Teléfono</p> 
+            <h2 style="color: #000">Teléfono</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="telephone" required />
             <br>
-            <p style="color: #000">Correo electrónico</p> 
+            <h2 style="color: #000">Correo electrónico</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="email" required />
             <br>
-            <p style="color: #000">Fecha de nacimiento</p> 
+            <h2 style="color: #000">Fecha de nacimiento</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="birthDate" required />
             <br>
-            <p style="color: #000">Dirección</p> 
+            <h2 style="color: #000">Dirección</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="address" required />
             <br>
-            <p style="color: #000">Comuna</p> 
+            <h2 style="color: #000">Comuna</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="state" required />
             <br>
            

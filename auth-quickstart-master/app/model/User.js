@@ -46,10 +46,10 @@ var attributes = {
     // end info primer form >
     
   // Variables de control form completado. 
-  form1:{type: Sequelize.BOOL},
-  form2:{type: Sequelize.BOOL},  
-  form3:{type: Sequelize.BOOL},
-  form4:{type: Sequelize.BOOL},
+  form1:{type: Sequelize.BOOLEAN},
+  form2:{type: Sequelize.BOOLEAN},  
+  form3:{type: Sequelize.BOOLEAN},
+  form4:{type: Sequelize.BOOLEAN},
   //    
     
    salt: {

@@ -52,12 +52,12 @@ header .container-fluid
     background-image: url('/styles/mountain-king/images/c6xuczqefb4-alessio-lin.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: bottom;
+        background-position: bottom;
     background-attachment: fixed;
 
     background-color:transparent;
     
-    height: 100vh;
+    
     padding-top: ;
 }
 

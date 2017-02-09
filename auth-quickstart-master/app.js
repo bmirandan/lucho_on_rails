@@ -33,6 +33,10 @@ setupPassport(app)
 
 app.use('/', appRouter)
 
+app.set('views', __dirname + '/views');
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+
 // start app
 app.listen(port)
 console.log('Server started on port ' + port)

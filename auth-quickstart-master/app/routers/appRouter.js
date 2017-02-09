@@ -56,11 +56,8 @@ module.exports = function(express) {
   })
 
   router.get('/dashboard', isAuthenticated, function(req, res) {
-    res.sendFile('dashboard.html', {
-        root: './views'
-    });
+      res.render('dashboard.html', {username: req.user.username, id : req.user.id})
   }) 
-  
 
   router.get('/logout', function(req, res) {
     req.logout()

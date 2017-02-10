@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
   <meta charset="utf-8">
@@ -15,30 +15,19 @@
     <link href="/styles/assets/css/style-responsive.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-
-    <!--Busqueda API-->
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
-    
-
-    
-   <!--Busqueda API-->
-    
-    
-
-<!--Escritura API-->
+ <!--Escritura API-->
     <script>
     var app = angular.module("myApp", []);
-    app.controller("HttpGetController", function ($scope, $http) {
+    app.controller("HttpputController", function ($scope, $http) {
 
         $scope.SendData = function () {
            // use $.param jQuery function to serialize data from JSON 
-            var data = {
-                'username': $scope.username
-               
+           var ids =  parseInt(($scope.companyId).toString());
+            var data = { 
+                'title': $scope.title
+                
             };
-            
-            $http.post('http://localhost:8080/user/'+'3', data)
+            $http.put('http://localhost:8080/offers/'+ids, data)
             .success(function (data, status, headers, config) {
                 
             })
@@ -48,60 +37,19 @@
         };
 
     });
-        
-        
-    </script>
-
-    <script>
-    
-     var app = angular.module("myApp", []);
-    app.controller("HttpPutController", function ($scope, $http) {
-
-        $scope.SendData = function () {
-           // use $.param jQuery function to serialize data from JSON 
-            var data = {
-                'title': '$scope.title',
-                'form1': 'true',
-                'name': '$scope.name',
-                'id': 122323,
-                'telephone': '$scope.telephone',
-                'email': '$scope.email',
-                'birthDate': '$scope.birthDate',
-                'address': '$scope.address',
-                'state': '$scope.state'
-            };
-            $http.put('http://localhost:8080/users/'+'2', data)
-            .success(function (data, status, headers, config) {
-                
-            })
-            .error(function (data, status, header, config) {
-                
-            });
-        };
-
-    });
-
     </script>
     <!--Escritura API-->
-     
-    
+    <!--Escritura API-->
     
     <script src="/styles/assets/js/chart-master/Chart.js"></script>
     
-   
-    
   <title>Lifeware Works</title>
   <!-- Bootstrap -->
+
 </head>
-<body ng-app="myApp" >
     
-    <section id="container" >
-      <!-- **********************************************************************************************************************************************************
-      TOP BAR CONTENT & NOTIFICATIONS
-      *********************************************************************************************************************************************************** -->
-      <!--header start-->
-        
-      <header class="header black-bg">
+    
+    <header class="header black-bg">
             
             <!--logo start-->
             <a style="margin-left 10px" href="#" class="logo"><b>Lifeware work</b></a>
@@ -129,9 +77,9 @@
                                     <span class="photo"><img alt="avatar" src="/styles/assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Lifeware Work</span>
-                                        <div ng-controller='Ctrl'>
+                                        
                                     <span class="time">  </span>
-                                        </div>
+                                        
                                     </span>
                                     <span class="message">
                                     Debes rellenar la forma para que <br/>tengamos tus datos. Si  no lo haces<br/>te te llamaremos para en unos días.
@@ -145,11 +93,7 @@
               
                     
                 <li>
-                    
-                <div ng-controller="Controller">
-                <div searchBar> </div>
-                </div>
-                    
+                           
                 
                     
                 </li>    
@@ -164,106 +108,18 @@
             	</ul>
             </div>
         </header>
-      <!--header end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-      <!--sidebar
 
-      <aside>
-        <div id="sidebar"  class="nav-collapse ">
-        
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="profile.html"><img src="/styles/assets/img/ui-sam.png" class="img-circle" width="60"></a></p>
-                   <div ng-controller='Ctrl'>
-                          <div ng-repeat="obj in objs" class="">
-                <div ng-controller='Ctrl'>
-              	  <h5 class="centered"> {{obj.username}} </h5>
-                </div>
-                  </div>
-                  <li class="mt">
-                      <a class="" href="/dashboard">
-                          <i class="fa fa-dashboard"></i>
-                          <span> Home </span>
-                      </a>
-                  </li>
+<body ng-app="myApp" >
+ <div id="login-page">
+  <div style="margin-top:200px" class="container">
 
-                  <li class="sub-menu">
-                      <a href="/myapply" >
-                          <i class="fa fa-desktop"></i>
-                          <span>Mis Postulaciones</span>
-                      </a>
-                      
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Configuracion </span>
-                      </a>
-                     
-                  </li>
-              
-
-              </ul>
-       
-          </div>
-      </aside>
-      <!--sidebar end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN CONTENT
-      *********************************************************************************************************************************************************** -->
-      <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper">
-
-                  
-      <!-- **********************************************************************************************************************************************************
-      RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->  
-     <div style="margin-left:15%; margin-right:15%" class="col-lg-6 ds" > 
-                  
-	  	<div ng-controller="HttpPutController">
-            <h3>Información de Contacto</h3>
-		<form >
-            <br>
-            <p style="font-size: 15px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Continuar</b>, para seguir rellenando la encuesta o <b>Finalizar</b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
-            </p>
-            <br>
-            <h2  style=" font-size: 17px ; color: #000">Nombre</h2> 
-            <input placeholder=" Juan Antonio Peredo Lara" type="text" class="form-control" style="color: #000" ng-model="name" required />
-            <br>
-            <h2 style=" font-size: 17px ; color: #000">Rut</h2> 
-            <input placeholder="Sin Dígito, ej: 10355220" type="text" class="form-control" style="color: #000" ng-model="id" required />
-            <br>
-            <h2 style=" font-size: 17px ; color: #000">Teléfono</h2> 
-            <input placeholder="ej: +56977841320" type="text" class="form-control" style="color: #000" ng-model="telephone" required />
-            <br>
-            <h2 style=" font-size: 17px ; color: #000">Correo electrónico</h2> 
-            <input placeholder="persona@dominio.cl" type="text" class="form-control" style="color: #000" ng-model="email" required />
-            <br>
-            <h2 style=" font-size: 17px ; color: #000">Fecha de nacimiento</h2> 
-            <input placeholder="02-09-1990" type="text" class="form-control" style="color: #000" ng-model="birthDate" required />
-            <br>
-            <h2 style=" font-size: 17px ; color: #000">Dirección</h2> 
-            <input placeholder="San Juan 23, Valparaíso, Chile " type="text" class="form-control" style="color: #000" ng-model="address" required />
-            <br>
-            <h2 style=" font-size: 17px ; color: #000">Comuna</h2> 
-            <input placeholder="Valparaiso" type="text" class="form-control" style="color: #000" ng-model="state" required />
-            <br>
-           
-        </form>
-          <button class=" btn btn-theme btn-block"style="color: #FFFFFF" ng-click="SendData()">Submit</button><br/>
+  <div ng-controller="HttpputController">
+            <p style="color: #000">Title:</p> <input type="text" style="color: #000" ng-model="title" required />
+            <p style="color: #000">Location:</p> <input type="text" style="color: #000" ng-model="location" required />
+            <p style="color: #000">Company Id:</p> <input type="text" style="color: #000" ng-model="companyId" required />
+            <button class="btn btn-theme btn-block"style="color: #000" ng-click="SendData()">Submit</button>
+            <hr/>
         </div>
-    </div>
-    
- 
-
-          </section>
-      </section>
     
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
@@ -343,6 +199,7 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
+    
     </body>
     
 </html>

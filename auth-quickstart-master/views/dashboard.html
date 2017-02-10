@@ -37,6 +37,7 @@
                 'username': $scope.username
                
             };
+            
             $http.post('http://localhost:8080/user/'+'3', data)
             .success(function (data, status, headers, config) {
                 
@@ -47,9 +48,44 @@
         };
 
     });
+        
+        
+    </script>
+    
+    <script>
+    
+     var app = angular.module("myApp", []);
+    app.controller("HttpPutController", function ($scope, $http) {
+
+        $scope.SendData = function () {
+           // use $.param jQuery function to serialize data from JSON 
+            var data = {
+                'title': '$scope.title',
+                'form1': 'true',
+                'name': '$scope.name',
+                'id': 123,
+                'telephone': '$scope.telephone',
+                'email': '$scope.email',
+                'birthDate': '$scope.birthDate',
+                'address': '$scope.address',
+                'state': '$scope.state'
+            };
+            $http.put('http://localhost:8080/users/'+'2', data)
+            .success(function (data, status, headers, config) {
+                
+            })
+            .error(function (data, status, header, config) {
+                
+            });
+        };
+
+    });
+
     </script>
     <!--Escritura API-->
      
+    
+    
     <script src="/styles/assets/js/chart-master/Chart.js"></script>
     
    
@@ -66,11 +102,9 @@
       <!--header start-->
         
       <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
+            
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Lifeware work</b></a>
+            <a style="margin-left 10px" href="#" class="logo"><b>Lifeware work</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -82,7 +116,7 @@
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
                             <i class="fa fa-bell" ></i>
-                            <span class="badge bg-theme"> 1/5 </span> <!--se debe actualizar -->
+                            <span class="badge bg-theme"> 1/4 </span> <!--se debe actualizar -->
                         </a>
                         <ul class="dropdown-menu extended inbox">
                             <div class="notify-arrow notify-arrow-green"></div>
@@ -190,40 +224,39 @@
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->  
-     <div style="margin-left:7%" class="col-lg-8 ds" > 
+     <div style="margin-left:15%; margin-right:15%" class="col-lg-6 ds" > 
                   
-	  	<div ng-controller="HttpGetController">
+	  	<div ng-controller="HttpPutController">
             <h3>Información de Contacto</h3>
 		<form >
             <br>
-            <p style="color: #000"> Sr(a) <%= username %> Recuerde rellenar todos los campos, una vez completado presione <b>Continuar</b>, para seguir rellenando la encuesta o <b>Finalizar</b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            <p style="font-size: 15px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Continuar</b>, para seguir rellenando la encuesta o <b>Finalizar</b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
             <br>
-            <h2 style="color: #000">Nombre</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="name" required />
+            <h2  style=" font-size: 17px ; color: #000">Nombre</h2> 
+            <input placeholder=" Juan Antonio Peredo Lara" type="text" class="form-control" style="color: #000" ng-model="name" required />
             <br>
-            <h2 style="color: #000">Rut</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="rut" required />
+            <h2 style=" font-size: 17px ; color: #000">Rut</h2> 
+            <input placeholder="Sin Dígito, ej: 10355220" type="text" class="form-control" style="color: #000" ng-model="id" required />
             <br>
-            <h2 style="color: #000">Teléfono</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="telephone" required />
+            <h2 style=" font-size: 17px ; color: #000">Teléfono</h2> 
+            <input placeholder="ej: +56977841320" type="text" class="form-control" style="color: #000" ng-model="telephone" required />
             <br>
-            <h2 style="color: #000">Correo electrónico</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="email" required />
+            <h2 style=" font-size: 17px ; color: #000">Correo electrónico</h2> 
+            <input placeholder="persona@dominio.cl" type="text" class="form-control" style="color: #000" ng-model="email" required />
             <br>
-            <h2 style="color: #000">Fecha de nacimiento</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="birthDate" required />
+            <h2 style=" font-size: 17px ; color: #000">Fecha de nacimiento</h2> 
+            <input placeholder="02-09-1990" type="text" class="form-control" style="color: #000" ng-model="birthDate" required />
             <br>
-            <h2 style="color: #000">Dirección</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="address" required />
+            <h2 style=" font-size: 17px ; color: #000">Dirección</h2> 
+            <input placeholder="San Juan 23, Valparaíso, Chile " type="text" class="form-control" style="color: #000" ng-model="address" required />
             <br>
-            <h2 style="color: #000">Comuna</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="state" required />
+            <h2 style=" font-size: 17px ; color: #000">Comuna</h2> 
+            <input placeholder="Valparaiso" type="text" class="form-control" style="color: #000" ng-model="state" required />
             <br>
            
         </form>
-        <button class="btn btn-theme btn-block" type="submit" ng-click="SendData()">Continuar</button> <br/>
-        <button class="btn btn-theme btn-block" type="submit">Finalizar</button> <br/>
+          <button class=" btn btn-theme btn-block"style="color: #FFFFFF" ng-click="SendData()">Submit</button><br/>
         </div>
     </div>
     
@@ -245,7 +278,7 @@
       <footer style=" margin-top:30px ;bottom: 0; "class="site-footer">
           <div class="text-center">
               2017 - Lifeware.
-              <a href="index.html#" class="go-top">
+              <a href="#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>

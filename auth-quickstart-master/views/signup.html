@@ -13,21 +13,20 @@
     <!-- Custom styles for this template -->
     <link href="/styles/assets/css/style.css" rel="stylesheet">
     <link href="/styles/assets/css/style-responsive.css" rel="stylesheet">
-      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
  <!--Escritura API-->
     <script>
     var app = angular.module("myApp", []);
-    app.controller("HttpGetController", function ($scope, $http) {
+    app.controller("HttpputController", function ($scope, $http) {
 
         $scope.SendData = function () {
            // use $.param jQuery function to serialize data from JSON 
             var data = {
-                'title': $scope.title,
-                'location': $scope.location,
-                'companyId': $scope.companyId
+                'title': $scope.title
+                
             };
-            $http.post('http://localhost:8080/offers/', data)
+            $http.put('http://localhost:8080/offers/'+'4', data)
             .success(function (data, status, headers, config) {
                 
             })
@@ -76,25 +75,24 @@
     <label for="inputPassword" class="sr-only">Repita la contraseña</label><br/>
     <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Repetita la contraseña" required> <br/>
   </form>
-    <button class="btn btn-theme btn-block" type="submit">Registrarse</button> <br/>
+  <button class="btn btn-theme btn-block" type="submit">Registrarse</button> <br/>
   </form>
              <div class="registration">
-		               
-		                <a class="" href="/home">
-		                    Log In
-		                </a>
+		     <a class="" href="/home">
+		     Log In
+		     </a>
  </div>
 </div>
           
             
 </div>
     
- <div ng-controller="HttpGetController">
+        <div ng-controller="HttpputController">
             <p style="color: #000">Title:</p> <input type="text" style="color: #000" ng-model="title" required />
             <p style="color: #000">Location:</p> <input type="text" style="color: #000" ng-model="location" required />
             <p style="color: #000">Company Id:</p> <input type="text" style="color: #000" ng-model="companyId" required />
-            <button style="color: #000" ng-click="SendData()">Submit</button>
-            <hr />
+            <button class="btn btn-theme btn-block"style="color: #000" ng-click="SendData()">Submit</button>
+            <hr/>
         </div>
     
     <!-- Bootstrap -->

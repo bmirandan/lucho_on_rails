@@ -16,7 +16,7 @@ module.exports = function(express) {
   
   router.get('/signup', signupController.show)
   router.post('/signup', signupController.signup)
-  
+  router.get('/users', signupController.index)
   
   router.get('/offers', offerController.index)
   router.get('/offers/:id', offerController.show)

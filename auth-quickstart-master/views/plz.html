@@ -1,0 +1,58 @@
+
+    <section id="main-content">
+          <section class="wrapper">
+
+                  
+      <!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->  
+     <div style="margin-left:15%; margin-right:15%" class="col-lg-6 ds" > 
+                  
+	  	<div ng-controller="HttpPutController">
+            <h3>Información de Contacto</h3>
+		<form >
+            <br>
+            <p style="font-size: 15px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Continuar</b>, para seguir rellenando la encuesta o <b>Finalizar</b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            </p>
+            <br>
+            <h2  style=" font-size: 17px ; color: #000">Nombre</h2> 
+            <input placeholder=" Juan Antonio Peredo Lara" type="text" class="form-control" style="color: #000" ng-model="name" required />
+            <br>
+            <h2 style=" font-size: 17px ; color: #000">Rut</h2> 
+            <input placeholder="Sin Dígito, ej: 10355220" type="text" class="form-control" style="color: #000" ng-model="id" required />
+            <br>
+            <h2 style=" font-size: 17px ; color: #000">Teléfono</h2> 
+            <input placeholder="ej: +56977841320" type="text" class="form-control" style="color: #000" ng-model="telephone" required />
+            <br>
+            <h2 style=" font-size: 17px ; color: #000">Correo electrónico</h2> 
+            <input placeholder="persona@dominio.cl" type="text" class="form-control" style="color: #000" ng-model="email" required />
+            <br>
+            <h2 style=" font-size: 17px ; color: #000">Fecha de nacimiento</h2> 
+            <input placeholder="02-09-1990" type="text" class="form-control" style="color: #000" ng-model="birthDate" required />
+            <br>
+            <h2 style=" font-size: 17px ; color: #000">Dirección</h2> 
+            <input placeholder="San Juan 23, Valparaíso, Chile " type="text" class="form-control" style="color: #000" ng-model="address" required />
+            <br>
+            <h2 style=" font-size: 17px ; color: #000">Comuna</h2> 
+            <input placeholder="Valparaiso" type="text" class="form-control" style="color: #000" ng-model="state" required />
+            <br>
+           
+        </form>
+          <button class=" btn btn-theme btn-block"style="color: #FFFFFF" ng-click="SendData()">Submit</button><br/>
+        </div>
+    </div>
+    
+             
+</div>
+    
+        <div ng-controller="HttpputController">
+            <p style="color: #000">Title:</p> <input type="text" style="color: #000" ng-model="title" required />
+            <p style="color: #000">Location:</p> <input type="text" style="color: #000" ng-model="location" required />
+            <p style="color: #000">Company Id:</p> <input type="text" style="color: #000" ng-model="companyId" required />
+            <button class="btn btn-theme btn-block"style="color: #000" ng-click="SendData()">Submit</button>
+            <hr/>
+        </div>
+
+          </section>
+      </section>
+    

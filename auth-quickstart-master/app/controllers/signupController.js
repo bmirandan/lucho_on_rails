@@ -44,4 +44,35 @@ module.exports.signup = function(req, res) {
         root: './views'
     });
   })
-}
+
+},
+
+
+
+module.exports.index = function(req, res){
+
+    Model.User.findAll({
+        
+    })
+      .then(function (companies) {
+        res.status(200).json(companies);
+      })
+      .catch(function (error) {
+        res.status(500).json(error);
+      });
+  },
+
+  module.exports.update= function(req, res) {
+    
+    Model.Company.update(req.body, {
+      where: {
+        id: req.params.id
+      }
+    })
+    .then(function (updatedRecords) {
+      res.status(200).json(updatedRecords);
+    })
+    .catch(function (error){
+      res.status(500).json(error);
+    });
+  }

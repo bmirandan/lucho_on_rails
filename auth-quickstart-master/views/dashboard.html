@@ -20,20 +20,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
     
-    <script language="javascript">
-        angular.module('myApp',['ngResource']);
-            function Ctrl($scope,$resource) {
-                var Geonames = $resource(
-                    'http://localhost:8080/users/'+'3', {}, 
-                    {
-                        query: { method: 'GET', isArray: true }
-                    }
-                );
-                $scope.obj = Geonames.query();
-            };
-        Ctrl.$inject = ['$scope','$resource'];
-    </script> 
-    
 
     
    <!--Busqueda API-->
@@ -66,7 +52,7 @@
      
     <script src="/styles/assets/js/chart-master/Chart.js"></script>
     
-    <script src="/app/directiva.js"> </script>
+   
     
   <title>Lifeware Works</title>
   <!-- Bootstrap -->
@@ -102,6 +88,7 @@
                             <div class="notify-arrow notify-arrow-green"></div>
                             <li>
                                 <p class="green">No has completado tus datos</p>
+                                
                             </li>
                             <li>
                                 <a href="index.html#">

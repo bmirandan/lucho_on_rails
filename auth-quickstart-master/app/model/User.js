@@ -46,20 +46,37 @@ var attributes = {
     // end info primer form >
     
   // Variables de control form completado. 
-  form1:{type: Sequelize.BOOLEAN},
-  form2:{type: Sequelize.BOOLEAN},  
-  form3:{type: Sequelize.BOOLEAN},
-  form4:{type: Sequelize.BOOLEAN},
-  //    
+  form1:{
+      type: Sequelize.BOOLEAN,
+      defaultValue : false
+      
+    },
+      
+    form2:{
+      type: Sequelize.BOOLEAN,
+        defaultValue : false
+    },  
+      
+    form3:{
+      type: Sequelize.BOOLEAN,
+        defaultValue : false
+    },
+      
+    form4:{
+      type: Sequelize.BOOLEAN,
+        defaultValue : false
+    },
+      
+    //    
     
    salt: {
     type: Sequelize.STRING
   }
-}
+};
 
 var options = {
   freezeTableName: true
-}
+};
 
-module.exports.attributes = attributes
-module.exports.options = options
+module.exports.attributes = attributes;
+module.exports.options = options;

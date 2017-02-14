@@ -49,34 +49,31 @@
 </head>
 <body ng-app="myApp" >
     
-    <div id="login-page">
-	  	<div class="container">
-	  	
-		      <form  method="POST" action="signup" class="form-login" >
-		        <h2 class="form-login-heading">Registrate</h2>
-                  
-            
-		        <div class="login-wrap">
-                    
-
-                
-    <!--
-    {{#if errorMessage}}
+   <!--                {{#if errorMessage}}
       <div class="alert alert-danger">
         {{errorMessage}}
       </div>
-    {{/if}}
-    -->
-      
-      
-    <label for="inputUsername" class="sr-only">Nombre de usuario</label><br/>
-    <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Nombre de usuario" required autofocus>
-    <label for="inputPassword" class="sr-only">Contraseña</label><br/>
-    <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required>
-    <label for="inputPassword" class="sr-only">Repita la contraseña</label><br/>
-    <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Repetita la contraseña" required> <br/>
-  </form>
-  <button class="btn btn-theme btn-block" type="submit">Registrarse</button> <br/>
+    {{/if}} -->
+
+    <div id="login-page">
+	  	<div class="container">
+	  	<form  method="POST" action="signup" class="form-login" >
+		<h2  class="form-login-heading">Registrate</h2>
+        <div class="login-wrap">
+
+        <h5 style="color: #000"> <i class="fa fa-book fa-fw"></i> Ingresa tu información con seriedad para poder contactarte.</h5>
+            
+        <label for="inputUsername" class="sr-only">Nombre de usuario</label><br/>
+        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Nombre de usuario" required autofocus>     <label for="inputEmail" class="sr-only">Correo</label><br/>
+        <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Ej: lucas@mail.com" required autofocus>
+        <label for="inputTelephone" class="sr-only">Teléfono</label><br/>
+        <input type="text" id="inputTelephone" name="telephone" class="form-control" placeholder="Ej: +56978451220" required autofocus>    
+        <label for="inputPassword" class="sr-only">Contraseña</label><br/>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required>
+        <label for="inputPassword" class="sr-only">Repita la contraseña</label><br/>
+        <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Repita la contraseña" required> <br/>
+        </form>         
+<button class="btn btn-theme btn-block" type="submit">Registrarse</button> <br/>
   </form>
              <div class="registration">
 		     <a class="" href="/home">
@@ -178,5 +175,3 @@
     </body>
     
 </html>
-
-

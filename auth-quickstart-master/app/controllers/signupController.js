@@ -12,8 +12,10 @@ module.exports.signup = function(req, res) {
   var username = req.body.username
   var password = req.body.password
   var password2 = req.body.password2
+  var email = req.body.email
+  var telephone = req.body.telephone
   
-  if (!username || !password || !password2) {
+  if (!username || !password || !password2 || !email || !telephone) {
     req.flash('error', "Please, fill in all the fields.")
     res.sendFile('signup.html', {
         root: './views'
@@ -32,8 +34,10 @@ module.exports.signup = function(req, res) {
   
   var newUser = {
     username: username,
-    salt: salt,
-    password: hashedPassword
+    salt: salt, 
+    email: email,
+    password: hashedPassword,
+    telephone: telephone
   }
   
   Model.User.create(newUser).then(function() {

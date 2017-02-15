@@ -70,7 +70,7 @@
         <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required>
         <label for="inputPassword" class="sr-only">Repita la contraseña</label><br/>
         <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Repita la contraseña" required> <br/>
-        <button class="btn btn-theme btn-block" type="submit">Registrarse</button> <br/>
+        <button style=" margin-left: 3%; margin-right: 3%" class="btn btn-theme btn-block" type="submit">Registrarse</button> <br/>
         
         <div class="registration"><a class="" href="/home"> Log In</a>
         </div>
@@ -79,14 +79,7 @@
         </div>
     </div>
     
-        <div ng-controller="HttpputController">
-            <p style="color: #000">Title:</p> <input type="text" style="color: #000" ng-model="title" required />
-            <p style="color: #000">Location:</p> <input type="text" style="color: #000" ng-model="location" required />
-            <p style="color: #000">Company Id:</p> <input type="text" style="color: #000" ng-model="companyId" required />
-            <button class="btn btn-theme btn-block"style="color: #000" ng-click="SendData()">Submit</button>
-            <hr/>
-        </div>
-    
+        
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

@@ -57,7 +57,13 @@ module.exports = function(express) {
   })
 
   router.get('/dashboard', isAuthenticated, function(req, res) {
-      res.render('dashboard.html', {username: req.user.username, id : req.user.id})
+      res.render('dashboard.html', {username: req.user.username, 
+                                    id : req.user.id, 
+                                    form1:req.user.form1,
+                                    form2:req.user.form2,
+                                    form3:req.user.form3,
+                                    form4:req.user.form4
+                                   })
   }) 
 
   router.get('/logout', function(req, res) {

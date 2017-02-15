@@ -17,7 +17,8 @@ module.exports = function(express) {
   router.get('/signup', signupController.show)
   router.post('/signup', signupController.signup)
   router.get('/users', signupController.index)
-  
+  router.put('/users/:id', signupController.update)
+    
   router.get('/offers', offerController.index)
   router.get('/offers/:id', offerController.show)
   router.post('/offers', offerController.create)

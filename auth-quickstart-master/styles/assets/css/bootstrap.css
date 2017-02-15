@@ -997,7 +997,7 @@ h6,
 .h5,
 .h6 {
   font-family: inherit;
-  font-weight: 500;
+ 
   line-height: 1.1;
   color: inherit;
 }
@@ -1035,8 +1035,6 @@ h2,
 .h2,
 h3,
 .h3 {
-  margin-top: 20px;
-  margin-bottom: 10px;
     margin-left: 3%;
 }
 h1 small,

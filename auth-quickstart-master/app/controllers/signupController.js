@@ -66,14 +66,16 @@ module.exports.index = function(req, res){
       });
   },
 
-  module.exports.update= function(req, res) {
-    
-    Model.Company.update(req.body, {
+  module.exports.update = function(req, res) {
+
+    Model.User.update(req.body, {
       where: {
         id: req.params.id
       }
     })
+    
     .then(function (updatedRecords) {
+           
       res.status(200).json(updatedRecords);
     })
     .catch(function (error){

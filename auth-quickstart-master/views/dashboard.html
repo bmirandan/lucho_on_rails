@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="myApp">
 <head>
   <meta charset="utf-8">
     
@@ -20,15 +20,44 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
   
+        <script type="text/javascript" src="../app/controllers/app.js">  </script>
 
  <!--Escritura API-->
+    <script type="text/css">
+    #test{}
+    </script>
+   <script src="/styles/assets/js/formjs.js"></script>
+
     <script>
+       
     var app = angular.module("myApp", []);
         
-    app.controller("HttpputController", function ($scope, $http) {
         
-        $scope.SendData = function () {
+    app.controller("putcontroller", function ($scope, $http) {
+    $scope.value2=0;
+    var form1 = <%= form1 %>;
+    var form2 = <%= form2 %>;
+    var form3 = <%= form3 %>;
+    var form4 = <%= form4 %>;
+    if(form1){
+        
+        $scope.value2=1;
+    }
+    if(form1 && form2 ){
+        
+        $scope.value2=2;
+    }
+    if(form1 && form2 && form3){
+        
+        $scope.value2=3;
+    }
+    if(form1 && form2 && form3 && form4){
+        
+        $scope.value2=4;
+    }
+    $scope.SendData = function () {
            // use $.param jQuery function to serialize data from JSON 
+         
            var ida= (<%= id %>).toString()  ;
             var data = {
                
@@ -41,22 +70,132 @@
                 
                 
             };
+      
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
                 
+            window.location.href = "http://localhost:8080/dashboard";    
+            })
+            .error(function (data, status, header, config) {
+                
+            });
+        }; 
+        
+    $scope.SendData2 = function () {
+           // use $.param jQuery function to serialize data from JSON 
+           var ida= (<%= id %>).toString()  ;
+            var data = {
+               
+                cargo: $scope.cargo,  
+               
+                form2: true
+                
+                
+            };
+                
+                  
+            $http.put('http://localhost:8080/users/'+ ida , data)
+            .success(function (data, status, headers, config) {
+                 window.location.href = "http://localhost:8080/dashboard";    
                 
             })
             .error(function (data, status, header, config) {
                 
             });
-        };
+        };   
+        
+    $scope.SendData3 = function () {
+           // use $.param jQuery function to serialize data from JSON 
+           var ida= (<%= id %>).toString()  ;
+            var data = {
+               
+               tipoD: $scope.tipoD ,
+               techelp: $scope.techelp ,
+               registrado: $scope.registrado ,
+               pension : $scope.pension ,
+               form3: true
+           
+            };
+                
+                  
+            $http.put('http://localhost:8080/users/'+ ida , data)
+            .success(function (data, status, headers, config) {
+                 window.location.href = "http://localhost:8080/dashboard";    
+                
+            })
+            .error(function (data, status, header, config) {
+                
+            });
+        }; 
+    $scope.SendData4 = function () {
+           // use $.param jQuery function to serialize data from JSON 
+           var ida= (<%= id %>).toString()  ;
+            var data = {
+               
+            ecolaridad: $scope.ecolaridad,
+            ocupacion: $scope.ocupacion,
+            omil: $scope.omil,
+            experiencialab: $scope.experiencialab,
+            form4: true
+            };
+                
+                  
+            $http.put('http://localhost:8080/users/'+ ida , data)
+            .success(function (data, status, headers, config) {
+                 window.location.href = "http://localhost:8080/dashboard";    
+                
+            })
+            .error(function (data, status, header, config) {
+                
+            });
+        }; 
+        
 
     }); </script>
-    <!--Escritura API-->
-    <!--Escritura API-->
+    
+    
+    
+ 
     
     <script src="/styles/assets/js/chart-master/Chart.js"></script>
-    
+    <style>
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 5%; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+   
+   
+}
+
+/* The Close Button */
+.close {
+    color: #000;
+    float: right;
+    font-size: 28px;
+     text-decoration: none;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+</style>
   <title>Lifeware Works</title>
   <!-- Bootstrap -->
 
@@ -64,7 +203,7 @@
     
          <!--header start-->
         
-      <header class="header black-bg">
+<header class="header black-bg">
             
             <!--logo start-->
             <a style="margin-left 10px" href="#" class="logo"><b>Lifeware work</b></a>
@@ -79,12 +218,18 @@
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-bell" ></i>
-                            <span class="badge bg-theme"> 1/4 </span> <!--se debe actualizar -->
+                           
+                            <span class="badge bg-theme">  <div ng-controller="putcontroller" >
+                                
+                                
+                                {{value2}} /4
+                                
+                                </div></span> <!--se debe actualizar -->
                         </a>
                         <ul class="dropdown-menu extended inbox">
                             <div class="notify-arrow notify-arrow-green"></div>
                             <li>
-                                <p class="green">No has completado tus datos</p>
+                                <p class="green">No has completado tus datos</h2
                                 
                             </li>
                             <li>
@@ -128,25 +273,23 @@
 
 <body ng-app="myApp" >
 
-  <section id="main-content">
-          <section class="wrapper">
+<section id="main-content">
 
-                  
-      <!-- **********************************************************************************************************************************************************
-      RIGHT SIDEBAR CONTENT
-      *********************************************************************************************************************************************************** -->  
-     <div style="margin-left:15%; margin-right:15%" class="col-lg-6 ds" > 
-                  
-	  	  <div ng-controller="HttpputController">
-              
-              
-            <h3>Información de Contacto</h3>
 
-<div>
-            <div ng-controller="HttpputController">
-                  <br>
+<!-- Formulario1 -->
+    
+    <div id="myModal" class="modal"> <!-- Modal content -->
+		<div class="modal-body">
+        <div class="col-lg-6 ds" >          
+        <form ng-controller="putcontroller">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3>Información de Contacto</h3>
+        </div>
+            <br>
             <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Siguiente</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
            
             <h2  style=" font-size: 12px ; color: #000">Nombres</h2> 
@@ -169,11 +312,266 @@
     
         <br>
       
-            <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData()">Siguiente</button>
+            <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData()">Enviar</button>
             <hr/>
-            </div>
-</div>  
-         </div></div></section></section>
+         </form>
+            
+     </div>
+            <br>
+  </div>
+</div>
+</div>
+    <!-- Fomulario2-->
+    <div id="myModal1" class="modal">  <!-- Modal content -->
+				            
+		<div class="modal-body">
+        <div class="col-lg-6 ds" >          
+            <form ng-controller="putcontroller">
+            
+        <div class="modal-content">
+        <div class="modal-header">
+            
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 >Antecedentes laborales</h3>
+        </div>
+          
+                  <br>
+                <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            </p>
+               
+         <h2 style=" font-size: 12px ; color: #000">Comente cargos en los que se ha desempeñado</h2> 
+            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+            <br>            
+      
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData2()">Enviar</button> <br>
+        </div>
+            </form>
+            
+                 
+     </div>
+            <br>
+  </div>
+</div>
+    
+    <!-- Formulario3 -->
+    <div id="myModal2" class="modal">  <!-- Modal content -->
+	<div class="modal-body">
+        <div class="col-lg-6 ds" >          
+            <form ng-controller="putcontroller">
+            
+        <div class="modal-content">
+        <div class="modal-header">
+            
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+         <h3 >Antecedentes de discapacidad</h3>
+        </div>
+          
+                  <br>
+                <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            </p>
+               
+           
+    <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">Tipo de discapacidad </h2 >
+    <select class="form-control" id="4" ng-model="tipoD" required>
+         <option>Física</option>
+            <option>Cognitiva</option>
+            <option>Sensorial</option>
+            <option>Psicológica</option>
+            <option>Múltiple</option>
+      </select>      
+    
+
+            <br>
+                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Utiliza ayuda técnica? ¿Cuál?</h2 >
+            <input type="text" class="form-control" style="color: #000" ng-model="techelp" required />
+            <br>
+                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Posee registro nacional de discapacidad?</h2> 
+        <select class="form-control" id="5" ng-model="registrado" required >
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+        </select> 
+            <br>
+                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Recibe pensión de invalidez?</h2 >
+        <select class="form-control"  ng-model="pension" required >
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+        </select> 
+        <br>
+             
+      
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Enviar</button> <br> 
+        </div>
+                           <br>
+            </form>
+     </div>
+  </div>
+</div>
+    
+    <!-- Formulario 4 -->
+ 
+    <div id="myModal3" class="modal"><!-- Modal content -->
+	<div class="modal-body">
+        <div class="col-lg-6 ds" >          
+            <form ng-controller="putcontroller">
+            
+        <div class="modal-content">
+        <div class="modal-header">
+            
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            
+            <h3>Antecedentes Ocupacionales</h3>
+            
+        </div>
+          
+                  <br>
+                <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            </p>
+               
+           
+            <h2  style=" font-size: 12px ; color: #000">Nivel escolaridad</h2> 
+            <select class="form-control"  ng-model="ecolaridad" required >
+                <option value="Básica incompleta">Básica incompleta</option>
+                <option value=" Básica completa"> Básica completa</option>
+                <option value="Media incompleta">Media incompleta</option>
+                <option value="Media completa">Media completa</option>
+                <option value="Educación superior incompleta">Educación superior incompleta</option>
+                <option value="Educación superior completa"> Educación superior completa</option>
+            </select>
+     <br>     
+    
+
+            <h2  style=" font-size: 12px ; color: #000">Ocupación actual</h2> 
+            <input placeholder="  " type="text" class="form-control" style="color: #000" ng-model="ocupacion" required  />
+            
+            <h2 style=" font-size: 12px ; color: #000">¿Está registrado en OMIL?</h2> 
+ 
+            <select class="form-control"  ng-model="omil" required >
+                <option value="si">Sí</option>
+                <option value="no">No</option>
+             </select>    
+            <br>
+             
+            <h2 style=" font-size: 12px ; color: #000">Posee experiencia laboral</h2> 
+                <select class="form-control"  ng-model="experiencialab" required >
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+       <br>
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
+        </div>
+      <br>
+     </form>
+     </div>
+  </div>
+</div>
+    
+    
+    
+    
+    
+    
+    
+    
+    <!--main menú-->
+    <section class="wrapper ">
+        <div class="row mt">
+        <div class="col-lg-12">
+        <!-- -- 1st ROW OF PANELS ---->
+		<div class="row">
+        <!-- TWITTER PANEL -->
+				<div onclick=" modal.style.display = "block";" id="myBtn" class="col-lg-4 col-md-4 col-sm-4 mb">
+		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;">
+						<i class="fa fa-phone-square fa-4x"></i>
+						<p>Formulario 1</p>
+						<p class="user">Rellena tu información de contacto</p>
+					</div>
+				</div><!-- /col-md-4 -->
+            
+		<br>
+            <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="al-panel pn" style=" cursor:pointer; background: #666666;">
+								<i class="fa fa-graduation-cap fa-4x"></i>
+								<p>Formulario 4</p>
+								<p class="user"> Cuentanos sobre tu ocupacion</p>
+							</div>
+						</div><!-- /col-md-4 -->
+			
+						
+		
+					</div><!-- --/END 1ST ROW OF PANELS ---->
+					
+					<!-- -- 2ND ROW OF PANELS ---->
+					<div class="row">
+						<!-- -- TODO PANEL ---->
+				
+						<div onclick=" modal.style.display = "block";" id="myBtn1" class=" col-lg-4 col-md-4 col-sm-4 mb">
+                         
+							<div class="al-panel pn" style="cursor:pointer; background: #bd6556;">
+								<i class="fa fa-briefcase fa-4x"></i>
+								<p>Formulario 2</p>
+								<p class="user">Cuentanos sobre tu experiencia laboral</p>
+                                
+                                
+                                
+							</div>
+						</div><!-- /col-md-4 -->
+            	
+                      
+						<!-- -- PROFILE 01 PANEL ---->
+						
+						
+						<!-- -- PROFILE 02 PANEL ---->
+						
+                        
+					</div><!-- --/END 2ND ROW OF PANELS ---->
+					
+					<!-- -- 3RD ROW OF PANELS ---->
+					<!-- Product Panel -->
+					<div class="row">
+							<div onclick=" modal.style.display = "block";" id="myBtn2" class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="al-panel pn" style=" cursor:pointer; background: #56a4bd;">
+								<i class="fa fa-wheelchair fa-4x"></i>
+								<p>Formulario 3</p>
+								<p class="user">Comenta acerca de tu discapacidad</p>
+							</div>
+						</div><!-- /col-md-4 -->
+						
+						<!-- -- Spotify Panel ---->
+						
+					</div><!-- -- END 3RD ROW OF PANELS ---->
+          		
+                      <!-- CHART PANELS -->
+                     
+                    
+					<!-- -- 5TH ROW OF PANELS ---->
+				
+			<div class="row">
+							
+						
+						<!-- -- Spotify Panel ---->
+						
+					</div><!-- -- END 3RD ROW OF PANELS ---->
+          		
+
+					<!-- -- 6TH ROW OF PANELS ---->
+					
+					
+          		</div>
+          	</div>
+			
+		</section>
+      
+<!-- **********************************************************************************************************************************************************
+      RIGHT SIDEBAR CONTENT
+      *********************************************************************************************************************************************************** -->  
+   
+              
+         
+              
+      </section></section>
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -194,6 +592,66 @@
       </footer>
       <!--footer end-->
   </section>
+
+   
+<script>
+// Get the modal
+var modal = document.getElementById('myModal');
+var modal1 = document.getElementById('myModal1');
+var modal2 = document.getElementById('myModal2');
+var modal3 = document.getElementById('myModal3');
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+var btn1 = document.getElementById("myBtn1");
+var btn2 = document.getElementById("myBtn2");
+var btn3 = document.getElementById("myBtn3");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+    modal.style.display = "block";
+}
+btn1.onclick = function() {
+    modal1.style.display = "block";
+}
+btn2.onclick = function() {
+    modal2.style.display = "block";
+}
+btn3.onclick = function() {
+    modal3.style.display = "block";
+}
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+    modal.style.display = "none";
+}
+span.onclick = function() {
+    modal1.style.display = "none";
+}
+span.onclick = function() {
+    modal2.style.display = "none";
+}
+span.onclick = function() {
+    modal3.style.display = "none";
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+        if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+    
+    if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+    if (event.target == modal3) {
+        modal3.style.display = "none";
+    }
+}
+</script>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="/styles/assets/js/jquery.js"></script>

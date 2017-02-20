@@ -41,8 +41,36 @@ var attributes = {
     type: Sequelize.STRING},
     
   state:{ 
+    type: Sequelize.STRING},  
+    
+     // begin info segundo form
+    cargo:{ 
     type: Sequelize.STRING},
     
+    
+    // begin tercer form
+    tipoD: {
+    type: Sequelize.STRING},
+    
+    techelp: {
+    type: Sequelize.STRING},
+    
+    registrado: {
+    type: Sequelize.STRING},
+    
+    pension : {
+    type: Sequelize.STRING},
+    
+    // begin cuarta form
+    
+    ecolaridad: {
+        type: Sequelize.STRING},
+    ocupacion: {
+        type: Sequelize.STRING},
+    omil: {
+        type: Sequelize.STRING},
+    experiencialab: {
+        type: Sequelize.STRING},
     // end info primer form >
     
   // Variables de control form completado. 

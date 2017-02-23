@@ -34,6 +34,9 @@
         
         
     app.controller("putcontroller", function ($scope, $http) {
+        
+        
+        
     $scope.value2=0;
     var form1 = <%= form1 %>;
     var form2 = <%= form2 %>;
@@ -120,7 +123,7 @@
                   
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-                 window.location.href = "http://localhost:8080/dashboard";    
+                 window.location.href = "http://localhost:8080/";    
                 
             })
             .error(function (data, status, header, config) {
@@ -148,6 +151,23 @@
             .error(function (data, status, header, config) {
                 
             });
+        }; 
+        
+        $scope.SendEmail = function () {
+           // use $.param jQuery function to serialize data from JSON 
+           var ida= (<%= id %>).toString()  ;
+           var data = {
+               username: (<%= username %>).toString()
+           }
+          $http.post('http://localhost:8080/halp/', data)
+            .success(function (data, status, headers, config) {
+                 window.location.href = "http://localhost:8080/dashboard";    
+                
+            })
+            .error(function (data, status, header, config) {
+                
+            });
+;
         }; 
         
 
@@ -218,6 +238,7 @@
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-bell" ></i>
+                            
                            
                             <span class="badge bg-theme">  <div ng-controller="putcontroller" >
                                 
@@ -249,8 +270,34 @@
                             </li>
                           
                         </ul>
+                    </li>          
+                    
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-ambulance" ></i>
+                            
+                           
+                         
+                            Necesitas ayuda para rellenar tus datos?
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            
+                            <div class="notify-arrow notify-arrow-green"></div>
+                            <li>
+                                  
+                                    <div ng-controller="putcontroller">
+                                        <button style="allign:left width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendEmail()">Ayudame</button> </div> 
+                             
+                            </li>
+                           
+                            <li>
+                             <a>
+                                <b>Presiona Ayudame y te llamaremos <br>en 24 horas.   </b>
+                             </a>
+                            </li>
+                          
+                        </ul> 
                     </li>
-              
                     
                 <li>
                     

@@ -313,7 +313,7 @@
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="/logout">Logout</a></li>
+                    <li><a class="logout" href="/logout">Salir</a></li>
             	</ul>
             </div>
         </header>
@@ -331,7 +331,7 @@
         <form ng-controller="putcontroller">
         <div class="modal-content">
         <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3>Información de Contacto</h3>
         </div>
             <br>
@@ -378,7 +378,7 @@
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button" id="close1" class="close" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 >Antecedentes laborales</h3>
         </div>
           
@@ -410,7 +410,7 @@
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button" id="close2"class="close" data-dismiss="modal" aria-hidden="true">×</button>
          <h3 >Antecedentes de discapacidad</h3>
         </div>
           
@@ -466,7 +466,7 @@
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button" id="close3" class="close" data-dismiss="modal" aria-hidden="true">×</button>
             
             <h3>Antecedentes Ocupacionales</h3>
             
@@ -654,7 +654,10 @@ var btn2 = document.getElementById("myBtn2");
 var btn3 = document.getElementById("myBtn3");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
+var span = document.getElementsById("close")[0];
+var span1 = document.getElementsById("close1")[0];
+var span2 = document.getElementsById("close2")[0];
+var span3 = document.getElementsById("close3")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -671,16 +674,17 @@ btn3.onclick = function() {
 }
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
-}
-span.onclick = function() {
-    modal1.style.display = "none";
-}
-span.onclick = function() {
-    modal2.style.display = "none";
-}
-span.onclick = function() {
-    modal3.style.display = "none";
+    
+        modal.style.display = "none";
+  
+        modal1.style.display = "none";
+
+    
+
+        modal2.style.display = "none";
+  
+        modal3.style.display = "none";
+    
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {

@@ -61,7 +61,7 @@ module.exports.index = function(req, res){
         
     })
       .then(function (companies) {
-        res.status(200).json(companies);
+     res.status(200).json(companies);
       })
       .catch(function (error) {
         res.status(500).json(error);
@@ -72,12 +72,8 @@ module.exports.index = function(req, res){
 
     
     
-    
-    
-    
-    
-    var name = req.params.username;
- 
+
+  
   
   var smtpTransport = nodemailer.createTransport({
    service: "Gmail",  // sets automatically host, port and connection security settings
@@ -92,7 +88,7 @@ module.exports.index = function(req, res){
 smtpTransport.sendMail({  //email options
    from: "Sender Name <deskisio10@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
    to: "Receiver Name <deskisio10@gmail.com>", // receiver
-   subject: "necessita ayuda este "+ name, // subject
+   subject: "Help! "+ req.params.id, // subject
    text: " información importante " // body
 }, function(error, response){  //callback
    if(error){

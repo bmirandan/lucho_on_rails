@@ -172,19 +172,9 @@
             
            // use $.param jQuery function to serialize data from JSON 
              var ida= (<%= id %>).toString()  ;
-            
-           var data = {
-               username: (<%= username %>).toString() 
-           };
-                
-            $http.post('http://localhost:8080/halp/'+ida , data)
-            .success(function (data, status, headers, config) {
-                 window.location.href = "http://localhost:8080/dashboard";    
-                
-            })
-            .error(function (data, status, header, config) {
-                
-            });
+    
+            $http.get('http://localhost:8080/halp/'+ida);
+          
         }; 
         
        
@@ -342,7 +332,9 @@
                           
                         </ul>
                     </li>          
-                    
+                    <li>
+                      
+                    </li>
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-ambulance" ></i>
@@ -600,21 +592,38 @@
         <!-- -- 1st ROW OF PANELS ---->
 		<div class="row">
         <!-- TWITTER PANEL -->
+            
+                             <div onclick=" modal.style.display = "block";" id="myBtnface" class="col-lg-4 col-md-4 col-sm-4 mb">
+		.		<div class="al-panel pn" style="cursor:pointer; background: #3B5998;" >
+						<i class="fa fa-facebook fa-4x"></i>
+                        <p>Facebook</p>
+						<p class="user">Revisa nuestras redes sociales</p>
+					</div>
+				</div><!-- /col-md-4 -->
+            
 				<div onclick=" modal.style.display = "block";" id="myBtn" class="col-lg-4 col-md-4 col-sm-4 mb">
 		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;" ng-if = <%= !form1 %>	 >
 						<i class="fa fa-phone-square fa-4x"></i>
 						<p>Formulario 1</p>
 						<p class="user">Rellena tu información de contacto</p>
 					</div>
-				</div><!-- /col-md-4 -->
+				</div>
+
+       
             
-		<br>
-         
-		
 					</div><!-- --/END 1ST ROW OF PANELS ---->
 					
 					<!-- -- 2ND ROW OF PANELS ---->
 					<div class="row">
+                        
+                        
+                          <div onclick=" modal.style.display = "block";" id="myBtntwit" class="col-lg-4 col-md-4 col-sm-4 mb">
+		.		<div class="al-panel pn" style="cursor:pointer; background: #55ACEE;" >
+						<i class="fa fa-twitter fa-4x"></i>
+                       <p>Facebook</p>
+						<p class="user">Revisa nuestras redes sociales</p>
+					</div>
+				</div><!-- /col-md-4 -->
                            <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
 							<div class="al-panel pn" style=" cursor:pointer; background: #bd6556;" ng-if=<%= !form2 %>>
 								<i class="fa fa-briefcase fa-4x"></i>
@@ -622,8 +631,8 @@
 								<p class="user"> Cuentanos sobre tu ocupación</p>
 							</div>
 						</div><!-- /col-md-4 -->
-			
-									<div onclick=" modal.style.display = "block";" id="myBtn1" class=" col-lg-4 col-md-4 col-sm-4 mb">
+	
+						<div onclick=" modal.style.display = "block";" id="myBtn1" class=" col-lg-4 col-md-4 col-sm-4 mb">
                          
 							<div class="al-panel pn" style="cursor:pointer; background: #666666;"  ng-if=<%= !form3 %>	>
 								<i class="fa fa-briefcase fa-4x"></i>

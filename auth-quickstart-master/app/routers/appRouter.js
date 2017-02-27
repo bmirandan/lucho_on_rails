@@ -15,7 +15,7 @@ module.exports = function(express) {
     res.redirect('/')
   }
   
-  router.get('/halp', signupController.send)
+  router.get('/halp/:id', signupController.send)
  
   router.get('/signup', signupController.show)
   router.post('/signup', signupController.signup)
@@ -52,6 +52,8 @@ module.exports = function(express) {
         root: './views'
     });
   })
+
+
 
   router.get('/home', function(req, res) {
     res.sendFile('home.html', {

@@ -12,7 +12,7 @@ var smtpTransport = nodemailer.createTransport({
 smtpTransport.sendMail({  //email options
    from: "Sender Name <deskisio10@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
    to: "Receiver Name <deskisio10@gmail.com>", // receiver
-   subject: "necessita ayuda este ", // subject
+   subject: "necessita ayuda este "+ req.params.id, // subject
    text: " información importante " // body
 }, function(error, response){  //callback
    if(error){

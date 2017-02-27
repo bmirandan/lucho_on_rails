@@ -1,5 +1,6 @@
 var bcrypt = require('bcrypt-nodejs'),
-    Model = require('../model/models.js')
+    Model = require('../model/models.js');
+ var nodemailer = require("nodemailer");
 
 module.exports.show = function(req, res) {
     //res.render('signup')
@@ -8,6 +9,7 @@ module.exports.show = function(req, res) {
     });
 }
 
+    
 module.exports.signup = function(req, res) {
   var username = req.body.username
   var password = req.body.password
@@ -65,9 +67,51 @@ module.exports.index = function(req, res){
         res.status(500).json(error);
       });
   },
+    
+    module.exports.send = function(req, res){
+
+    
+    
+    
+    
+    
+    
+    var name = req.params.username;
+ 
+  
+  var smtpTransport = nodemailer.createTransport({
+   service: "Gmail",  // sets automatically host, port and connection security settings
+   auth: {
+       user: "pilarproy0@gmail.com",
+       pass: "123123as"
+   }
+});
+
+    
+
+smtpTransport.sendMail({  //email options
+   from: "Sender Name <deskisio10@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
+   to: "Receiver Name <deskisio10@gmail.com>", // receiver
+   subject: "necessita ayuda este "+ name, // subject
+   text: " información importante " // body
+}, function(error, response){  //callback
+   if(error){
+       console.log(error);
+   }else{
+       console.log("Message sent: " + response.message);
+   }
+   
+   smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+    
+    
+});
+    
+
+  },
 
   module.exports.update = function(req, res) {
 
+      
     Model.User.update(req.body, {
       where: {
         id: req.params.id

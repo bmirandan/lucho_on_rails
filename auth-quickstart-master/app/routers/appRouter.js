@@ -2,8 +2,8 @@ var passport = require('passport'),
     signupController = require('../controllers/signupController.js'),
     companyController = require('../controllers/companyController.js'),
     userApplicationController = require('../controllers/userApplicationController.js'),
-    offerController = require('../controllers/offerController.js'),
-    emailsender = require('../controllers/emailsender.js');
+    offerController = require('../controllers/offerController.js');
+    
 
 module.exports = function(express) {
   var router = express.Router()
@@ -15,9 +15,8 @@ module.exports = function(express) {
     res.redirect('/')
   }
   
-  router.post('/halp', emailsender.send)
-  router.get('/halp', emailsender.send)
-  
+  router.get('/halp', signupController.send)
+ 
   router.get('/signup', signupController.show)
   router.post('/signup', signupController.signup)
   router.get('/users', signupController.index)

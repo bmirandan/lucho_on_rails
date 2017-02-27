@@ -38,11 +38,7 @@
         
         
     $scope.value2=0;
-    $scope.notifytitle=" Tus datos están incompletos";
-    $scope.notifymessage="  Debes rellenar la forma para que";
-    $scope.notifymessage1="tengamos tus datos. Si  no lo haces";
-    $scope.notifymessage2= "te llamaremos en unos días. ";
-    
+        
     var form1 = <%= form1 %>;
     var form2 = <%= form2 %>;
     var form3 = <%= form3 %>;
@@ -61,12 +57,7 @@
         $scope.value2=3;
     }
     if(form1 && form2 && form3 && form4){
-        $scope.notifytitle="Tus datos están completos";
-        $scope.notifymessage=" Atento los proximos días,";
-        $scope.notifymessage1="puede que te llamemos pronto";
-        $scope.notifymessage2="";
         
-    
         $scope.value2=4;
     }
     $scope.SendData = function () {
@@ -95,14 +86,14 @@
             });
         }; 
         
-    $scope.SendData3 = function () {
+    $scope.SendData2 = function () {
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
             var data = {
                
                 cargo: $scope.cargo,  
                
-                form3: true
+                form2: true
                 
                 
             };
@@ -118,7 +109,7 @@
             });
         };   
         
-    $scope.SendData4 = function () {
+    $scope.SendData3 = function () {
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
             var data = {
@@ -127,21 +118,21 @@
                techelp: $scope.techelp ,
                registrado: $scope.registrado ,
                pension : $scope.pension ,
-               form4: true
+               form3: true
            
             };
                 
                   
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-                 window.location.href = "http://localhost:8080/dashboard";    
+                 window.location.href = "http://localhost:8080/";    
                 
             })
             .error(function (data, status, header, config) {
                 
             });
         }; 
-    $scope.SendData2 = function () {
+    $scope.SendData4 = function () {
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
             var data = {
@@ -150,7 +141,7 @@
             ocupacion: $scope.ocupacion,
             omil: $scope.omil,
             experiencialab: $scope.experiencialab,
-            form2: true
+            form4: true
             };
                 
                   
@@ -177,7 +168,7 @@
                username: (<%= username %>).toString() 
            };
                 
-            $http.post('http://localhost:8080/halp/'+ida , data)
+            $http.post('http://localhost:8080/halp' , data)
             .success(function (data, status, headers, config) {
                  window.location.href = "http://localhost:8080/dashboard";    
                 
@@ -290,7 +281,7 @@
             <!--logo start-->
             <a style="margin-left 10px" href="#" class="logo"><b>Lifeware work</b></a>
             <!--logo end-->
-            <div ng-controller="putcontroller" class="nav notify-row" id="top_menu">
+            <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
                     <!-- settings start -->
@@ -302,20 +293,17 @@
                             <i class="fa fa-bell" ></i>
                             
                            
-                            <span class="badge bg-theme">  
+                            <span class="badge bg-theme">  <div ng-controller="putcontroller" >
                                 
                                 
                                 {{value2}} /4
                                 
-                               </span> <!--se debe actualizar -->
+                                </div></span> <!--se debe actualizar -->
                         </a>
                         <ul class="dropdown-menu extended inbox">
                             <div class="notify-arrow notify-arrow-green"></div>
                             <li>
-                               
-                               
-                                <p class="green"> {{notifytitle}}</h2
-                                
+                                <p class="green">No has completado tus datos</h2
                                 
                             </li>
                             <li>
@@ -328,13 +316,7 @@
                                        
                                     </span>
                                     <span class="message">
-                                        
-                                   {{notifymessage}}
-                                    <br>
-                                    {{  notifymessage1 }}
-                                   <br>
-                                        {{notifymessage2}}
-                                        
+                                    Debes rellenar la forma para que <br/>tengamos tus datos. Si  no lo haces<br/>te llamaremos en unos días.
                                     </span>
                                     
                                 </a>
@@ -349,7 +331,7 @@
                             
                            
                          
-                        Necesitas ayuda para rellenar tus datos?
+                            Necesitas ayuda para rellenar tus datos?
                         </a>
                         <ul class="dropdown-menu extended inbox">
                             
@@ -462,7 +444,7 @@
             <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
             <br>            
       
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Enviar</button> <br>
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData2()">Enviar</button> <br>
         </div>
             </form>
             
@@ -519,7 +501,7 @@
         <br>
              
       
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Enviar</button> <br> 
         </div>
                            <br>
             </form>
@@ -578,7 +560,7 @@
                     <option value="no">No</option>
                 </select>
        <br>
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData2()">Enviar</button> <br> 
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
         </div>
       <br>
      </form>
@@ -601,7 +583,7 @@
 		<div class="row">
         <!-- TWITTER PANEL -->
 				<div onclick=" modal.style.display = "block";" id="myBtn" class="col-lg-4 col-md-4 col-sm-4 mb">
-		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;" ng-if = <%= !form1 %>	 >
+		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;">
 						<i class="fa fa-phone-square fa-4x"></i>
 						<p>Formulario 1</p>
 						<p class="user">Rellena tu información de contacto</p>
@@ -609,34 +591,33 @@
 				</div><!-- /col-md-4 -->
             
 		<br>
-         
+            <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="al-panel pn" style=" cursor:pointer; background: #666666;">
+								<i class="fa fa-graduation-cap fa-4x"></i>
+								<p>Formulario 4</p>
+								<p class="user"> Cuentanos sobre tu ocupacion</p>
+							</div>
+						</div><!-- /col-md-4 -->
+			
+						
 		
 					</div><!-- --/END 1ST ROW OF PANELS ---->
 					
 					<!-- -- 2ND ROW OF PANELS ---->
 					<div class="row">
-                           <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
-							<div class="al-panel pn" style=" cursor:pointer; background: #bd6556;" ng-if=<%= !form2 %>>
+						<!-- -- TODO PANEL ---->
+				
+						<div onclick=" modal.style.display = "block";" id="myBtn1" class=" col-lg-4 col-md-4 col-sm-4 mb">
+                         
+							<div class="al-panel pn" style="cursor:pointer; background: #bd6556;">
 								<i class="fa fa-briefcase fa-4x"></i>
 								<p>Formulario 2</p>
-								<p class="user"> Cuentanos sobre tu ocupación</p>
-							</div>
-						</div><!-- /col-md-4 -->
-			
-									<div onclick=" modal.style.display = "block";" id="myBtn1" class=" col-lg-4 col-md-4 col-sm-4 mb">
-                         
-							<div class="al-panel pn" style="cursor:pointer; background: #666666;"  ng-if=<%= !form3 %>	>
-								<i class="fa fa-briefcase fa-4x"></i>
-								<p>Formulario 3</p>
 								<p class="user">Cuentanos sobre tu experiencia laboral</p>
                                 
                                 
                                 
 							</div>
-						</div>
-						<!-- -- TODO PANEL ---->
-				
-					<!-- /col-md-4 -->
+						</div><!-- /col-md-4 -->
             	
                       
 						<!-- -- PROFILE 01 PANEL ---->
@@ -646,14 +627,14 @@
 						
                         
 					</div><!-- --/END 2ND ROW OF PANELS ---->
-				
+					
 					<!-- -- 3RD ROW OF PANELS ---->
 					<!-- Product Panel -->
 					<div class="row">
-							<div onclick=" modal.style.display = "block";" id="myBtn2" class="col-lg-4 col-md-4 col-sm-4 mb" >
-							<div class="al-panel pn" style=" cursor:pointer; background: #56a4bd;" ng-if=<%= !form4 %> >
+							<div onclick=" modal.style.display = "block";" id="myBtn2" class="col-lg-4 col-md-4 col-sm-4 mb">
+							<div class="al-panel pn" style=" cursor:pointer; background: #56a4bd;">
 								<i class="fa fa-wheelchair fa-4x"></i>
-								<p>Formulario 4</p>
+								<p>Formulario 3</p>
 								<p class="user">Comenta acerca de tu discapacidad</p>
 							</div>
 						</div><!-- /col-md-4 -->
@@ -668,10 +649,8 @@
 					<!-- -- 5TH ROW OF PANELS ---->
 				
 			<div class="row">
-							  
-			
+							
 						
-				
 						<!-- -- Spotify Panel ---->
 						
 					</div><!-- -- END 3RD ROW OF PANELS ---->

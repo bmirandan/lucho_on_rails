@@ -215,6 +215,48 @@
     text-decoration: none;
     cursor: pointer;
 }
+.close1 {
+    color: #000;
+    float: right;
+    font-size: 28px;
+     text-decoration: none;
+    font-weight: bold;
+}
+
+.close1:hover,
+.close1:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.close2 {
+    color: #000;
+    float: right;
+    font-size: 28px;
+     text-decoration: none;
+    font-weight: bold;
+}
+
+.close2:hover,
+.close2:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+.close3 {
+    color: #000;
+    float: right;
+    font-size: 28px;
+     text-decoration: none;
+    font-weight: bold;
+}
+
+.close3:hover,
+.close3:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
 </style>
   <title>Lifeware Works</title>
   <!-- Bootstrap -->
@@ -331,7 +373,7 @@
         <form ng-controller="putcontroller">
         <div class="modal-content">
         <div class="modal-header">
-        <button type="button" id="close" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button"  class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3>Información de Contacto</h3>
         </div>
             <br>
@@ -378,7 +420,7 @@
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button" id="close1" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button" class="close1" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 >Antecedentes laborales</h3>
         </div>
           
@@ -410,7 +452,7 @@
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button" id="close2"class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
          <h3 >Antecedentes de discapacidad</h3>
         </div>
           
@@ -466,7 +508,7 @@
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button" id="close3" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button"  class="close3" data-dismiss="modal" aria-hidden="true">×</button>
             
             <h3>Antecedentes Ocupacionales</h3>
             
@@ -654,10 +696,10 @@ var btn2 = document.getElementById("myBtn2");
 var btn3 = document.getElementById("myBtn3");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsById("close")[0];
-var span1 = document.getElementsById("close1")[0];
-var span2 = document.getElementsById("close2")[0];
-var span3 = document.getElementsById("close3")[0];
+var span = document.getElementsByClassName("close")[0];
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+var span3 = document.getElementsByClassName("close3")[0];
 
 // When the user clicks the button, open the modal 
 btn.onclick = function() {
@@ -677,13 +719,28 @@ span.onclick = function() {
     
         modal.style.display = "none";
   
-        modal1.style.display = "none";
-
+     
     
-
+}
+span1.onclick = function() {
+    
+        modal1.style.display = "none";
+  
+     
+    
+}
+span2.onclick = function() {
+    
         modal2.style.display = "none";
   
+     
+    
+}
+span3.onclick = function() {
+    
         modal3.style.display = "none";
+  
+     
     
 }
 // When the user clicks anywhere outside of the modal, close it

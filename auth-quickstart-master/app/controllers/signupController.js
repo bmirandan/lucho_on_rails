@@ -87,7 +87,7 @@ module.exports.index = function(req, res){
 
 smtpTransport.sendMail({  //email options
    from: "Sender Name <deskisio10@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
-   to: "Receiver Name <deskisio10@gmail.com>", // receiver
+   to: "Receiver Name <benjamin.miranda.12@sansano.usm.cl", // receiver
    subject: "Help! "+ req.params.id, // subject
    text: " información importante " // body
 }, function(error, response){  //callback

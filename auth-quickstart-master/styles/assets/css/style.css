@@ -1968,10 +1968,11 @@ label {
 /*LOGIN CONFIGURATION PAGE*/
 .form-login {
 	max-width: 330px;
-	margin: 100px auto 0;
+	margin: 2px auto 0;
 	background: #fff;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
+    margin-bottom: 20%;
 }
 
 .form-login h2.form-login-heading {
@@ -2256,10 +2257,17 @@ label {
 
 /*footer*/
 .site-footer {
-    background: #56a4bd;
+    background: #383e42;
     color: #fff;
-    padding-top: 20px;
+    padding-top: 8px;
     padding-bottom: 20px;
+    position:fixed;
+    height:50px;
+   
+    bottom:0px;
+    left:0px;
+    right:0px;
+    margin-bottom:0px;
 }
 
 
@@ -2267,14 +2275,26 @@ label {
     margin-right: 1%;
     float: right;
     background: rgba(255,255,255,.5);
-    width: 20px;
-    height: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.face {
+    margin-right: 1%;
+    float: right;
+    background: #3B5998;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     -webkit-border-radius: 50%;
 }
 
 .go-top i {
     color: #2A3542;
+}
+.face i {
+    color: #fff;
 }
 
 .site-min-height {

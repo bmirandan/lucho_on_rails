@@ -32,7 +32,7 @@
        
     var app = angular.module("myApp", []);
         
-        
+        // controladores de botones mainpage
     app.controller("putcontroller", function ($scope, $http) {
         
         
@@ -342,6 +342,7 @@
                            
                          
                         Necesitas ayuda para rellenar tus datos?
+                            
                         </a>
                         <ul class="dropdown-menu extended inbox">
                             
@@ -593,13 +594,7 @@
 		<div class="row">
         <!-- TWITTER PANEL -->
             
-                             <div onclick=" modal.style.display = "block";" id="myBtnface" class="col-lg-4 col-md-4 col-sm-4 mb">
-		.		<div class="al-panel pn" style="cursor:pointer; background: #3B5998;" >
-						<i class="fa fa-facebook fa-4x"></i>
-                        <p>Facebook</p>
-						<p class="user">Revisa nuestras redes sociales</p>
-					</div>
-				</div><!-- /col-md-4 -->
+                          
             
 				<div onclick=" modal.style.display = "block";" id="myBtn" class="col-lg-4 col-md-4 col-sm-4 mb">
 		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;" ng-if = <%= !form1 %>	 >
@@ -617,14 +612,7 @@
 					<div class="row">
                         
                         
-                          <div onclick=" modal.style.display = "block";" id="myBtntwit" class="col-lg-4 col-md-4 col-sm-4 mb">
-		.		<div class="al-panel pn" style="cursor:pointer; background: #55ACEE;" >
-						<i class="fa fa-twitter fa-4x"></i>
-                       <p>Facebook</p>
-						<p class="user">Revisa nuestras redes sociales</p>
-					</div>
-				</div><!-- /col-md-4 -->
-                           <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
+                <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
 							<div class="al-panel pn" style=" cursor:pointer; background: #bd6556;" ng-if=<%= !form2 %>>
 								<i class="fa fa-briefcase fa-4x"></i>
 								<p>Formulario 2</p>
@@ -643,6 +631,28 @@
                                 
 							</div>
 						</div>
+        
+        <div class="col-lg-4 col-md-3 col-sm-10">
+      				<!-- -- ALERTS EXAMPLES ---->
+      				
+      				
+      				<!-- -- DISMISSABLE ALERT ---->
+      				
+      				<!-- -- BADGES ---->
+      				<div style=" border-radius: 5px 50px 5px; background:#56a4bd ; margin-top: 20px;" class="showback">
+      					<h2 style="color: #fff">¿Cómo lo hacemos?</h2>
+                        <div style="margin: inherit">
+                        <h5 style="color: #fff" >
+Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo personal como para enfrentar efectivamente los procesos de inserción laboral. Te ayudaremos a generar tu CV, y te ofreceremos ser parte de diversas Charlas y Talleres en la V Región. También te contactaremos con empresas y te acompañaremos en el proceso de adaptación a tu nuevo puesto de trabajo.</h5>
+                            
+                            </div>
+      				</div><!-- /showback -->
+      				
+      				<!-- -- LABELS ---->
+      				
+      			
+      			</div><!-- /col-lg-6 -->
+      			
 						<!-- -- TODO PANEL ---->
 				
 					<!-- /col-md-4 -->
@@ -715,8 +725,13 @@
       <footer style=" margin-top:30px ;bottom: 0; "class="site-footer">
           <div class="text-center">
               2017 - Lifeware.
-              <a href="#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
+            
+              <a  class="face" href="https://www.facebook.com/" >
+                  <i class="fa fa-facebook fa-3x"></i>
+              </a>
+              
+              <a  style="background: #55ACEE" class="face" href="https://twitter.com/realdonaldtrump?lang=es" >
+                  <i class="fa fa-twitter fa-3x"></i>
               </a>
           </div>
       </footer>

@@ -1,4 +1,4 @@
-var bcrypt = require('bcrypt-nodejs'),
+        var bcrypt = require('bcrypt-nodejs'),
     Model = require('../model/models.js');
  var nodemailer = require("nodemailer");
 
@@ -70,11 +70,16 @@ module.exports.index = function(req, res){
     
     module.exports.send = function(req, res){
 
-    
-    
+   var data;
+   Model.User.findById(req.params.id).then(function(user) {
+  // project will be an instance of Project and stores the content of the table entry
+  // with id 123. if such an entry is not defined you will get null
+    data= user;
+
+
 
   
-  
+    
   var smtpTransport = nodemailer.createTransport({
    service: "Gmail",  // sets automatically host, port and connection security settings
    auth: {
@@ -86,19 +91,19 @@ module.exports.index = function(req, res){
     
 
 smtpTransport.sendMail({  //email options
-   from: "Sender Name <deskisio10@gmail.com>", // sender address.  Must be the same as authenticated user if using Gmail.
-   to: "Receiver Name <benjamin.miranda.12@sansano.usm.cl", // receiver
-   subject: "Help! "+ req.params.id, // subject
-   text: " información importante " // body
+   from: data.email, // sender address.  Must be the same as authenticated user if using Gmail.
+   to: "< benjamin.miranda.12@sansano.usm.cl", // receiver
+   subject: " Pilar Pánic Button id:"+  user.id , // subject
+   text: "El usuario: " + user.username + " requiere su ayuda \n"+ "Información de contacto. \n"+"\n"+"Teléfono: " + user.telephone +"\n"+ "Correo: "+ user.email      // body
 }, function(error, response){  //callback
    if(error){
        console.log(error);
    }else{
-       console.log("Message sent: " + response.message);
+       console.log("Message sent: " + response.message );
    }
    
    smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
-    
+    });
     
 });
     

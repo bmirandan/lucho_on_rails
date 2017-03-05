@@ -40,7 +40,7 @@ module.exports = function(express) {
   router.put('/userApplications/:id', userApplicationController.update);
   router.delete('/userApplications/:id', userApplicationController.delete); 
 
-
+    
   router.post('/login', passport.authenticate('local', {
       successRedirect: '/dashboard',
       failureRedirect: '/home',
@@ -78,11 +78,7 @@ module.exports = function(express) {
   
  
    
-  router.get('/myapply', isAuthenticated, function(req, res) {
-    res.sendFile('myapply.html', {
-        root: './views'
-    });
-  })
+  
 
 
   return router

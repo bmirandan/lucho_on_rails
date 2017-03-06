@@ -16,10 +16,11 @@ module.exports = function(express) {
   }
   
   router.get('/halp/:id', signupController.send)
+
  
   router.get('/signup', signupController.show)
   router.post('/signup', signupController.signup)
-  router.get('/users', signupController.index)
+  router.get('/lista', signupController.index)
   router.put('/users/:id', signupController.update)
     
   router.get('/offers', offerController.index)
@@ -62,13 +63,26 @@ module.exports = function(express) {
   })
 
   router.get('/dashboard', isAuthenticated, function(req, res) {
-      res.render('dashboard.html', {username: req.user.username, 
+
+         if(req.user.id == 18 || req.user.id == 19 )res.render('admin.html', {username: req.user.username, 
                                     id : req.user.id, 
                                     form1:req.user.form1,
                                     form2:req.user.form2,
                                     form3:req.user.form3,
                                     form4:req.user.form4
                                    })
+         
+         else{ res.render('dashboard.html',{username: req.user.username, 
+                                    id : req.user.id, 
+                                    form1:req.user.form1,
+                                    form2:req.user.form2,
+                                    form3:req.user.form3,
+                                    form4:req.user.form4
+                                   })
+             
+             
+             
+         }
   }) 
 
   router.get('/logout', function(req, res) {

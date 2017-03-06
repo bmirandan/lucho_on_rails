@@ -32,12 +32,18 @@
        
     var app = angular.module("myApp", []);
         
-        
+        // controladores de botones mainpage
     app.controller("putcontroller", function ($scope, $http) {
         
         
         
     $scope.value2=0;
+    $scope.notifytitle=" Tus datos están incompletos";
+    $scope.notifymessage="  Debes rellenar la forma para que";
+    $scope.notifymessage1="tengamos tus datos. Si  no lo haces";
+    $scope.notifymessage2= "te llamaremos en unos días. ";
+    
+    $scope.data={};
         
     var form1 = <%= form1 %>;
     var form2 = <%= form2 %>;
@@ -57,7 +63,12 @@
         $scope.value2=3;
     }
     if(form1 && form2 && form3 && form4){
+        $scope.notifytitle="Tus datos están completos";
+        $scope.notifymessage=" Atento los proximos días,";
+        $scope.notifymessage1="puede que te llamemos pronto";
+        $scope.notifymessage2="";
         
+    
         $scope.value2=4;
     }
     $scope.SendData = function () {
@@ -86,14 +97,14 @@
             });
         }; 
         
-    $scope.SendData2 = function () {
+    $scope.SendData3 = function () {
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
             var data = {
                
                 cargo: $scope.cargo,  
                
-                form2: true
+                form3: true
                 
                 
             };
@@ -109,7 +120,8 @@
             });
         };   
         
-    $scope.SendData3 = function () {
+ 
+    $scope.SendData4 = function () {
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
             var data = {
@@ -118,21 +130,21 @@
                techelp: $scope.techelp ,
                registrado: $scope.registrado ,
                pension : $scope.pension ,
-               form3: true
+               form4: true
            
             };
                 
                   
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-                 window.location.href = "http://localhost:8080/";    
+                 window.location.href = "http://localhost:8080/dashboard";    
                 
             })
             .error(function (data, status, header, config) {
                 
             });
         }; 
-    $scope.SendData4 = function () {
+    $scope.SendData2 = function () {
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
             var data = {
@@ -141,7 +153,7 @@
             ocupacion: $scope.ocupacion,
             omil: $scope.omil,
             experiencialab: $scope.experiencialab,
-            form4: true
+            form2: true
             };
                 
                   
@@ -163,23 +175,21 @@
             
            // use $.param jQuery function to serialize data from JSON 
              var ida= (<%= id %>).toString()  ;
-            
-           var data = {
-               username: (<%= username %>).toString() 
-           };
-                
-            $http.post('http://localhost:8080/halp' , data)
-            .success(function (data, status, headers, config) {
-                 window.location.href = "http://localhost:8080/dashboard";    
-                
-            })
-            .error(function (data, status, header, config) {
-                
-            });
+    
+            $http.get('http://localhost:8080/halp/'+ida);
+          
         }; 
         
        
   
+               $scope.ShowData = function () {
+           // use $.param jQuery function to serialize data from JSON 
+           var ida= (<%= id %>).toString()  ;
+        
+                  
+            $http.get('http://localhost:8080/lista/');
+           
+        };  
         
 
     }); </script>
@@ -281,73 +291,26 @@
             <!--logo start-->
             <a style="margin-left 10px" href="#" class="logo"><b>Lifeware work</b></a>
             <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
+            <div ng-controller="putcontroller" class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
                     <!-- settings start -->
         
                     <!-- settings end -->
                     <!-- inbox dropdown start-->
-                    <li id="header_inbox_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <i class="fa fa-bell" ></i>
                             
-                           
-                            <span class="badge bg-theme">  <div ng-controller="putcontroller" >
-                                
-                                
-                                {{value2}} /4
-                                
-                                </div></span> <!--se debe actualizar -->
-                        </a>
-                        <ul class="dropdown-menu extended inbox">
-                            <div class="notify-arrow notify-arrow-green"></div>
-                            <li>
-                                <p class="green">No has completado tus datos</h2
-                                
-                            </li>
-                            <li>
-                                <a href="#">
-                                    <span class="photo"><img alt="avatar" src="/styles/assets/img/ui-zac.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Lifeware Work</span>
-                                      
-                                    <span class="time">  </span>
-                                       
-                                    </span>
-                                    <span class="message">
-                                    Debes rellenar la forma para que <br/>tengamos tus datos. Si  no lo haces<br/>te llamaremos en unos días.
-                                    </span>
-                                    
-                                </a>
-                            </li>
-                          
-                        </ul>
-                    </li>          
-                    
-                    <li id="header_inbox_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <i class="fa fa-ambulance" ></i>
-                            
-                           
-                         
-                            Necesitas ayuda para rellenar tus datos?
-                        </a>
-                        <ul class="dropdown-menu extended inbox">
-                            
-                            <div class="notify-arrow notify-arrow-green"></div>
+                    <li>
+                      
+                    </li>
+                  
                             <li>
                                   
                                     <div ng-controller="putcontroller">
-                                        <button style="allign:left width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendEmail()">Ayudame</button> </div> 
+                                        <button style="allign:left width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="ShowData()">Mostrar Datos</button> </div> 
                              
                             </li>
                            
-                            <li>
-                             <a>
-                                <b>Presiona Ayudame y te llamaremos <br>en 24 horas.   </b>
-                             </a>
-                            </li>
+                            
                           
                         </ul> 
                     </li>
@@ -389,7 +352,7 @@
         </div>
             <br>
             <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
            
             <h2  style=" font-size: 12px ; color: #000">Nombres</h2> 
@@ -437,14 +400,14 @@
           
                   <br>
                 <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
                
          <h2 style=" font-size: 12px ; color: #000">Comente cargos en los que se ha desempeñado</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
             <br>            
       
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData2()">Enviar</button> <br>
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Enviar</button> <br>
         </div>
             </form>
             
@@ -469,7 +432,7 @@
           
                   <br>
                 <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
                
            
@@ -501,7 +464,7 @@
         <br>
              
       
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Enviar</button> <br> 
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
         </div>
                            <br>
             </form>
@@ -527,7 +490,7 @@
           
                   <br>
                 <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
                
            
@@ -560,7 +523,7 @@
                     <option value="no">No</option>
                 </select>
        <br>
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData2()">Enviar</button> <br> 
         </div>
       <br>
      </form>
@@ -582,42 +545,29 @@
         <!-- -- 1st ROW OF PANELS ---->
 		<div class="row">
         <!-- TWITTER PANEL -->
-				<div onclick=" modal.style.display = "block";" id="myBtn" class="col-lg-4 col-md-4 col-sm-4 mb">
-		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;">
-						<i class="fa fa-phone-square fa-4x"></i>
-						<p>Formulario 1</p>
-						<p class="user">Rellena tu información de contacto</p>
-					</div>
-				</div><!-- /col-md-4 -->
             
-		<br>
-            <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb">
-							<div class="al-panel pn" style=" cursor:pointer; background: #666666;">
-								<i class="fa fa-graduation-cap fa-4x"></i>
-								<p>Formulario 4</p>
-								<p class="user"> Cuentanos sobre tu ocupacion</p>
-							</div>
-						</div><!-- /col-md-4 -->
-			
-						
-		
-					</div><!-- --/END 1ST ROW OF PANELS ---->
-					
+                          
+               
+				      
+    </div><!-- --/END 1ST ROW OF PANELS ---->
+    
+  
+				
+        
 					<!-- -- 2ND ROW OF PANELS ---->
 					<div class="row">
+                        
+ 
+
+      				
+      				<!-- -- LABELS ---->
+      				
+      			
+      			</div><!-- /col-lg-6 -->
+      			
 						<!-- -- TODO PANEL ---->
 				
-						<div onclick=" modal.style.display = "block";" id="myBtn1" class=" col-lg-4 col-md-4 col-sm-4 mb">
-                         
-							<div class="al-panel pn" style="cursor:pointer; background: #bd6556;">
-								<i class="fa fa-briefcase fa-4x"></i>
-								<p>Formulario 2</p>
-								<p class="user">Cuentanos sobre tu experiencia laboral</p>
-                                
-                                
-                                
-							</div>
-						</div><!-- /col-md-4 -->
+					<!-- /col-md-4 -->
             	
                       
 						<!-- -- PROFILE 01 PANEL ---->
@@ -627,30 +577,23 @@
 						
                         
 					</div><!-- --/END 2ND ROW OF PANELS ---->
-					
+				
 					<!-- -- 3RD ROW OF PANELS ---->
 					<!-- Product Panel -->
 					<div class="row">
-							<div onclick=" modal.style.display = "block";" id="myBtn2" class="col-lg-4 col-md-4 col-sm-4 mb">
-							<div class="al-panel pn" style=" cursor:pointer; background: #56a4bd;">
-								<i class="fa fa-wheelchair fa-4x"></i>
-								<p>Formulario 3</p>
-								<p class="user">Comenta acerca de tu discapacidad</p>
-							</div>
-						</div><!-- /col-md-4 -->
-						
-						<!-- -- Spotify Panel ---->
-						
-					</div><!-- -- END 3RD ROW OF PANELS ---->
+					
+					<!-- -- END 3RD ROW OF PANELS ---->
           		
-                      <!-- CHART PANELS -->
+                    <div>  <!-- CHART PANELS -->
                      
                     
 					<!-- -- 5TH ROW OF PANELS ---->
 				
 			<div class="row">
-							
+							  
+			
 						
+				
 						<!-- -- Spotify Panel ---->
 						
 					</div><!-- -- END 3RD ROW OF PANELS ---->
@@ -682,13 +625,28 @@
       
       <!--main content end-->
       <!--footer start-->
-      <footer style=" margin-top:30px ;bottom: 0; "class="site-footer">
+      <footer style=" margin-top:10px ;bottom: 0; "class="site-footer">
+          <div ng-controller="putcontroller">
           <div class="text-center">
               2017 - Lifeware.
-              <a href="#" class="go-top">
-                  <i class="fa fa-angle-up"></i>
+              
+              <a  class="face" href="https://www.facebook.com/" >
+                  <i class="fa fa-facebook fa-3x"></i>
               </a>
+              
+              <a  style="background: #55ACEE" class="face" href="https://twitter.com/realdonaldtrump?lang=es" >
+                  <i class="fa fa-twitter fa-3x"></i>
+              </a>
+              
+          
+                    <a ng-click="SendEmail()"  style="background: #ee5454" class="face" href="#"> 
+                  <i class="fa fa-ambulance fa-3x"></i>
+              </a>
+           
+            
           </div>
+          </div>                
+             
       </footer>
       <!--footer end-->
   </section>

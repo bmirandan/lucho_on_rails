@@ -400,7 +400,7 @@
         </div>
             <br>
             <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
            
             <h2  style=" font-size: 12px ; color: #000">Nombres</h2> 
@@ -448,7 +448,7 @@
           
                   <br>
                 <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
                
          <h2 style=" font-size: 12px ; color: #000">Comente cargos en los que se ha desempeñado</h2> 
@@ -480,7 +480,7 @@
           
                   <br>
                 <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
                
            
@@ -538,7 +538,7 @@
           
                   <br>
                 <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Logout </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
                
            
@@ -595,34 +595,31 @@
         <!-- TWITTER PANEL -->
             
                           
-            
+               
 				<div onclick=" modal.style.display = "block";" id="myBtn" class="col-lg-4 col-md-4 col-sm-4 mb">
-		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;" ng-if = <%= !form1 %>	 >
+                     <div ng-if = <%= !form1 %> >
+		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;" 	 >
 						<i class="fa fa-phone-square fa-4x"></i>
 						<p>Formulario 1</p>
 						<p class="user">Rellena tu información de contacto</p>
 					</div>
 				</div>
-
+                </div>
        
+                  <br>
             
-					</div><!-- --/END 1ST ROW OF PANELS ---->
-					
-					<!-- -- 2ND ROW OF PANELS ---->
-					<div class="row">
-                        
-                        
                 <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
-							<div class="al-panel pn" style=" cursor:pointer; background: #bd6556;" ng-if=<%= !form2 %>>
+							<div class="al-panel pn" style=" cursor:pointer; background: #bd6556;" ng-if=<%= form1 && !form2 %>>
 								<i class="fa fa-briefcase fa-4x"></i>
 								<p>Formulario 2</p>
 								<p class="user"> Cuentanos sobre tu ocupación</p>
 							</div>
 						</div><!-- /col-md-4 -->
-	
+            
+                    <br>
 						<div onclick=" modal.style.display = "block";" id="myBtn1" class=" col-lg-4 col-md-4 col-sm-4 mb">
                          
-							<div class="al-panel pn" style="cursor:pointer; background: #666666;"  ng-if=<%= !form3 %>	>
+                            <div class="al-panel pn" style="cursor:pointer; background: #666666;"  ng-if=<%= form1 && form2 && !form3 %>	>
 								<i class="fa fa-briefcase fa-4x"></i>
 								<p>Formulario 3</p>
 								<p class="user">Cuentanos sobre tu experiencia laboral</p>
@@ -631,15 +628,20 @@
                                 
 							</div>
 						</div>
-        
-        <div class="col-lg-4 col-md-3 col-sm-10">
-      				<!-- -- ALERTS EXAMPLES ---->
-      				
-      				
-      				<!-- -- DISMISSABLE ALERT ---->
-      				
-      				<!-- -- BADGES ---->
-      				<div style=" border-radius: 5px 50px 5px; background:#56a4bd ; margin-top: 20px;" class="showback">
+                    <br>
+        		<div onclick=" modal.style.display = "block";" id="myBtn2" class="col-lg-4 col-md-4 col-sm-4 mb" >
+							<div class="al-panel pn" style=" cursor:pointer; background: #56a4bd;" ng-if=<%= form1 && form2 && form3 && !form4 %> >
+								<i class="fa fa-wheelchair fa-4x"></i>
+								<p>Formulario 4</p>
+								<p class="user">Comenta acerca de tu discapacidad</p>
+							</div>
+                            </div><!-- /col-md-4 -->
+				
+                    <br>
+    <div ng-if=<%=!form4 %> >
+    <div style=" margin-left:20% ; margin-right30%;" class="col-lg-5 col-md-5 col-sm-10">
+ 				
+      				<div style="border-radius: 5px 50px 5px; background:#56a4bd ; margin-top: 20px;" class="showback">
       					<h2 style="color: #fff">¿Cómo lo hacemos?</h2>
                         <div style="margin: inherit">
                         <h5 style="color: #fff" >
@@ -647,6 +649,41 @@ Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo persona
                             
                             </div>
       				</div><!-- /showback -->
+						<!-- -- Spotify Panel ---->
+						
+					</div>
+    
+    
+    
+    </div>
+    
+    <div ng-if= <%= form4 %>
+        <div style=" margin-left:60% ; margin-right30%;" class="col-lg-5 col-md-5 col-sm-10">
+ 				
+      				<div style="border-radius: 5px 50px 5px; background:#56a4bd ; margin-top: 20px;" class="showback">
+      					<h2 style="color: #fff">¿Cómo lo hacemos?</h2>
+                        <div style="margin: inherit">
+                        <h5 style="color: #fff" >
+Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo personal como para enfrentar efectivamente los procesos de inserción laboral. Te ayudaremos a generar tu CV, y te ofreceremos ser parte de diversas Charlas y Talleres en la V Región. También te contactaremos con empresas y te acompañaremos en el proceso de adaptación a tu nuevo puesto de trabajo.</h5>
+                            
+                            </div>
+      				</div><!-- /showback -->
+						<!-- -- Spotify Panel ---->
+						
+					</div>
+    <div>
+        
+        
+    </div><!-- --/END 1ST ROW OF PANELS ---->
+    
+  
+				
+        
+					<!-- -- 2ND ROW OF PANELS ---->
+					<div class="row">
+                        
+ 
+
       				
       				<!-- -- LABELS ---->
       				
@@ -669,19 +706,10 @@ Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo persona
 					<!-- -- 3RD ROW OF PANELS ---->
 					<!-- Product Panel -->
 					<div class="row">
-							<div onclick=" modal.style.display = "block";" id="myBtn2" class="col-lg-4 col-md-4 col-sm-4 mb" >
-							<div class="al-panel pn" style=" cursor:pointer; background: #56a4bd;" ng-if=<%= !form4 %> >
-								<i class="fa fa-wheelchair fa-4x"></i>
-								<p>Formulario 4</p>
-								<p class="user">Comenta acerca de tu discapacidad</p>
-							</div>
-						</div><!-- /col-md-4 -->
-						
-						<!-- -- Spotify Panel ---->
-						
-					</div><!-- -- END 3RD ROW OF PANELS ---->
+					
+					<!-- -- END 3RD ROW OF PANELS ---->
           		
-                      <!-- CHART PANELS -->
+                    <div>  <!-- CHART PANELS -->
                      
                     
 					<!-- -- 5TH ROW OF PANELS ---->

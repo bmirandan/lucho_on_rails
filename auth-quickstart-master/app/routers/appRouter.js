@@ -3,7 +3,8 @@ var passport = require('passport'),
     companyController = require('../controllers/companyController.js'),
     userController = require('../controllers/userController.js'),
     userApplicationController = require('../controllers/userApplicationController.js'),
-    offerController = require('../controllers/offerController.js');
+    offerController = require('../controllers/offerController.js'),
+    workController = require('../controllers/workController.js');
     
 
 module.exports = function(express) {
@@ -36,6 +37,12 @@ module.exports = function(express) {
   router.put('/offers/:id', offerController.update)
   router.delete('/offers/:id', offerController.delete)
 
+  router.get('/works', workController.index)
+  router.get('/works/:id', workController.show)
+  router.post('/works', workController.create)
+  router.put('/works/:id', workController.update)
+  router.delete('/works/:id', workController.delete)
+  
   router.get('/companies', companyController.index)
   router.get('/companies/:id', companyController.show);
   router.post('/companies', companyController.create);

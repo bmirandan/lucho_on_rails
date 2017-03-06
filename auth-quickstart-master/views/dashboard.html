@@ -99,16 +99,15 @@
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
             var data = {
-               
-                cargo: $scope.cargo,  
-               
+                position: $scope.cargo,
+                startDate: $scope.startDate,
+                endDate: $scope.endDate,
+                description: $scope.description,                
                 form3: true
-                
-                
             };
                 
                   
-            $http.put('http://localhost:8080/users/'+ ida , data)
+            $http.put('http://localhost:8080/works/'+ ida , data)
             .success(function (data, status, headers, config) {
                  window.location.href = "http://localhost:8080/dashboard";    
                 
@@ -144,14 +143,26 @@
     $scope.SendData2 = function () {
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
-            var data = {
-               
-            ecolaridad: $scope.ecolaridad,
-            ocupacion: $scope.ocupacion,
-            omil: $scope.omil,
-            experiencialab: $scope.experiencialab,
-            form2: true
-            };
+            if ($scope.experiencialab == "no"){
+                var data = {
+                    ecolaridad: $scope.ecolaridad,
+                    ocupacion: $scope.ocupacion,
+                    omil: $scope.omil,
+                    experiencialab: $scope.experiencialab,
+                    form2: true,
+                    form3: true
+                };
+            }
+            else{
+                var data = {
+                    ecolaridad: $scope.ecolaridad,
+                    ocupacion: $scope.ocupacion,
+                    omil: $scope.omil,
+                    experiencialab: $scope.experiencialab,
+                    form2: true
+                };
+            }
+            
                 
                   
             $http.put('http://localhost:8080/users/'+ ida , data)
@@ -162,7 +173,7 @@
             .error(function (data, status, header, config) {
                 
             });
-        };  
+        };
         
         
         $scope.SendEmail = function () {
@@ -453,24 +464,24 @@
            <ul>
     <li>
             <h2 style=" font-size: 12px ; color: #000">Cargo/Puesto</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+            <input type="text" class="form-control" style="color: #000" ng-model="position" required />
          
             
             <h2 style=" font-size: 12px ; color: #000">Empresa</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+            <input type="text" class="form-control" style="color: #000" ng-model="company" required />
              
         </li>    
             <li><h2 style=" font-size: 12px ; color: #000">Fecha Inicio</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+            <input type="text" class="form-control" style="color: #000" ng-model="startDate" required />
            
             
             <h2 style=" font-size: 12px ; color: #000">Fecha Término</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+            <input type="text" class="form-control" style="color: #000" ng-model="endDate" required />
                 
             </li>
                <li>
              <h2 style=" font-size: 12px ; color: #000">Descripción de responsabilidades/logros</h2> 
-          <textarea  type="textbox" class="form-control" style="color: #000" ng-model="cargo">
+          <textarea  type="textbox" class="form-control" style="color: #000" ng-model="description">
  </textarea>
 
              

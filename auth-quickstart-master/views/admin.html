@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="myApp">
+<html ng-app="myApp" >
 <head>
   <meta charset="utf-8">
     
@@ -35,7 +35,7 @@
         // controladores de botones mainpage
     app.controller("putcontroller", function ($scope, $http) {
         
-        
+    $scope.data1 =[{"id":1,"username":"bmirandan12","email":"123@gom.com","firstName":"Juan","lastName":"perez","password":"$2a$10$kzzISyJiFlUMiuhv0L0yQOH/JOzKBRWX9rniOHgBGwjdAtfUxZ2iy","telephone":"123","birthDate":"1112","address":"2121131","state":"1212asadsd","cargo":"ddd","tipoD":"Cognitiva","techelp":"Ninguna","registrado":"no","pension":"no","ecolaridad":"Básica incompleta","ocupacion":"1","omil":"no","experiencialab":"si","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$kzzISyJiFlUMiuhv0L0yQO","createdAt":"2017-02-20T05:45:55.393Z","updatedAt":"2017-02-26T23:34:56.158Z"},{"id":2,"username":"lucho","email":"lucho@luis.pato","firstName":"juan","lastName":"lo","password":"$2a$10$XqGksT0QcTVEfX3H/XUDPOCVCm5jDsAjX96tahNK3.d.DvO5xL8Y2","telephone":"165465","birthDate":"123123","address":"123123","state":"123123","cargo":"asjajsda","tipoD":"Sensorial","techelp":"jjss","registrado":"si","pension":"si","ecolaridad":" Básica completa","ocupacion":"web developer","omil":"si","experiencialab":"si","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$XqGksT0QcTVEfX3H/XUDPO","createdAt":"2017-02-20T20:14:46.610Z","updatedAt":"2017-02-20T20:22:55.295Z"},{"id":3,"username":"camila","email":"c.gonzalez@lifeware.cl","firstName":null,"lastName":null,"password":"$2a$10$RDmPjCS3L15DQk/LM7eOO.fYk4T3fCx5KQZWBMl9qpcMO5ZASVeke","telephone":"991618136","birthDate":null,"address":null,"state":null,"cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":false,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$RDmPjCS3L15DQk/LM7eOO.","createdAt":"2017-02-20T20:27:28.682Z","updatedAt":"2017-02-20T20:27:28.682Z"},{"id":4,"username":"maria","email":"maria@hmmail.com","firstName":null,"lastName":null,"password":"$2a$10$3tNqZGc7D1RK/yFVc8XMBOSgURreZT/fqJ73Cb.qiENUfr1syUPd.","telephone":"19191","birthDate":null,"address":null,"state":null,"cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":false,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$3tNqZGc7D1RK/yFVc8XMBO","createdAt":"2017-02-20T20:29:23.740Z","updatedAt":"2017-02-20T20:29:23.740Z"},{"id":15,"username":"benjamin1","email":"benjamin.miranda.12@sansano.usm.cl","firstName":"1","lastName":"1","password":"$2a$10$0ckscFzyFB45KdQRqyCD3.MdredX7VPjAzqmGb2Z8wE8nmw7Ef0QG","telephone":"123","birthDate":"1","address":"1","state":"1","cargo":null,"tipoD":"Física","techelp":"1","registrado":"no","pension":"no","ecolaridad":"Básica incompleta","ocupacion":"1","omil":"si","experiencialab":"si","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$0ckscFzyFB45KdQRqyCD3.","createdAt":"2017-03-06T05:18:29.039Z","updatedAt":"2017-03-06T05:24:18.997Z"},{"id":9,"username":"HH","email":"Q@mai.com","firstName":"1","lastName":"1","password":"$2a$10$bsfRGYyxAwP//XU.L9PCWe5cTjfYlMN23q8S..haQ3OxFpSuZAuJu","telephone":"123","birthDate":"1","address":"1","state":"1","cargo":"ss","tipoD":"Física","techelp":"1","registrado":"si","pension":"si","ecolaridad":"Media incompleta","ocupacion":"1","omil":"si","experiencialab":"si","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$bsfRGYyxAwP//XU.L9PCWe","createdAt":"2017-02-27T20:26:32.737Z","updatedAt":"2017-02-27T20:34:19.030Z"},{"id":10,"username":"1","email":"123@gom.com","firstName":null,"lastName":null,"password":"$2a$10$zOREMnNJtH2eA5IwT3X5u.VmlqJLAm6YB9Z0Gc3EE4eCvtGdgwgKe","telephone":"111","birthDate":null,"address":null,"state":null,"cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":false,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$zOREMnNJtH2eA5IwT3X5u.","createdAt":"2017-03-03T07:24:49.247Z","updatedAt":"2017-03-03T07:24:49.247Z"},{"id":16,"username":"mm","email":"mm@mmm.com","firstName":"1","lastName":"1","password":"$2a$10$h951qcDKFfuQPXRn3.ax4O5BwqYR80drzwJ1SDTBzgstrZr17DOAa","telephone":"12","birthDate":"1","address":"1","state":"1","cargo":"2","tipoD":"Cognitiva","techelp":"1","registrado":"si","pension":"si","ecolaridad":"Básica incompleta","ocupacion":"1","omil":"no","experiencialab":"no","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$h951qcDKFfuQPXRn3.ax4O","createdAt":"2017-03-06T05:36:59.278Z","updatedAt":"2017-03-06T05:45:09.236Z"},{"id":5,"username":"dd","email":"ddd@gg.com","firstName":"ff","lastName":"ff","password":"$2a$10$FPpcbr9pwmW5whuZWu8D0O46xNdPaKK0SvUhNBcG/ieRjQsugHh3K","telephone":"12121","birthDate":"1","address":"1","state":"1","cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":"Básica incompleta","ocupacion":"1","omil":"si","experiencialab":"si","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$FPpcbr9pwmW5whuZWu8D0O","createdAt":"2017-02-27T13:29:16.846Z","updatedAt":"2017-02-27T17:06:05.424Z"},{"id":11,"username":"12","email":"123@gom.com","firstName":"1","lastName":"1","password":"$2a$10$yTs910lHF0i6uytMkPsqfeAh3xZM2QfEguHJ7yTIA3PwDxJ5hJ.pO","telephone":"12","birthDate":"1","address":"1","state":"1","cargo":"1","tipoD":"Cognitiva","techelp":"1","registrado":"si","pension":"si","ecolaridad":"Media incompleta","ocupacion":"1","omil":"no","experiencialab":"si","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$yTs910lHF0i6uytMkPsqfe","createdAt":"2017-03-03T09:31:34.464Z","updatedAt":"2017-03-03T09:35:38.786Z"},{"id":12,"username":"33","email":"33@33.com","firstName":null,"lastName":null,"password":"$2a$10$4FRHdhcNJslCzmhT/j4ifu/XHn9VFMw1FlXKJrW.6L9gbS2k5Q8B6","telephone":"12","birthDate":null,"address":null,"state":null,"cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":false,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$4FRHdhcNJslCzmhT/j4ifu","createdAt":"2017-03-05T08:03:38.559Z","updatedAt":"2017-03-05T08:03:38.559Z"},{"id":13,"username":"1212","email":"21212@fkaka.com","firstName":null,"lastName":null,"password":"$2a$10$IJFEB7XFgKufBO/VS.5bTewb0kGz6HgBE6bKgs4IQ0Ia.bMJ3gcti","telephone":"12","birthDate":null,"address":null,"state":null,"cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":false,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$IJFEB7XFgKufBO/VS.5bTe","createdAt":"2017-03-05T17:25:36.634Z","updatedAt":"2017-03-05T17:25:36.634Z"},{"id":14,"username":"ben","email":"deskisio10@gmail.com","firstName":null,"lastName":null,"password":"$2a$10$427vVP3jRvZDukVYACRlP.dzvTL8FMJrAGHApOG6ZG.KLadj6uyPe","telephone":"+56977743420","birthDate":null,"address":null,"state":null,"cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":false,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$427vVP3jRvZDukVYACRlP.","createdAt":"2017-03-05T22:05:23.432Z","updatedAt":"2017-03-05T22:05:23.432Z"},{"id":6,"username":"lui","email":"123@gom.com","firstName":"dd","lastName":"11","password":"$2a$10$xFQ3ys20Mtef6yuCtuySWeVuLsnGVEJMfA9Foi33S6o6dJn3xeJCq","telephone":"12","birthDate":"111","address":"11","state":"11","cargo":"s","tipoD":"Física","techelp":"1","registrado":"si","pension":"no","ecolaridad":" Básica completa","ocupacion":"1","omil":"no","experiencialab":"si","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$xFQ3ys20Mtef6yuCtuySWe","createdAt":"2017-02-27T17:06:35.591Z","updatedAt":"2017-02-27T17:08:54.843Z"},{"id":8,"username":"bmiranda1","email":"123@gom.com","firstName":"1","lastName":"1","password":"$2a$10$fcpTkLKkaot/MMHhm58b2eK3edYMZu1uCaLOCz.HsGpajRWUYl0GK","telephone":"123","birthDate":"1","address":"1","state":"1","cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":true,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$fcpTkLKkaot/MMHhm58b2e","createdAt":"2017-02-27T18:53:43.035Z","updatedAt":"2017-02-27T18:57:21.065Z"},{"id":17,"username":"dd12","email":"11@gg.com","firstName":"1","lastName":"1","password":"$2a$10$rgD1zPzsU8ItsCjEiuqm3OUk.ydQDnmZV/21nDwOFFAz8Tm7VvyOO","telephone":"12","birthDate":"1","address":"1","state":"1","cargo":"1","tipoD":"Física","techelp":"1","registrado":"si","pension":"si","ecolaridad":"Media incompleta","ocupacion":"1","omil":"si","experiencialab":"si","form1":true,"form2":true,"form3":true,"form4":true,"salt":"$2a$10$rgD1zPzsU8ItsCjEiuqm3O","createdAt":"2017-03-06T05:50:03.343Z","updatedAt":"2017-03-06T05:50:44.175Z"},{"id":18,"username":"Camila","email":"c.gonzalez@lifeware.cl","firstName":null,"lastName":null,"password":"$2a$10$fvLpkboYVk9frlcFn3RufO7QsxUD0EBi3d7/eOvLQnmb1tuKlqirG","telephone":"818181","birthDate":null,"address":null,"state":null,"cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":false,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$fvLpkboYVk9frlcFn3RufO","createdAt":"2017-03-06T07:02:55.619Z","updatedAt":"2017-03-06T07:02:55.619Z"},{"id":19,"username":"Constanza","email":"c.zamora@lifeware.cl","firstName":"1","lastName":"1","password":"$2a$10$t1BAES7BmJOl/To4qPoXxuZyDUUTcOnX3P3/WTUb.y6smxma3ttsi","telephone":"5656565","birthDate":"1","address":"1","state":"1","cargo":null,"tipoD":null,"techelp":null,"registrado":null,"pension":null,"ecolaridad":null,"ocupacion":null,"omil":null,"experiencialab":null,"form1":true,"form2":false,"form3":false,"form4":false,"salt":"$2a$10$t1BAES7BmJOl/To4qPoXxu","createdAt":"2017-03-06T07:06:24.013Z","updatedAt":"2017-03-06T07:07:20.520Z"}]  
         
     $scope.value2=0;
     $scope.notifytitle=" Tus datos están incompletos";
@@ -43,7 +43,7 @@
     $scope.notifymessage1="tengamos tus datos. Si  no lo haces";
     $scope.notifymessage2= "te llamaremos en unos días. ";
     
-    $scope.data={};
+
         
     var form1 = <%= form1 %>;
     var form2 = <%= form2 %>;
@@ -334,7 +334,7 @@
             </div>
         </header>
 
-<body ng-app="myApp" >
+<body  >
 
 <section id="main-content">
 
@@ -543,62 +543,53 @@
         <div class="row mt">
         <div class="col-lg-12">
         <!-- -- 1st ROW OF PANELS ---->
-		<div class="row">
-        <!-- TWITTER PANEL -->
-            
-                          
-               
-				      
-    </div><!-- --/END 1ST ROW OF PANELS ---->
-    
-  
-				
-        
-					<!-- -- 2ND ROW OF PANELS ---->
-					<div class="row">
-                        
- 
-
-      				
-      				<!-- -- LABELS ---->
-      				
-      			
-      			</div><!-- /col-lg-6 -->
-      			
-						<!-- -- TODO PANEL ---->
-				
-					<!-- /col-md-4 -->
-            	
-                      
-						<!-- -- PROFILE 01 PANEL ---->
-						
-						
-						<!-- -- PROFILE 02 PANEL ---->
-						
-                        
-					</div><!-- --/END 2ND ROW OF PANELS ---->
-				
-					<!-- -- 3RD ROW OF PANELS ---->
-					<!-- Product Panel -->
-					<div class="row">
-					
-					<!-- -- END 3RD ROW OF PANELS ---->
-          		
-                    <div>  <!-- CHART PANELS -->
-                     
-                    
-					<!-- -- 5TH ROW OF PANELS ---->
-				
-			<div class="row">
-							  
-			
-						
-				
-						<!-- -- Spotify Panel ---->
-						
-					</div><!-- -- END 3RD ROW OF PANELS ---->
-          		
-
+	
+<div class="row mt" >
+			  		<div class="col-lg-12">
+                      <div class="content-panel">
+                      <h4><i class="fa fa-angle-right"></i> Responsive Table</h4>
+                          <section id="unseen">
+                            <table ng-controller="putcontroller" style="color:#000"class="table table-bordered table-striped table-condensed">
+                              <thead>
+                              <tr>
+                                  <th>id</th>
+                                  <th>username</th>
+                             
+                                  <th>email</th>
+                                  <th>telephone</th>
+                                  <th>firstName</th>
+                                  <th>lastName </th>
+                                  <th>form1</th>
+                                  <th>form2</th>
+                                  <th>form3</th>
+                                  
+                                  
+                                  
+                              </tr>
+                              </thead>
+                              <tbody ng-repeat="user in data1">
+                                  
+                                <tr>
+                                        <td>{{user.id}} </td>
+                                        <td>{{user.username}} </td>
+                                        <td>{{user.email}} </td>
+                                        <td>{{user.telephone}} </td>
+                                        <td>{{user.firstName}} </td>
+                                        <td>{{user.lastName}} </td>
+                                        <td>{{user.form1}} </td>
+                                        <td>{{user.form2}} </td>
+                                        <td>{{user.form3}} </td>
+                                    
+                                       
+                                </tr>
+      
+                              
+                              </tbody>
+                          </table>
+                          </section>
+                  </div><!-- /content-panel -->
+               </div><!-- /col-lg-4 -->			
+		  	</div>
 					<!-- -- 6TH ROW OF PANELS ---->
 					
 					

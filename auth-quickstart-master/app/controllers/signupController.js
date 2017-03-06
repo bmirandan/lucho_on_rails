@@ -61,6 +61,7 @@ module.exports.index = function(req, res){
         
     })
       .then(function (companies) {
+        console.log(companies[1].id);
      res.status(200).json(companies);
       })
       .catch(function (error) {

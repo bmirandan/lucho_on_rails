@@ -335,7 +335,7 @@
                     <li>
                       
                     </li>
-                    <li id="header_inbox_bar" class="dropdown">
+                   <!-- <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-ambulance" ></i>
                             
@@ -352,7 +352,7 @@
                                     <div ng-controller="putcontroller">
                                         <button style="allign:left width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendEmail()">Ayudame</button> </div> 
                              
-                            </li>
+                            </li> 
                            
                             <li>
                              <a>
@@ -361,7 +361,7 @@
                             </li>
                           
                         </ul> 
-                    </li>
+                    </li>-->
                     
                 <li>
                     
@@ -432,7 +432,7 @@
   </div>
 </div>
 </div>
-    <!-- Fomulario2-->
+    <!-- Fomulario3-->
     <div id="myModal1" class="modal">  <!-- Modal content -->
 				            
 		<div class="modal-body">
@@ -450,13 +450,35 @@
                 <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
                 <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
-               
-         <h2 style=" font-size: 12px ; color: #000">Comente cargos en los que se ha desempeñado</h2> 
+           <ul>
+    <li>
+            <h2 style=" font-size: 12px ; color: #000">Cargo/Puesto</h2> 
             <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
-            <br>            
-      
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Enviar</button> <br>
-        </div>
+         
+            
+            <h2 style=" font-size: 12px ; color: #000">Empresa</h2> 
+            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+             
+        </li>    
+            <li><h2 style=" font-size: 12px ; color: #000">Fecha Inicio</h2> 
+            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+           
+            
+            <h2 style=" font-size: 12px ; color: #000">Fecha Término</h2> 
+            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+                
+            </li>
+               <li>
+             <h2 style=" font-size: 12px ; color: #000">Descripción de responsabilidades/logros</h2> 
+            <input type="text" class="form-control" style="color: #000" ng-model="cargo" required />
+             
+                   </li>
+<li>            <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Agregar</button>
+            
+       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Terminar</button> <br>
+            </ul>    
+</li>
+               </div>
             </form>
             
                  
@@ -465,7 +487,7 @@
   </div>
 </div>
     
-    <!-- Formulario3 -->
+    <!-- Formulario4 -->
     <div id="myModal2" class="modal">  <!-- Modal content -->
 	<div class="modal-body">
         <div class="col-lg-6 ds" >          
@@ -520,7 +542,7 @@
   </div>
 </div>
     
-    <!-- Formulario 4 -->
+    <!-- Formulario 2 -->
  
     <div id="myModal3" class="modal"><!-- Modal content -->
 	<div class="modal-body">
@@ -756,20 +778,21 @@ Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo persona
               2017 - Lifeware.
               
               <a  class="face" href="https://www.facebook.com/" >
+                 
                   <i class="fa fa-facebook fa-3x"></i>
               </a>
               
               <a  style="background: #55ACEE" class="face" href="https://twitter.com/realdonaldtrump?lang=es" >
                   <i class="fa fa-twitter fa-3x"></i>
               </a>
-              
-          
-                    <a ng-click="SendEmail()"  style="background: #ee5454" class="face" href="#"> 
-                  <i class="fa fa-ambulance fa-3x"></i>
+
+                    <a ng-click="SendEmail()"  style="background: #ee5454" class="face2" href="#" > 
+                       
+                  <i class="fa fa-ambulance fa-3x">  </i>
+                       
               </a>
            
-            
-          </div>
+                     </div>
           </div>                
              
       </footer>

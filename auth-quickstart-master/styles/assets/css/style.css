@@ -2290,10 +2290,25 @@ label {
     -webkit-border-radius: 50%;
 }
 
+.face2 {
+    margin-right: 1%;
+    float: right;
+    background: #3B5998;
+    width: auto;
+    height: auto;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+
 .go-top i {
     color: #2A3542;
 }
 .face i {
+    color: #fff;
+}
+.face2 i {
+    color: #fff;
+}.face2 p {
     color: #fff;
 }
 

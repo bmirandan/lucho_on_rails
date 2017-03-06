@@ -1,6 +1,7 @@
 var passport = require('passport'),
     signupController = require('../controllers/signupController.js'),
     companyController = require('../controllers/companyController.js'),
+    userController = require('../controllers/userController.js'),
     userApplicationController = require('../controllers/userApplicationController.js'),
     offerController = require('../controllers/offerController.js');
     
@@ -23,6 +24,12 @@ module.exports = function(express) {
   router.get('/lista', signupController.index)
   router.put('/users/:id', signupController.update)
     
+  router.get('/users', userController.index)
+  router.get('/users/:id', userController.show)
+  router.post('/users', userController.create)
+  router.put('/users/:id', userController.update)
+  router.delete('/users/:id', userController.delete)
+  
   router.get('/offers', offerController.index)
   router.get('/offers/:id', offerController.show)
   router.post('/offers', offerController.create)

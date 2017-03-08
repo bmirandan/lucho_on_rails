@@ -85,7 +85,8 @@ var Gritter = function () {
             // (int | optional) the time you want it to be alive for before fading out
             time: ''
         });
-        location.update();
+        
+         
         return false;
 
     }); 
@@ -105,7 +106,6 @@ var Gritter = function () {
             // (int | optional) the time you want it to be alive for before fading out
             time: ''
         });
-        
         return false;
 
     });

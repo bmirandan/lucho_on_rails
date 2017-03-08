@@ -27,22 +27,14 @@
     #test{}
     </script>
    <script src="/styles/assets/js/formjs.js"> </script>
-    
 <script>
-function cargar(div, desde)
-{
-     $(div).load(desde);
-}
-</script>
-    
-    <script>
        
     var app = angular.module("myApp", []);
         
         // controladores de botones mainpage
     app.controller("putcontroller", function ($scope, $http) {
         
-        
+
         
         
     // mensajes 
@@ -98,22 +90,11 @@ function cargar(div, desde)
             };
       
             $http.put('http://localhost:8080/users/'+ ida , data)
-            .success(function (data, status, headers, config) {
-                
-            location.update();   
-                
-                  $.gritter.add({
-            // (string | mandatory) the heading of the notification
-             title: 'Tus datos fueron enviados con exito!',
-            // (string | mandatory) the text inside the notification
-            text: 'Continue con el proximo formulario',
-            // (string | optional) the image to display on the left
-            
-            // (bool | optional) if you want it to fade out on its own or just sit there
-            sticky: false,
-            // (int | optional) the time you want it to be alive for before fading out
-            time: ''
-        });
+            .success(function (data, status, headers, config) { 
+          
+    setTimeout(function(){
+   window.location.reload();
+}, 2000);
       
             })
             .error(function (data, status, header, config) {
@@ -277,7 +258,7 @@ function cargar(div, desde)
 }
 
 /* The Close Button */
-.close {
+.close4 {
     color: #000;
     float: right;
     font-size: 28px;
@@ -285,8 +266,8 @@ function cargar(div, desde)
     font-weight: bold;
 }
 
-.close:hover,
-.close:focus {
+.close4:hover,
+.close4:focus {
     color: #fff;
     text-decoration: none;
     cursor: pointer;
@@ -467,7 +448,7 @@ function cargar(div, desde)
         <form ng-controller="putcontroller">
         <div class="modal-content">
         <div class="modal-header">
-        <button type="button"  class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button"  class="close1" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3>Información de Contacto</h3>
         </div>
             <br>
@@ -513,7 +494,7 @@ function cargar(div, desde)
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button" class="close1" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button" class="close3" data-dismiss="modal" aria-hidden="true">×</button>
         <h3 >Antecedentes laborales</h3>
         </div>
           
@@ -570,7 +551,7 @@ function cargar(div, desde)
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button" class="close2" data-dismiss="modal" aria-hidden="true">×</button>
+        <button type="button" class="close4" data-dismiss="modal" aria-hidden="true">×</button>
          <h3 >Antecedentes de discapacidad</h3>
         </div>
           
@@ -626,7 +607,7 @@ function cargar(div, desde)
         <div class="modal-content">
         <div class="modal-header">
             
-        <button  type="button"  class="close3" data-dismiss="modal" aria-hidden="true">×</button>
+        <button  type="button"  class="close2" data-dismiss="modal" aria-hidden="true">×</button>
             
             <h3>Antecedentes Ocupacionales</h3>
             
@@ -697,8 +678,7 @@ function cargar(div, desde)
 		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;"  ng-if=<%= !form1 %> >
 						<i class="fa fa-phone-square fa-4x"></i>
 						<p>Formulario 1</p>
-                         <p id="actualizar">Mi texto sin recargar</p>
-                         <p align="center">      <a href="#" onclick="javascript:recargar();">recargar</a></p>
+                        
 						<p class="user">Rellena tu información de contacto</p>
 					</div>
 				</div>
@@ -895,17 +875,17 @@ var btn2 = document.getElementById("myBtn2");
 var btn3 = document.getElementById("myBtn3");
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
 var span1 = document.getElementsByClassName("close1")[0];
 var span2 = document.getElementsByClassName("close2")[0];
 var span3 = document.getElementsByClassName("close3")[0];
+var span4 = document.getElementsByClassName("close4")[0];
 
 // When the user clicks the button, open the modal 
     
 btn11.onclick = function(){
-    modal1.style.display = "none";   
-    location.update();
-  
+    modal1.style.display = "none";  
+     
+                
 }
 btn12.onclick = function(){
     modal2.style.display = "none";   
@@ -937,28 +917,28 @@ btn3.onclick = function() {
     modal4.style.display = "block";
 }
 // When the user clicks on <span> (x), close the modal
-span.onclick = function() {
+span1.onclick = function() {
     
         modal1.style.display = "none";
   
      
     
 }
-span1.onclick = function() {
+span2.onclick = function() {
     
         modal2.style.display = "none";
   
      
     
 }
-span2.onclick = function() {
+span3.onclick = function() {
     
         modal3.style.display = "none";
   
      
     
 }
-span3.onclick = function() {
+span4.onclick = function() {
     
         modal4.style.display = "none";
   

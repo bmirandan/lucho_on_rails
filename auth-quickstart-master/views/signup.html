@@ -17,6 +17,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-resource.js"></script>
  <!--Escritura API-->
     <script>
+    $(document).ready(function() {
+  
+  $("#repre").change(function() {
+    
+    var el = $(this) ;
+    
+    if(el.val() === "Yomismo" ) {
+    $("#reprename").remove();
+    
+    }
+      else if(el.val() === "Soy representante" ) {
+        }
+  });
+  
+});    
+        
+        
+        
     var app = angular.module("myApp", []);
     app.controller("HttpputController", function ($scope, $http) {
 
@@ -64,8 +82,24 @@
 		<h2  class="form-login-heading">Registrate</h2>
         <div class="login-wrap">
         <h5 style="color: #000"> <i class="fa fa-book fa-fw"></i> Ingresa tu información con seriedad para poder contactarte.</h5>
+        
+            <label for="inputUsername" class="sr-only" >¿Quién me registra?" </label><br/>
+         <select class="form-control" id="repre" name="repre"  ng-model="whois" required>
+         <option>Soy representante</option>
+         <option>Yo mismo</option>
+         </select>
+            
+       <label for="inputUsername"  class="sr-only">Nombre de representante </label><br/>
+        <input type="text" id="reprename" name="reprename" class="form-control" placeholder=" juan perez" required autofocus> 
+         <label for="inputUsername" class="sr-only">Email representante </label><br/>
+        <input type="text" id="repreemail" name="repremail" class="form-control" placeholder="juan.perez@hotmail.com" required autofocus> 
+            
+         <label for="inputUsername" class="sr-only"> Teléfono representante </label><br/>
+        <input type="text" id="repretel" name="repretel" class="form-control" placeholder="+56977743452" required autofocus> 
+            
         <label for="inputUsername" class="sr-only">Nombre de usuario</label><br/>
-        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Nombre de usuario" required autofocus>     <label for="inputEmail" class="sr-only">Correo</label><br/>
+        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Nombre de usuario" required autofocus>  
+        <label for="inputEmail" class="sr-only">Correo</label><br/>
         <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Ej: lucas@mail.com" required autofocus>
         <label for="inputTelephone" class="sr-only">Teléfono</label><br/>
         <input type="text" id="inputTelephone" name="telephone" class="form-control" placeholder="Ej: +56978451220" required autofocus>    

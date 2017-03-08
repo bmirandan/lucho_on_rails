@@ -37,9 +37,9 @@ var Gritter = function () {
 
         $.gritter.add({
             // (string | mandatory) the heading of the notification
-            title: 'This is a Regular Notice!',
+            title: 'Tus datos fueron enviados con exito!',
             // (string | mandatory) the text inside the notification
-            text: 'This will fade out after a certain amount of time. This note also contains a link example. Thank you so much to try Dashgum. Developed by <a href="#" style="color:#FFD777">Alvarez.is</a>.',
+            text: 'Nos pondremos en contacto con usted en unos dias. La verdad no',
             // (string | optional) the image to display on the left
             image: 'assets/img/ui-sam.jpg',
             // (bool | optional) if you want it to fade out on its own or just sit there
@@ -48,6 +48,64 @@ var Gritter = function () {
             time: ''
         });
 
+        return false;
+
+    });  
+    
+    $('#add-email').click(function(){
+
+        $.gritter.add({
+            // (string | mandatory) the heading of the notification
+             title: 'Tus datos fueron enviados con exito!',
+            // (string | mandatory) the text inside the notification
+            text: 'Nos pondremos en contacto con usted en unos dias. La verdad no',
+            // (string | optional) the image to display on the left
+            
+            // (bool | optional) if you want it to fade out on its own or just sit there
+            sticky: false,
+            // (int | optional) the time you want it to be alive for before fading out
+            time: ''
+        });
+
+        return false;
+
+    });
+    
+        $('#send1').click(function(){
+
+        $.gritter.add({
+            // (string | mandatory) the heading of the notification
+             title: 'Tus datos fueron enviados con exito!',
+            // (string | mandatory) the text inside the notification
+            text: 'Continue rellenando formularios hasta morir',
+            // (string | optional) the image to display on the left
+            
+            // (bool | optional) if you want it to fade out on its own or just sit there
+            sticky: false,
+            // (int | optional) the time you want it to be alive for before fading out
+            time: ''
+        });
+        location.update();
+        return false;
+
+    }); 
+    
+    
+    $('#add-completado').click(function(){
+
+        $.gritter.add({
+            // (string | mandatory) the heading of the notification
+             title: 'Tus datos fueron enviados con exito!',
+            // (string | mandatory) the text inside the notification
+            text: 'Continue con el proximo formulario',
+            // (string | optional) the image to display on the left
+            
+            // (bool | optional) if you want it to fade out on its own or just sit there
+            sticky: false,
+            // (int | optional) the time you want it to be alive for before fading out
+            time: ''
+        });
+        
         return false;
 
     });

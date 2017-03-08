@@ -26,8 +26,15 @@
     <script type="text/css">
     #test{}
     </script>
-   <script src="/styles/assets/js/formjs.js"></script>
-
+   <script src="/styles/assets/js/formjs.js"> </script>
+    
+<script>
+function cargar(div, desde)
+{
+     $(div).load(desde);
+}
+</script>
+    
     <script>
        
     var app = angular.module("myApp", []);
@@ -38,7 +45,7 @@
         
         
         
-    // mensajes
+    // mensajes 
      $scope.msg1=true;
      $scope.msg2=false;
      $scope.msg3=false;
@@ -92,8 +99,22 @@
       
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-            location.update();      
-              
+                
+            location.update();   
+                
+                  $.gritter.add({
+            // (string | mandatory) the heading of the notification
+             title: 'Tus datos fueron enviados con exito!',
+            // (string | mandatory) the text inside the notification
+            text: 'Continue con el proximo formulario',
+            // (string | optional) the image to display on the left
+            
+            // (bool | optional) if you want it to fade out on its own or just sit there
+            sticky: false,
+            // (int | optional) the time you want it to be alive for before fading out
+            time: ''
+        });
+      
             })
             .error(function (data, status, header, config) {
                 
@@ -121,6 +142,30 @@
                 
             });
         };   
+        
+        
+        
+            $scope.reset = function () {
+           // use $.param jQuery function to serialize data from JSON 
+           var ida= (<%= id %>).toString()  ;
+            var data = {
+                form1:false,
+                form2:false,
+                form3:false,
+                form4:false
+                
+            };
+                
+                  
+            $http.put('http://localhost:8080/users/'+ ida , data)
+            .success(function (data, status, headers, config) {
+            location.reload();   
+                
+            })
+            .error(function (data, status, header, config) {
+                
+            });
+        };
         
     $scope.SendData4 = function () {
            // use $.param jQuery function to serialize data from JSON 
@@ -195,13 +240,7 @@
     
             $http.get('http://localhost:8080/halp/'+ida);
             
-            $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: 'Solicitud de asistencia enviada ',
-            // (string | mandatory) the text inside the notification
-            text: 'Te contactaremos en los proximos días, atento'
-        });
-          
+       
         }; 
         
        
@@ -295,7 +334,7 @@
     cursor: pointer;
 }
 </style>
-  <title>Lifeware Works</title>
+  <title> Amulekan</title>
   <!-- Bootstrap -->
 
 </head>
@@ -305,7 +344,7 @@
 <header class="header black-bg">
             
             <!--logo start-->
-            <a style="margin-left 10px" href="#" class="logo"><b>Lifeware work</b></a>
+            <a style="margin-left 10px" href="#" class="logo"><b>Amulekan</b></a>
             <!--logo end-->
             <div ng-controller="putcontroller" class="nav notify-row" id="top_menu">
                 <!--  notification start -->
@@ -367,7 +406,7 @@
                         </ul>
                     </li>          
                     <li>
-                      
+                       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="reset()">Reset</button>
                     </li>
                    <!-- <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -422,9 +461,8 @@
 
 
 <!-- Formulario1 -->
-    
-    <div id="myModal" class="modal"> <!-- Modal content -->
-		<div class="modal-body">
+     <div id="myModal1" class="modal">
+        <div class="modal-body">
         <div class="col-lg-6 ds" >          
         <form ng-controller="putcontroller">
         <div class="modal-content">
@@ -467,8 +505,7 @@
 </div>
 </div>
     <!-- Fomulario3-->
-    <div id="myModal1" class="modal">  <!-- Modal content -->
-				            
+<div id="myModal3" class="modal">  <!-- Modal content -->				            
 		<div class="modal-body">
         <div class="col-lg-6 ds" >          
             <form ng-controller="putcontroller">
@@ -505,11 +542,11 @@
                <li>
              <h2 style=" font-size: 12px ; color: #000">Descripción de responsabilidades/logros</h2> 
           <textarea  type="textbox" class="form-control" style="color: #000" ng-model="description">
- </textarea>
+            </textarea>
 
              
                    </li>
-<li>            <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Agregar</button>
+<li>            <button id="send3" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Agregar</button>
             
        <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Terminar</button> <br>
             </ul>    
@@ -524,7 +561,8 @@
 </div>
     
     <!-- Formulario4 -->
-    <div id="myModal2" class="modal">  <!-- Modal content -->
+    
+    <div id="myModal4" class="modal">  <!-- Modal content -->
 	<div class="modal-body">
         <div class="col-lg-6 ds" >          
             <form ng-controller="putcontroller">
@@ -570,7 +608,7 @@
         <br>
              
       
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
+       <button id="send4" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
         </div>
                            <br>
             </form>
@@ -580,7 +618,7 @@
     
     <!-- Formulario 2 -->
  
-    <div id="myModal3" class="modal"><!-- Modal content -->
+    <div id="myModal2" class="modal"><!-- Modal content -->
 	<div class="modal-body">
         <div class="col-lg-6 ds" >          
             <form ng-controller="putcontroller">
@@ -588,13 +626,13 @@
         <div class="modal-content">
         <div class="modal-header">
             
-        <button type="button"  class="close3" data-dismiss="modal" aria-hidden="true">×</button>
+        <button  type="button"  class="close3" data-dismiss="modal" aria-hidden="true">×</button>
             
             <h3>Antecedentes Ocupacionales</h3>
             
         </div>
           
-                  <br>
+            <br>
                 <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
                 <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
@@ -659,6 +697,8 @@
 		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;"  ng-if=<%= !form1 %> >
 						<i class="fa fa-phone-square fa-4x"></i>
 						<p>Formulario 1</p>
+                         <p id="actualizar">Mi texto sin recargar</p>
+                         <p align="center">      <a href="#" onclick="javascript:recargar();">recargar</a></p>
 						<p class="user">Rellena tu información de contacto</p>
 					</div>
 				</div>
@@ -666,7 +706,7 @@
        
                   <br>
             
-                <div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
+                <div onclick=" modal.style.display = "block";" id="myBtn1" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
 							<div class="al-panel pn" style=" cursor:pointer; background: #bd6556;" ng-if=<%= form1 && !form2 %>>
 								<i class="fa fa-briefcase fa-4x"></i>
 								<p>Formulario 2</p>
@@ -675,7 +715,7 @@
 						</div><!-- /col-md-4 -->
             
                     <br>
-						<div onclick=" modal.style.display = "block";" id="myBtn1" class=" col-lg-4 col-md-4 col-sm-4 mb">
+						<div onclick=" modal.style.display = "block";" id="myBtn2" class=" col-lg-4 col-md-4 col-sm-4 mb">
                          
                             <div class="al-panel pn" style="cursor:pointer; background: #666666;"  ng-if=<%= form1 && form2 && !form3 %>	>
 								<i class="fa fa-briefcase fa-4x"></i>
@@ -687,7 +727,7 @@
 							</div>
 						</div>
                     <br>
-        		<div onclick=" modal.style.display = "block";" id="myBtn2" class="col-lg-4 col-md-4 col-sm-4 mb" >
+        		<div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb" >
 							<div class="al-panel pn" style=" cursor:pointer; background: #56a4bd;" ng-if=<%= form1 && form2 && form3 && !form4 %> >
 								<i class="fa fa-wheelchair fa-4x"></i>
 								<p>Formulario 4</p>
@@ -811,7 +851,7 @@ Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo persona
       <footer style=" margin-top:10px ;bottom: 0; "class="site-footer">
           <div ng-controller="putcontroller">
           <div class="text-center">
-              2017 - Lifeware.
+              2017 - Un proyecto de Lifeware.
               
               <a  class="face" href="https://www.facebook.com/" >
                  
@@ -822,7 +862,7 @@ Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo persona
                   <i class="fa fa-twitter fa-3x"></i>
               </a>
 
-                    <a ng-click="SendEmail()"  style="background: #ee5454" class="face2" href="#" > 
+                    <a  id="add-email"  ng-click="SendEmail()"  style="background: #ee5454" class="face2" href="#" > 
                        
                   <i class="fa fa-ambulance fa-3x">  </i>
                        
@@ -838,15 +878,18 @@ Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo persona
    
 <script>
 // Get the modal
-var modal = document.getElementById('myModal');
 var modal1 = document.getElementById('myModal1');
 var modal2 = document.getElementById('myModal2');
 var modal3 = document.getElementById('myModal3');
+var modal4 = document.getElementById('myModal4');
 // Get the button that opens the modal
 var btn = document.getElementById("myBtn");
 
 var btn1 = document.getElementById("myBtn1");
 var btn11 = document.getElementById("send1");    
+var btn12 = document.getElementById("send2");    
+var btn13 = document.getElementById("send3");    
+var btn14 = document.getElementById("send4");    
     
 var btn2 = document.getElementById("myBtn2");
 var btn3 = document.getElementById("myBtn3");
@@ -860,66 +903,82 @@ var span3 = document.getElementsByClassName("close3")[0];
 // When the user clicks the button, open the modal 
     
 btn11.onclick = function(){
-    modal.style.display = "none";   
+    modal1.style.display = "none";   
+    location.update();
+  
+}
+btn12.onclick = function(){
+    modal2.style.display = "none";   
+    location.update();
+  
+}
+
+btn13.onclick = function(){
+    modal3.style.display = "none";   
+    location.update();
+  
+}
+btn14.onclick = function(){
+    modal4.style.display = "none";   
     location.update();
   
 }
 
 btn.onclick = function() {
-    modal.style.display = "block";
-}
-btn1.onclick = function() {
     modal1.style.display = "block";
 }
-btn2.onclick = function() {
+btn1.onclick = function() {
     modal2.style.display = "block";
 }
-btn3.onclick = function() {
+btn2.onclick = function() {
     modal3.style.display = "block";
+}   
+btn3.onclick = function() {
+    modal4.style.display = "block";
 }
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
     
-        modal.style.display = "none";
+        modal1.style.display = "none";
   
      
     
 }
 span1.onclick = function() {
     
-        modal1.style.display = "none";
+        modal2.style.display = "none";
   
      
     
 }
 span2.onclick = function() {
     
-        modal2.style.display = "none";
+        modal3.style.display = "none";
   
      
     
 }
 span3.onclick = function() {
     
-        modal3.style.display = "none";
+        modal4.style.display = "none";
   
      
     
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-        if (event.target == modal1) {
+    if (event.target == modal1) {
         modal1.style.display = "none";
     }
-    
-    if (event.target == modal2) {
+        if (event.target == modal2) {
         modal2.style.display = "none";
     }
+    
     if (event.target == modal3) {
         modal3.style.display = "none";
+    }
+    if (event.target == modal4) {
+        modal4.style.display = "none";
     }
 }
 </script>

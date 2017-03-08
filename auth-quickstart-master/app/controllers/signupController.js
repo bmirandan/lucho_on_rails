@@ -93,7 +93,7 @@ module.exports.index = function(req, res){
 
 smtpTransport.sendMail({  //email options
    from: data.email, // sender address.  Must be the same as authenticated user if using Gmail.
-   to: "< benjamin.miranda.12@sansano.usm.cl", // receiver
+   to: user.email, // receiver
    subject: " Pilar Pánic Button id:"+  user.id , // subject
    text: "El usuario: " + user.username + " requiere su ayuda \n"+ "Información de contacto. \n"+"\n"+"Teléfono: " + user.telephone +"\n"+ "Correo: "+ user.email      // body
 }, function(error, response){  //callback

@@ -106,23 +106,63 @@
            // use $.param jQuery function to serialize data from JSON 
            var ida= (<%= id %>).toString()  ;
             var data = {
-                position: $scope.cargo,
+                position: $scope.position,
+                company: $scope.company,
                 startDate: $scope.startDate,
                 endDate: $scope.endDate,
-                description: $scope.description,                
-                form3: true
+                description: $scope.description,   
+                userId: ida
+            };
+            var data2 = {  
+                form3 : false
             };
                 
                   
-            $http.put('http://localhost:8080/works/'+ ida , data)
-            .success(function (data, status, headers, config) {
-            location.reload();   
-                
+            $http.put('http://localhost:8080/users/'+ ida , data2)
+            .success(function (data2, status, headers, config) {
+                $http.post('http://localhost:8080/works/', data)
+                    .success(function (data, status, headers, config) { 
+                        location.reload();         
+                    })
+                    .error(function (data, status, header, config) {
+
+                    });                
             })
-            .error(function (data, status, header, config) {
+            .error(function (data2, status, header, config) {
                 
             });
-        };   
+        };
+        
+    $scope.SendData3v2 = function () {
+           // use $.param jQuery function to serialize data from JSON 
+           var ida= (<%= id %>).toString()  ;
+            var data = {
+                position: $scope.position,
+                company: $scope.company,
+                startDate: $scope.startDate,
+                endDate: $scope.endDate,
+                description: $scope.description,   
+                userId: ida
+            };
+            var data2 = {  
+                form3 : true
+            };
+                
+                  
+            $http.put('http://localhost:8080/users/'+ ida , data2)
+            .success(function (data2, status, headers, config) {
+                $http.post('http://localhost:8080/works/', data)
+                    .success(function (data, status, headers, config) { 
+                        location.reload();         
+                    })
+                    .error(function (data, status, header, config) {
+
+                    });                
+            })
+            .error(function (data2, status, header, config) {
+                
+            });
+        };
         
         
         
@@ -529,7 +569,7 @@
                    </li>
 <li>            <button id="send3" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Agregar</button>
             
-       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Terminar</button> <br>
+       <button id="send3v2" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3v2()">Terminar</button> <br>
             </ul>    
 </li>
                </div>

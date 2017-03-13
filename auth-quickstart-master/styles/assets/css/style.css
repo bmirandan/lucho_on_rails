@@ -1182,9 +1182,19 @@ PANELS CONFIGURATIONS
 	box-shadow: 0px 3px 2px #aab2bd;
 	padding-top: 15px;
 	padding-bottom: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .content-panel h4 {
 	margin-left: 10px;
+}
+
+.panel-height {
+  max-height: 1000000px; / change according to your requirement/
+}
+
+.panel-width {
+  max-width: 100000px; / change according to your requirement/
 }
 
 /*WEATHER PANELS*/

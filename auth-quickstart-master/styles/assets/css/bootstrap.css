@@ -13,6 +13,12 @@ html {
 body {
   margin: 0;
 }
+#wrapper {
+  top: 30px;
+  left: -180px;
+  right: 10px;
+  position: absolute;
+}
 article,
 aside,
 details,
@@ -1900,7 +1906,7 @@ pre code {
     float: left;
   }
   .col-lg-13 {
-    width: 1000%;
+    width: 700%;
   }
   .col-lg-12 {
     width: 100%;

@@ -16,6 +16,11 @@ module.exports.signup = function(req, res) {
   var password2 = req.body.password2
   var email = req.body.email
   var telephone = req.body.telephone
+  var representative = req.body.representative
+  var relationWithUser = req.body.relationWithUser
+  var nameRepresentative = req.body.nameRepresentative
+  var mailRepresentative = req.body.mailRepresentative
+  var telephoneRepresentative = req.body.telephoneRepresentative
   
   if (!username || !password || !password2 || !email || !telephone) {
     req.flash('error', "Please, fill in all the fields.")
@@ -39,7 +44,12 @@ module.exports.signup = function(req, res) {
     salt: salt, 
     email: email,
     password: hashedPassword,
-    telephone: telephone
+    telephone: telephone,
+    representative: representative,
+    relationWithUser: relationWithUser,
+    nameRepresentative: nameRepresentative,
+    mailRepresentative: mailRepresentative,
+    telephoneRepresentative: telephoneRepresentative
   }
   
   Model.User.create(newUser).then(function() {

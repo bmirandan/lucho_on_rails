@@ -78,7 +78,7 @@ module.exports = function(express) {
 
   router.get('/dashboard', isAuthenticated, function(req, res) {
 
-         if(req.user.id == 18 || req.user.id == 19 )res.render('admin.html', {username: req.user.username, 
+         if(req.user.id == 2 || req.user.id == 19 )res.render('admin.html', {username: req.user.username, 
                                     id : req.user.id, 
                                     form1:req.user.form1,
                                     form2:req.user.form2,

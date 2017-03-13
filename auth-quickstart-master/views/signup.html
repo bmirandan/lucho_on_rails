@@ -13,6 +13,19 @@
 		<link rel="stylesheet" href="/styles/eventually-assets/css/main.css" />
 		<!--[if lte IE 8]><link rel="stylesheet" href="/styles/eventually-assets/css/ie8.css" /><![endif]-->
 		<!--[if lte IE 9]><link rel="stylesheet" href="/styles/eventually-assets/css/ie9.css" /><![endif]-->
+        
+        <!-- Muestra datos a rellenar por representante dependiendo de la opcion seleccionada -->
+        <script>
+            function showRepresentative(that) {
+                if (that.value == "si") {
+                    document.getElementById("representativeData").style.display = "block";
+                } else {
+                    document.getElementById("representativeData").style.display = "none";
+                }
+            }
+        </script>
+        
+        
 	</head>
 	<body style="margin-left:15%">
 
@@ -31,7 +44,22 @@
 		<h2  class="form-login-heading">Registrate</h2>
         <div class="login-wrap">
         <p style="color: #fff"> <i class="fa fa-book fa-fw"></i> Ingresa tu información con seriedad para poder contactarte.</p>
-            
+        <h2 style=" font-size: 12px ; color: #fff"><i class="fa fa-fw"></i>¿Es usted un representante del usuario?</h2> 
+            <select class="form-control"  ng-model="representative" required onchange="showRepresentative(this);" >
+                <option style="color: #000" value="no">No</option>
+                <option style="color: #000" value="si">Sí</option>
+             </select>   
+        <div id="representativeData" style="display: none;">
+            <label for="relationWithUser" class="sr-only">Relacion con el usuario</label><br/>
+            <input type="text" id="relationWithUser" name="relationWithUser" class="form-control" placeholder="Relacion con usuario" autofocus> 
+            <label for="nameRepresentative" class="sr-only">Nombre representante</label><br/>
+            <input type="text" id="nameRepresentative" name="nameRepresentative" class="form-control" placeholder="Nombre representante" autofocus> 
+            <label for="mailRepresentative" class="sr-only">Correo representante</label><br/>
+            <input type="text" id="mailRepresentative" name="mailRepresentative" class="form-control" placeholder="Correo representante" autofocus> 
+            <label for="telephoneRepresentative" class="sr-only">Telefono representante</label><br/>
+            <input type="text" id="telephoneRepresentative" name="telephoneRepresentative" class="form-control" placeholder="Telefono representante" autofocus>     
+        </div>
+        
         <label for="inputUsername" class="sr-only">Nombre de usuario</label><br/>
         <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Nombre de usuario" required autofocus>  
         <label for="inputEmail" class="sr-only">Correo</label><br/>

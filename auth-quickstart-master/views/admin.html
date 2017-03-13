@@ -599,13 +599,19 @@
                               <thead>
                               <tr>
                                   <th>id</th>
+                                  
+                                  <th>¿Ingresado por representante?</th>
+                                  <th>Relacion con usuario</th>
+                                  <th>Nombre representante</th>
+                                  <th>Correo representante</th>
+                                  <th>Telefono representante</th>
+                                  
                                   <th>username</th>
                              
                                   <th>email</th>
-                                  <th>telephone</th>
+                                  <th> telephone </th>
                                   <th>firstName</th>
                                   <th>lastName </th>
-                                  <th> telephone </th>
                                   <th> birthDate </th>
                                   <th> Address </th>
                                   <th> State </th>
@@ -630,12 +636,16 @@
                                   
                                 <tr>
                                         <td>{{user.id}} </td>
+                                        <td>{{user.representative}} </td>
+                                        <td>{{user.relationWithUser}} </td>
+                                        <td>{{user.nameRepresentative}} </td>
+                                        <td>{{user.mailRepresentative}} </td>
+                                        <td>{{user.telephoneRepresentative}} </td>
                                         <td>{{user.username}} </td>
                                         <td>{{user.email}} </td>
                                         <td>{{user.telephone}} </td>
                                         <td>{{user.firstName}} </td>
                                         <td>{{user.lastName}} </td>
-                                        <td>{{user.telephone}} </td>
                                         <td>{{user.birthDate}} </td>
                                         <td>{{user.address}} </td>
                                         <td>{{user.state}} </td>

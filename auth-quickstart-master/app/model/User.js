@@ -28,11 +28,28 @@ var attributes = {
     type: Sequelize.STRING,
   },
 
+    //Representative Info
+    
+    representative: {
+        type: Sequelize.STRING
+    },
+    relationWithUser: {
+        type: Sequelize.STRING
+    },
+    nameRepresentative: {
+        type: Sequelize.STRING
+    },
+    mailRepresentative: {
+        type: Sequelize.STRING
+    },
+    telephoneRepresentative: {
+        type: Sequelize.STRING
+    },
 
     // < begin info primer form.
     
   telephone:{ 
-  type: Sequelize.STRING},
+    type: Sequelize.STRING},
 
   birthDate:{ 
     type: Sequelize.STRING},

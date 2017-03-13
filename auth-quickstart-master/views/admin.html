@@ -598,7 +598,7 @@
                             <table ng-controller="putcontroller" style="color:#000"class="table table-bordered table-striped table-condensed">
                               <thead>
                               <tr>
-                                  <th>id</th>
+                                  <th>Id</th>
                                   
                                   <th>¿Ingresado por representante?</th>
                                   <th>Relacion con usuario</th>
@@ -606,28 +606,31 @@
                                   <th>Correo representante</th>
                                   <th>Telefono representante</th>
                                   
-                                  <th>username</th>
-                             
-                                  <th>email</th>
-                                  <th> telephone </th>
-                                  <th>firstName</th>
-                                  <th>lastName </th>
-                                  <th> birthDate </th>
-                                  <th> Address </th>
-                                  <th> State </th>
-                                  <th> Cargo </th>
-                                  <th> Tipo de discapacidad </th>
-                                  <th> Ayuda tecnica </th>
-                                  <th> Registrado </th>
-                                  <th> Pension </th>
-                                  <th> Escolaridad </th>
-                                  <th> Ocupacion </th>
-                                  <th> OMIL </th>
-                                  <th> Experiencia </th>
-                                  <th>form1</th>
-                                  <th>form2</th>
-                                  <th>form3</th>
-                                  <th> form4 </th>
+                                  <th>Nombre de usuario</th>
+                                  <th>Email</th>
+                                  <th>Telefono</th>
+                                  <th>Nombres</th>
+                                  <th>Apellidos</th>
+                                  <th>Fecha de nacimiento</th>
+                                  <th>Direccion</th>
+                                  <th>Comuna</th>
+                                  
+                                  <th>Nivel de escolaridad</th>
+                                  <th>Ocupacion actual</th>
+                                  <th>OMIL</th>
+                                  <th>Experiencia</th>
+                                  
+                                  <th>Cargo</th>
+                                  
+                                  <th>Tipo de discapacidad</th>
+                                  <th>Ayuda tecnica</th>
+                                  <th>¿Posee Registro nacional de discapacidad?</th>
+                                  <th>Pension</th>
+                                  
+                                  <th>Forma 1 terminada</th>
+                                  <th>Forma 2 terminada</th>
+                                  <th>Forma 3 terminada</th>
+                                  <th>Forma 4 terminada</th>
                                   
                                   
                               </tr>
@@ -636,32 +639,39 @@
                                   
                                 <tr>
                                         <td>{{user.id}} </td>
-                                        <td>{{user.representative}} </td>
-                                        <td>{{user.relationWithUser}} </td>
-                                        <td>{{user.nameRepresentative}} </td>
-                                        <td>{{user.mailRepresentative}} </td>
-                                        <td>{{user.telephoneRepresentative}} </td>
-                                        <td>{{user.username}} </td>
-                                        <td>{{user.email}} </td>
-                                        <td>{{user.telephone}} </td>
-                                        <td>{{user.firstName}} </td>
-                                        <td>{{user.lastName}} </td>
-                                        <td>{{user.birthDate}} </td>
-                                        <td>{{user.address}} </td>
-                                        <td>{{user.state}} </td>
-                                        <td>{{user.cargo}} </td>
-                                        <td>{{user.tipoD}} </td>
-                                        <td>{{user.techelp}} </td>
-                                        <td>{{user.registrado}} </td>
-                                        <td>{{user.pension}} </td>
-                                        <td>{{user.ecolaridad}} </td>
-                                        <td>{{user.ocupacion}} </td>
-                                        <td>{{user.omil}} </td>
-                                        <td>{{user.experiencialab}} </td>
-                                        <td>{{user.form1}} </td>
-                                        <td>{{user.form2}} </td>
-                                        <td>{{user.form3}} </td>
-                                        <td>{{user.form4}} </td>
+                                    
+                                        <td>{{user.representative}}</td>
+                                        <td>{{user.relationWithUser}}</td>
+                                        <td>{{user.nameRepresentative}}</td>
+                                        <td>{{user.mailRepresentative}}</td>
+                                        <td>{{user.telephoneRepresentative}}</td>
+                                        
+                                        <td>{{user.username}}</td>
+                                        <td>{{user.email}}</td>
+                                        <td>{{user.telephone}}</td>
+                                        <td>{{user.firstName}}</td>
+                                        <td>{{user.lastName}}</td>
+                                        <td>{{user.birthDate}}</td>
+                                        <td>{{user.address}}</td>
+                                        <td>{{user.state}}</td>
+                                        
+                                        
+                                        <td>{{user.ecolaridad}}</td>
+                                        <td>{{user.ocupacion}}</td>
+                                        <td>{{user.omil}}</td>
+                                        <td>{{user.experiencialab}}</td>
+                                        
+                                        <td>{{user.cargo}} </td>    
+                                    
+                                        <td>{{user.tipoD}}</td>
+                                        <td>{{user.techelp}}</td>
+                                        <td>{{user.registrado}}</td>
+                                        <td>{{user.pension}}</td>
+                                    
+                                        <td>{{user.form1 ? 'Si' : 'No' }}</td>
+                                        <td>{{user.form2 ? 'Si' : 'No' }}</td>
+                                        <td>{{user.form3 ? 'Si' : 'No' }}</td>
+                                        <td>{{user.form4 ? 'Si' : 'No' }}</td>
                                        
                                 </tr>
       

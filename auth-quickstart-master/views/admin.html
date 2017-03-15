@@ -684,6 +684,20 @@
                                 <!-- PASO A CSV -->
                               
                           </section>
+                          
+                          <section>
+                            <div ng-controller="putcontroller">
+                    
+                             <left><h4 style="color: #000000"> Ver expereciencia laboral  </h4></left>     
+                      <select id="select1" onchange="func()" style="color:#000"> 
+                      <option ng-repeat="user in data1" ng-value="{{user.id}}">{{user.id}}</option>
+                          
+                      </select>
+                                
+                                <p style="color:#000" id="demo"></p>
+
+                            </div>
+                          </section>
                   </div><!-- /content-panel -->
                </div><!-- /col-lg-4 -->			
 		  	</div>
@@ -733,7 +747,7 @@ function func() {
                 }
     );
     
-
+    $scope.data2 = workna.query();
 }
 </script>    
     

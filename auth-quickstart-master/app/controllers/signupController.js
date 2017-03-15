@@ -53,7 +53,8 @@ module.exports.signup = function(req, res) {
   }
   
   Model.User.create(newUser).then(function() {
-    res.redirect('/home')
+    res.redirect('/signup')
+     req.flash('notify', "Usuario creado con exito")
   }).catch(function(error) {
     req.flash('error', "Please, choose a different username.")
     res.sendFile('signup.html', {

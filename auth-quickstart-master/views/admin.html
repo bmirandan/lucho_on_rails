@@ -708,7 +708,34 @@
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
 
+
+<script>
     
+ 
+    
+function func() {
+    
+       
+
+        
+    
+        
+    var id = document.getElementById("select1").value;
+    
+ 
+
+    document.getElementById("demo").innerHTML = "You selected: " +id;+
+        
+           var workna = $resource(
+                'http://localhost:8080/'+'works/'+id, {}, 
+                {
+                    query: { method: 'GET', isArray: true }
+                }
+    );
+    
+
+}
+</script>    
     
       
       <!--main content end-->

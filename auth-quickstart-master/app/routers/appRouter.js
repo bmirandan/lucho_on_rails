@@ -38,10 +38,10 @@ module.exports = function(express) {
   router.delete('/offers/:id', offerController.delete)
 
   router.get('/works', workController.index)
-  router.get('/works/:id', workController.show)
   router.post('/works', workController.create)
   router.put('/works/:id', workController.update)
   router.delete('/works/:id', workController.delete)
+  router.get('/works/:id', workController.showork)
   
   router.get('/companies', companyController.index)
   router.get('/companies/:id', companyController.show);
@@ -58,7 +58,7 @@ module.exports = function(express) {
     
   router.post('/login', passport.authenticate('local', {
       successRedirect: '/dashboard',
-      failureRedirect: '/home',
+      failureRedirect: '/singup',
       failureFlash: true 
   }))
   
@@ -70,15 +70,10 @@ module.exports = function(express) {
 
 
 
-  router.get('/home', function(req, res) {
-    res.sendFile('home.html', {
-        root: './views'
-    });
-  })
 
   router.get('/dashboard', isAuthenticated, function(req, res) {
 
-         if(req.user.id == 2 || req.user.id == 19 )res.render('admin.html', {username: req.user.username, 
+         if(req.user.id == 2 || req.user.id == 3 )res.render('admin.html', {username: req.user.username, 
                                     id : req.user.id, 
                                     form1:req.user.form1,
                                     form2:req.user.form2,

@@ -25,6 +25,20 @@ module.exports= {
       res.status(500).json(error);
     });
   },
+    
+  showork(req, res) {
+    Model.Work.findAll( {
+      where: {
+        userId: req.params.id
+      }
+    })
+    .then(function (work) {
+      res.status(200).json(work);
+    })
+    .catch(function (error){
+      res.status(500).json(error);
+    });
+  },
 
   //Create a new work using model.create()
   create(req, res) {

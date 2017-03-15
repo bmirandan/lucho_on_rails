@@ -69,6 +69,15 @@
         // controladores de botones mainpage
     app.controller("putcontroller", function ($scope, $http, $resource) {
         
+    var workna = $resource(
+                'http://localhost:8080/'+'works/', {}, 
+                {
+                    query: { method: 'GET', isArray: true }
+                }
+    );
+    
+    $scope.dataWorks = workna.query();
+        
     var Geonames = $resource(
                 'http://localhost:8080/'+'users/', {}, 
                 {
@@ -689,10 +698,34 @@
                             <div ng-controller="putcontroller">
                     
                              <left><h4 style="color: #000000"> Ver expereciencia laboral  </h4></left>     
-                      <select id="select1" onchange="func()" style="color:#000"> 
-                      <option ng-repeat="user in data1" ng-value="{{user.id}}">{{user.id}}</option>
-                          
-                      </select>
+                          <select ng-model="model.id" id="select1" onchange="func()" style="color:#000"> 
+                            <option ng-repeat="user in data1" ng-value="{{user.id}}">{{user.id}}</option> 
+                          </select>
+                        <table ng-controller="putcontroller" style="color:#000"class="table table-bordered table-striped table-condensed">
+                              <thead>
+                              <tr>
+                                  <th WIDTH="10px">Id</th>
+                                  <th WIDTH="10px">Posicion</th>    
+                                  <th WIDTH="10px">Compañia</th>    
+                                  <th WIDTH="10px">Fecha de inicio</th>    
+                                  <th WIDTH="10px">Fecha de termino</th>    
+                                  <th WIDTH="10px">Descripcion</th>    
+                              </tr>
+                              </thead>
+                              <tbody ng-repeat="work in dataWorks | filter: { userId: model.id }">
+                                  
+                                <tr>
+                                        <td>{{work.id}} </td>   
+                                        <td>{{work.position}} </td>
+                                        <td>{{work.company}} </td>
+                                        <td>{{work.startDate}} </td>
+                                        <td>{{work.endDate}} </td>
+                                        <td>{{work.description}} </td>
+                                </tr>
+      
+                              
+                              </tbody>
+                          </table>
                                 
                                 <p style="color:#000" id="demo"></p>
 
@@ -720,36 +753,7 @@
     <!-- Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
-
-
-<script>
-    
- 
-    
-function func() {
-    
-       
-
-        
-    
-        
-    var id = document.getElementById("select1").value;
-    
- 
-
-    document.getElementById("demo").innerHTML = "You selected: " +id;+
-        
-           var workna = $resource(
-                'http://localhost:8080/'+'works/'+id, {}, 
-                {
-                    query: { method: 'GET', isArray: true }
-                }
-    );
-    
-    $scope.data2 = workna.query();
-}
-</script>    
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script> 
     
       
       <!--main content end-->

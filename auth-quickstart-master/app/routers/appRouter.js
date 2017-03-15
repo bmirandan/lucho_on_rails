@@ -58,7 +58,7 @@ module.exports = function(express) {
     
   router.post('/login', passport.authenticate('local', {
       successRedirect: '/dashboard',
-      failureRedirect: '/singup',
+      failureRedirect: '/signup',
       failureFlash: true 
   }))
   

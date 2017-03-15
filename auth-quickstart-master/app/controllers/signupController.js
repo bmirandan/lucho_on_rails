@@ -104,7 +104,7 @@ module.exports.index = function(req, res){
 
 smtpTransport.sendMail({  //email options
    from: data.email, // sender address.  Must be the same as authenticated user if using Gmail.
-   to: user.email, // receiver
+   to: "benjamin.miranda.12@sansano.usm.cl", // receiver
    subject: " Pilar Pánic Button id:"+  user.id , // subject
    text: "El usuario: " + user.username + " requiere su ayuda \n"+ "Información de contacto. \n"+"\n"+"Teléfono: " + user.telephone +"\n"+ "Correo: "+ user.email      // body
 }, function(error, response){  //callback
@@ -115,7 +115,22 @@ smtpTransport.sendMail({  //email options
    }
    
    smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
-    });
+    }) ;
+       
+smtpTransport.sendMail({  //email options
+   from: data.user, // sender address.  Must be the same as authenticated user if using Gmail.
+   to: data.email, // receiver
+   subject: "Solicitud de asistencia" , // subject
+   text: "Nuestras ejecutivas se pondrán en contacto con usted en un plazo de 48 horas."      // body
+}, function(error, response){  //callback
+   if(error){
+       console.log(error);
+   }else{
+       console.log("Message sent: " + response.message );
+   }
+   
+   smtpTransport.close(); // shut down the connection pool, no more messages.  Comment this line out to continue sending emails.
+    }) ;
     
 });
     

@@ -426,9 +426,7 @@
                           
                         </ul>
                     </li>          
-                    <li>
-                       <button style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="reset()">Reset</button>
-                    </li>
+                 
                    <!-- <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-ambulance" ></i>
@@ -471,6 +469,10 @@
             </div>
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
+                    <li>
+                       <button style="width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="reset()">Necesito Ayuda</button>
+                    </li>
+                    
                     <li><a class="logout" href="/logout">Salir</a></li>
             	</ul>
             </div>
@@ -713,7 +715,7 @@
             
                           
                
-				<div onclick=" modal.style.display = "block";" id="myBtn" class="col-lg-4 col-md-4 col-sm-4 mb">
+				<div onclick=" modal.style.display = "block";" id="myBtn"  class="col-lg-4 col-md-4 col-sm-4 mb">
                      <div>
 		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;"  ng-if=<%= !form1 %> >
 						<i class="fa fa-phone-square fa-4x"></i>
@@ -726,7 +728,7 @@
        
                   <br>
             
-                <div onclick=" modal.style.display = "block";" id="myBtn1" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
+                <div onclick=" modal.style.display = "block";" id="myBtn1" style="margin-top:10%" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
 							<div class="al-panel pn" style=" cursor:pointer; background: #bd6556;" ng-if=<%= form1 && !form2 %>>
 								<i class="fa fa-briefcase fa-4x"></i>
 								<p>Formulario 2</p>

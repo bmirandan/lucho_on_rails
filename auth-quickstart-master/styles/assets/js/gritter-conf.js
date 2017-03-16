@@ -58,7 +58,7 @@ var Gritter = function () {
             // (string | mandatory) the heading of the notification
              title: 'Tus datos fueron enviados con exito!',
             // (string | mandatory) the text inside the notification
-            text: 'Nos pondremos en contacto con usted en unos dias. La verdad no',
+            text: 'Nos pondremos en contacto con usted en unos dias.',
             // (string | optional) the image to display on the left
             
             // (bool | optional) if you want it to fade out on its own or just sit there

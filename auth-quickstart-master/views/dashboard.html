@@ -122,7 +122,12 @@
             .success(function (data2, status, headers, config) {
                 $http.post('http://localhost:8080/works/', data)
                     .success(function (data, status, headers, config) { 
-                        location.reload();         
+                       $scope.position = ""   ;
+                       $scope.position  = "" ;
+                       $scope.company = "" ;
+                       $scope.startDate = "" ;
+                       $scope.endDate = "" ;
+                       $scope.description = "" ;
                     })
                     .error(function (data, status, header, config) {
 
@@ -153,7 +158,7 @@
             .success(function (data2, status, headers, config) {
                 $http.post('http://localhost:8080/works/', data)
                     .success(function (data, status, headers, config) { 
-                        location.reload();         
+                    location.reload()          
                     })
                     .error(function (data, status, header, config) {
 
@@ -716,13 +721,13 @@
                           
                
 				<div onclick=" modal.style.display = "block";" id="myBtn"  class="col-lg-4 col-md-4 col-sm-4 mb">
-                     <div>
+                <div>
 		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;"  ng-if=<%= !form1 %> >
 						<i class="fa fa-phone-square fa-4x"></i>
 						<p>Formulario 1</p>
                         
 						<p class="user">Rellena tu información de contacto</p>
-					</div>
+				</div>
 				</div>
                 </div>
        
@@ -884,12 +889,6 @@ Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo persona
                   <i class="fa fa-twitter fa-3x"></i>
               </a>
 
-                    <a  id="add-email"  ng-click="SendEmail()"  style="background: #ee5454" class="face2" href="#" > 
-                       
-                  <i class="fa fa-ambulance fa-3x">  </i>
-                       
-              </a>
-           
                      </div>
           </div>                
              
@@ -936,9 +935,7 @@ btn12.onclick = function(){
 }
 
 btn13.onclick = function(){
-    modal3.style.display = "none";   
-    location.update();
-  
+   
 }
 btn14.onclick = function(){
     modal4.style.display = "none";   

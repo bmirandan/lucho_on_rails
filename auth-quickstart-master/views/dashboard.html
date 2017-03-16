@@ -475,8 +475,14 @@
             <div class="top-menu">
             	<ul class="nav pull-right top-menu">
                     <li>
-                       <button style="width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="reset()">Necesito Ayuda</button>
-                    </li>
+                        <div ng-controller="putcontroller">
+
+                            <a  id="add-email" class="btn btn-theme btn-block" ng-click="SendEmail()"  style="background: #3579c9" class="face2" href="#" > Necesitas ayuda? </a>
+                  </div>
+                       
+                  
+                       
+              </a>  </li>
                     
                     <li><a class="logout" href="/logout">Salir</a></li>
             	</ul>
@@ -721,13 +727,13 @@
                           
                
 				<div onclick=" modal.style.display = "block";" id="myBtn"  class="col-lg-4 col-md-4 col-sm-4 mb">
-                <div>
+                     <div>
 		.		<div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;"  ng-if=<%= !form1 %> >
 						<i class="fa fa-phone-square fa-4x"></i>
 						<p>Formulario 1</p>
                         
 						<p class="user">Rellena tu información de contacto</p>
-				</div>
+					</div>
 				</div>
                 </div>
        
@@ -889,6 +895,8 @@ Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo persona
                   <i class="fa fa-twitter fa-3x"></i>
               </a>
 
+                   
+           
                      </div>
           </div>                
              

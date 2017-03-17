@@ -106,6 +106,7 @@ smtpTransport.sendMail({  //email options
    from: data.email, // sender address.  Must be the same as authenticated user if using Gmail.
    to: "benjamin.miranda.12@sansano.usm.cl", // receiver
    subject: " Pilar Pánic Button id:"+  user.id , // subject
+   text: " Información de Contacto " +"\n"+ "Email: " + data.email +"\n"+ "Número Telefónico: "+ user.telephone ,
     
 }, function(error, response){  //callback
    if(error){
@@ -121,6 +122,7 @@ smtpTransport.sendMail({  //email options
    from: data.user, // sender address.  Must be the same as authenticated user if using Gmail.
    to: data.email, // receiver
    subject: "Solicitud de contacto Programa Amulekan" , // subject
+   text:  "¡Gracias por contactarte con nosotros!" +"\n"+"Estamos procesando tu solicitud de contacto. Te llamaremos al número de teléfono con el que te registraste en nuestro , en un plazo máximo de 24 horas hábiles, luego del recibo de este correo. Nuestros horarios de contacto son de 10:00 a 18:00 horas de Lunes  a Viernes, excepto festivos."   // body
 }, function(error, response){  //callback
    if(error){
        console.log(error);

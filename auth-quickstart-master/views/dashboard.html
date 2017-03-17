@@ -37,7 +37,8 @@
         // controladores de botones mainpage
     app.controller("putcontroller", function ($scope, $http) {
         
-    $scope.form1 = <%= form1 %>;
+    $scope.form1 = <%= form1 %>; 
+    $scope.formm1 = <%= form1 %>;
     $scope.form2 = <%= form2 %>;
     $scope.form3 = <%= form3 %>;
     $scope.form4 = <%= form4 %>;
@@ -58,13 +59,14 @@
  
     if(!$scope.form1){
                 
-            $('#myBtn').load('/styles/step1.html');
+        $('#myBtn').load('/styles/step1.html'); 
         
     }
     
     if($scope.form1){
         $('#myBtn').load('/styles/step2.html');
         $scope.value2=1;
+         
     }
     if($scope.form1 && $scope.form2 ){
         $('#myBtn').load('/styles/step3.html');
@@ -81,7 +83,7 @@
         $scope.notifymessage2="";
         $scope.value2=4;
         
-        $('#myBtn').load('/styles/another.html');
+        
     }
     $scope.SendData = function () {
            // use $.param jQuery function to serialize data from JSON 
@@ -101,8 +103,11 @@
       
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) { 
-                $scope.form1 = true;
+                $scope.formm1 = true;
                 $('#myBtn').load('/styles/step2.html');
+                
+                $scope.$apply();
+               // $('#myModal').load('/styles/formularios/form2.html');
       
             })
             .error(function (data, status, header, config) {
@@ -219,7 +224,7 @@
                   
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-            location.reload();  
+            $('#myBtn').load('/styles/another.html');
                 
        
                 
@@ -242,7 +247,7 @@
                 };
             }
             else{
-                var data = {
+            var data = {
                     ecolaridad: $scope.ecolaridad,
                     ocupacion: $scope.ocupacion,
                     omil: $scope.omil,
@@ -284,20 +289,26 @@
        
   
 var modal1 = document.getElementById('myModal1');
+var modal = document.getElementById('myModal');
 var modal2 = document.getElementById('myModal2');
 var modal3 = document.getElementById('myModal3');
 var modal4 = document.getElementById('myModal4');
 // Get the button that opens the modal
+        
+//botón rectangular para abrir el formulario.        
 var btn = document.getElementById("myBtn");
 
 var btn1 = document.getElementById("myBtn1");
+var btn2 = document.getElementById("myBtn2");
+var btn3 = document.getElementById("myBtn3");
+
+// notificaciones 
 var btn11 = document.getElementById("send1");    
 var btn12 = document.getElementById("send2");    
 var btn13 = document.getElementById("send3");    
 var btn14 = document.getElementById("send4");    
     
-var btn2 = document.getElementById("myBtn2");
-var btn3 = document.getElementById("myBtn3");
+
 
 // Get the <span> element that closes the modal
 var span1 = document.getElementsByClassName("close1")[0];
@@ -305,10 +316,10 @@ var span2 = document.getElementsByClassName("close2")[0];
 var span3 = document.getElementsByClassName("close3")[0];
 var span4 = document.getElementsByClassName("close4")[0];
 
-// When the user clicks the button, open the modal 
+
     
 btn11.onclick = function(){
-    modal1.style.display = "none";  
+    modal.style.display = "none";  
      
                 
 }
@@ -327,17 +338,17 @@ btn14.onclick = function(){
   
 }
 
-    
+    // abre el modal al hacer click modal=formulario.
 btn.onclick = function() {
-    if(!$scope.form1){modal1.style.display = "block";}
-    if(!$scope.form2 && !$scope.form3 && !$scope.form4 && $scope.form1){ modal2.style.display = "block";}
-    if(!$scope.form3 && $scope.form2 && !$scope.form4 && $scope.form1){ modal3.style.display = "block";}
-    if(!$scope.form4 && $scope.form2 && $scope.form3 && $scope.form1){ modal4.style.display = "block";}
+   if(!$scope.form1){modal.style.display = "block";}
+   if(!$scope.form2 && !$scope.form3 && !$scope.form4 && $scope.formm1){ modal2.style.display = "block";}
+   if(!$scope.form3 && $scope.form2 && !$scope.form4 && $scope.form1){ modal3.style.display = "block";}
+   if(!$scope.form4 && $scope.form2 && $scope.form3 && $scope.form1){ modal4.style.display = "block";}
 };
 // When the user clicks on <span> (x), close the modal
 span1.onclick = function() {
     
-        modal1.style.display = "none";
+        modal.style.display = "none";
   
      
     
@@ -365,8 +376,8 @@ span4.onclick = function() {
 }
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
+    if (event.target == modal) {
+        modal.style.display = "none";
     }
         if (event.target == modal2) {
         modal2.style.display = "none";
@@ -529,6 +540,7 @@ window.onclick = function(event) {
                                     
                                 </a>
                             </li>
+                        
                             
                           
                         </ul>
@@ -607,9 +619,9 @@ window.onclick = function(event) {
 
 
 <!-- Formulario1 -->
-     <div id="myModal1" class="modal">
-        <div class="modal-body">
-        <div class="col-lg-6 ds" >          
+<div id ="myModal" class="modal"> 
+ <div class="modal-body">
+     <div class="col-lg-6 ds" >          
         <form ng-controller="putcontroller">
         <div class="modal-content">
         <div class="modal-header">
@@ -645,126 +657,17 @@ window.onclick = function(event) {
          </form>
             
      </div>
-            <br>
-  </div>
-</div>
-</div>
-    <!-- Fomulario3-->
-<div id="myModal3" class="modal">  <!-- Modal content -->				            
-		<div class="modal-body">
-        <div class="col-lg-6 ds" >          
-            <form ng-controller="putcontroller">
-            
-        <div class="modal-content">
-        <div class="modal-header">
-            
-        <button type="button" class="close3" data-dismiss="modal" aria-hidden="true">×</button>
-        <h3 >Antecedentes laborales</h3>
-        </div>
-          
-                  <br>
-                <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
-            </p>
-           <ul>
-    <li>
-            <h2 style=" font-size: 12px ; color: #000">Cargo/Puesto</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="position" required />
-         
-            
-            <h2 style=" font-size: 12px ; color: #000">Empresa</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="company" required />
-             
-        </li>    
-            <li><h2 style=" font-size: 12px ; color: #000">Fecha Inicio</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="startDate" required />
-           
-            
-            <h2 style=" font-size: 12px ; color: #000">Fecha Término</h2> 
-            <input type="text" class="form-control" style="color: #000" ng-model="endDate" required />
-                
-            </li>
-               <li>
-             <h2 style=" font-size: 12px ; color: #000">Descripción de responsabilidades/logros</h2> 
-          <textarea  type="textbox" class="form-control" style="color: #000" ng-model="description">
-            </textarea>
-
-             
-                   </li>
-<li>            <button id="send3" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Agregar</button>
-            
-       <button id="send3v2" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3v2()">Terminar</button> <br>
-            </ul>    
-</li>
-               </div>
-            </form>
-            
-                 
-     </div>
-            <br>
-  </div>
-</div>
-    
-    <!-- Formulario4 -->
-    
-    <div id="myModal4" class="modal">  <!-- Modal content -->
-	<div class="modal-body">
-        <div class="col-lg-6 ds" >          
-            <form ng-controller="putcontroller">
-            
-        <div class="modal-content">
-        <div class="modal-header">
-            
-        <button type="button" class="close4" data-dismiss="modal" aria-hidden="true">×</button>
-         <h3 >Antecedentes de discapacidad</h3>
-        </div>
-          
-                  <br>
-                <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
-                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
-            </p>
-               
-           
-    <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">Tipo de discapacidad </h2 >
-    <select class="form-control" id="4" ng-model="tipoD" required>
-         <option>Física</option>
-            <option>Cognitiva</option>
-            <option>Sensorial</option>
-            <option>Psicológica</option>
-            <option>Múltiple</option>
-      </select>      
-    
-
-            <br>
-                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Utiliza ayuda técnica? ¿Cuál?</h2 >
-            <input type="text" class="form-control" style="color: #000" ng-model="techelp" required />
-            <br>
-                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Posee registro nacional de discapacidad?</h2> 
-        <select class="form-control" id="5" ng-model="registrado" required >
-        <option value="si">Sí</option>
-        <option value="no">No</option>
-        </select> 
-            <br>
-                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Recibe pensión de invalidez?</h2 >
-        <select class="form-control"  ng-model="pension" required >
-        <option value="si">Sí</option>
-        <option value="no">No</option>
-        </select> 
         <br>
-             
-      
-       <button id="send4" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
-        </div>
-                           <br>
-            </form>
-     </div>
   </div>
 </div>
+</div>    
+<div id="myModal1" class="modal">
+   
+</div>
     
-    <!-- Formulario 2 -->
- 
-    <div id="myModal2" class="modal"><!-- Modal content -->
-	<div class="modal-body">
+     
+<div id="myModal2" class="modal">
+    <div class="modal-body">
         <div class="col-lg-6 ds" >          
             <form ng-controller="putcontroller">
             
@@ -820,6 +723,119 @@ window.onclick = function(event) {
   </div>
 </div>
     
+    <!-- Fomulario3-->
+<div id="myModal3" class="modal"><div class="modal-body">
+        <div class="col-lg-6 ds" >          
+            <form ng-controller="putcontroller">
+            
+        <div class="modal-content">
+        <div class="modal-header">
+            
+        <button type="button" class="close3" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 >Antecedentes laborales</h3>
+        </div>
+          
+                  <br>
+                <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            </p>
+           <ul>
+    <li>
+            <h2 style=" font-size: 12px ; color: #000">Cargo/Puesto</h2> 
+            <input placeholder=" Ej: Ayudante Administrativo" type="text" class="form-control" style="color: #000" ng-model="position" required />
+         
+            
+            <h2 style=" font-size: 12px ; color: #000">Empresa</h2> 
+            <input placeholder=" Ej: Lifeware" type="text" class="form-control" style="color: #000" ng-model="company" required />
+             
+        </li>    
+            <li><h2 style=" font-size: 12px ; color: #000">Fecha Inicio</h2> 
+            <input placeholder=" Ej: 02-07-1993" type="text" class="form-control" style="color: #000" ng-model="startDate" required />
+           
+            
+            <h2 style=" font-size: 12px ; color: #000">Fecha Término</h2> 
+            <input placeholder=" Ej: 02-08-1995" type="text" class="form-control" style="color: #000" ng-model="endDate" required />
+                
+            </li>
+               <li>
+             <h2 style=" font-size: 12px ; color: #000">Descripción de responsabilidades/logros</h2> 
+          <textarea  placeholder=" Ej: Me dedicaba a cooperar en las tareas del administrador "type="textbox" class="form-control" style="color: #000" ng-model="description">
+            </textarea>
+
+             
+                   </li>
+<li>            <button id="send3" style=""class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Agregar</button>
+            
+       <button id="send3v2" style="margin-left: 40%;"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3v2()">Terminar</button> <br>
+            </ul>    
+</li>
+               </div>
+            </form>
+            
+                 
+     </div>
+            <br>
+  </div>
+</div>
+    
+    <!-- Formulario4 -->
+    
+<div id="myModal4" class="modal">  <!-- Modal content -->
+	<div class="modal-body">
+        <div class="col-lg-6 ds" >          
+            <form ng-controller="putcontroller">
+            
+        <div class="modal-content">
+        <div class="modal-header">
+            
+        <button type="button" class="close4" data-dismiss="modal" aria-hidden="true">×</button>
+         <h3 >Antecedentes de discapacidad</h3>
+        </div>
+          
+                  <br>
+                <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) <b> 
+                <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            </p>
+               
+           
+    <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">Tipo de discapacidad </h2 >
+    <select class="form-control" id="4" ng-model="tipoD" required>
+         <option>Física</option>
+            <option>Cognitiva</option>
+            <option>Sensorial</option>
+            <option>Psicológica</option>
+            <option>Múltiple</option>
+      </select>      
+    
+
+            <br>
+                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Utiliza ayuda técnica? ¿Cuál?</h2 >
+            <input type="text" class="form-control" style="color: #000" ng-model="techelp" required />
+            <br>
+                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Posee registro nacional de discapacidad?</h2> 
+        <select class="form-control" id="5" ng-model="registrado" required >
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+        </select> 
+            <br>
+                 <h2 style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000">¿Recibe pensión de invalidez?</h2 >
+        <select class="form-control"  ng-model="pension" required >
+        <option value="si">Sí</option>
+        <option value="no">No</option>
+        </select> 
+        <br>
+             
+      
+       <button id="send4" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData4()">Enviar</button> <br> 
+        </div>
+                           <br>
+            </form>
+     </div>
+  </div>
+</div>
+    
+    <!-- Formulario 2 -->
+
     
     
     
@@ -886,7 +902,7 @@ window.onclick = function(event) {
                   <i class="fa fa-facebook fa-3x"></i>
               </a>
               
-              <a  style="background: #55ACEE" class="face" href="https://twitter.com/realdonaldtrump?lang=es" >
+              <a  style="background: #55ACEE" class="face" href="https://twitter.com/AmulekanVregion" >
                   <i class="fa fa-twitter fa-3x"></i>
               </a>
 

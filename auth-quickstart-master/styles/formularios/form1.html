@@ -1,0 +1,43 @@
+
+
+<div class="modal-body">
+     <div class="col-lg-6 ds" >          
+        <form ng-controller="putcontroller">
+        <div class="modal-content">
+        <div class="modal-header">
+        <button type="button"  class="close1" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3>Información de Contacto</h3>
+        </div>
+            <br>
+            <p style="font-size: 12px; text-align: justify; margin-left:10px; margin-right:10px; color: #000"> Sr(a) Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
+            </p>
+           
+            <h2  style=" font-size: 12px ; color: #000">Nombres</h2> 
+            <input placeholder=" Juan Antonio " type="text" class="form-control" style="color: #000" ng-model="firstName" required />
+            
+            <h2  style=" font-size: 12px ; color: #000">Apellidos</h2> 
+            <input placeholder=" Peredo Lara" type="text" class="form-control" style="color: #000" ng-model="lastName" required />
+            
+            <h2 style=" font-size: 12px ; color: #000">Rut</h2> 
+            <input placeholder="Sin Dígito, ej: 10355220" type="text" class="form-control" style="color: #000" ng-model="id" required />
+         
+            <h2 style=" font-size: 12px ; color: #000">Fecha de nacimiento</h2> 
+            <input placeholder="02-09-1990" type="text" class="form-control" style="color: #000" ng-model="birthDate" required />
+         
+            <h2 style=" font-size: 12px ; color: #000">Dirección</h2> 
+            <input placeholder="San Juan 23, Valparaíso, Chile " type="text" class="form-control" style="color: #000" ng-model="address" required />
+  
+            <h2 style=" font-size: 12px ; color: #000">Comuna</h2> 
+            <input placeholder="Valparaiso" type="text" class="form-control" style="color: #000" ng-model="state" required />
+    
+        <br>
+      
+            <button id="send1" style=" margin-left:82% ; margin-right:15%;  width: auto"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData()">Enviar</button>
+            <hr/>
+         </form>
+            
+     </div>
+            <br>
+  </div>
+    
+ 

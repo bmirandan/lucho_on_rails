@@ -4,13 +4,11 @@ var attributes = {
     
     
     // info basica 
-  username: {
+  username: {  
     type: Sequelize.STRING,
-    allowNull: false,
-    unique: true,
     validate: {
-      is: /^[a-z0-9\_\-]+$/i,
-    }
+      isEmail: true}
+    
   },
   email: {
     type: Sequelize.STRING,

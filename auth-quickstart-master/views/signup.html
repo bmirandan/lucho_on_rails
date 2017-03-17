@@ -23,11 +23,11 @@
                 } else {
                     document.getElementById("representativeData").style.display = "none";
                 }
-            }
+            };
 
             					
 				
-}; 
+ 
 		
         </script>
         
@@ -62,20 +62,15 @@
 	<h2 class="form-login-heading">Ingresa a tu cuenta</h2>
     <p style="color: #fff"> <i class="fa fa-book fa-fw"></i>Si ya tienes cuenta ingresa y completa tus datos</p>
     <div class="login-wrap">
-    <label for="inputUsername" class="sr-only">Nombre de usuario</label><br/>
-    <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Nombre de usuario" required autofocus>
+    <label for="inputUsername" class="sr-only">Email</label><br/>
+    <input type="text" id="inputUsername" name="username" class="form-control" placeholder="user@email.com" required autofocus>
     <label for="inputPassword" class="sr-only">Contraseña</label>    <br/>
     <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required>  <br/>
-  
     <button  style=" margin-left: 68%; " class="btn btn-theme btn-block" href="/login" type="submit"><i class="fa fa-lock"></i> Ingresar </button>
-		           
-		          
-		       
-		
-                  </div>
-        </form>
-                 </div>
-             </div>
+	</div>
+    </form>
+    </div>
+    </div>
     <div style="padding: 10px 20px 20px 20px; border:solid 2px rgba(255, 255, 255, 0.35); max-width:360px;margin-left:25%" class="col-lg-4 col-md-6 col-sm-12">
       				<!-- -- BASIC PROGRESS BARS ---->
     
@@ -101,8 +96,7 @@
             <input type="text" id="telephoneRepresentative" name="telephoneRepresentative" class="form-control" placeholder="Telefono representante" autofocus>     
         </div>
         
-        <label for="inputUsername" class="sr-only">Nombre de usuario</label><br/>
-        <input type="text" id="inputUsername" name="username" class="form-control" placeholder="Nombre de usuario" required autofocus>  
+ 
         <label for="inputEmail" class="sr-only">Correo</label><br/>
         <input type="email" id="inputEmail" name="email" class="form-control" placeholder="Ej: lucas@mail.com" required autofocus>
         <label for="inputTelephone" class="sr-only">Teléfono</label><br/>
@@ -113,7 +107,7 @@
         <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Repita la contraseña" required> <br/>
          
         
-        <button style=" margin-left: 63%; background:#3881af" class="btn btn-theme btn-block" type="submit" ng-click="showSuccess()"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse </button>
+        <button style=" margin-left: 63%; background:#3881af" class="btn btn-theme btn-block" type="submit" ng-click=""><i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse </button>
         
             </div>
         </form>    

@@ -56,9 +56,9 @@ var Gritter = function () {
 
         $.gritter.add({
             // (string | mandatory) the heading of the notification
-             title: 'Tus datos fueron enviados con exito!',
+             title: 'Haz solicitado que te llamemos al teléfono que registraste.',
             // (string | mandatory) the text inside the notification
-            text: 'Nos pondremos en contacto con usted en unos dias.',
+            text: 'Te llamaremos durante las proximas 48 horas, recuerda estar atento',
             // (string | optional) the image to display on the left
             
             // (bool | optional) if you want it to fade out on its own or just sit there
@@ -77,7 +77,26 @@ var Gritter = function () {
             // (string | mandatory) the heading of the notification
              title: 'Tus datos fueron enviados con exito!',
             // (string | mandatory) the text inside the notification
-            text: 'Continue rellenando formularios hasta morir',
+            text: ' Formulario 1 completado ',
+            // (string | optional) the image to display on the left
+            
+            // (bool | optional) if you want it to fade out on its own or just sit there
+            sticky: false,
+            // (int | optional) the time you want it to be alive for before fading out
+            time: ''
+        });
+        
+         
+        return false;
+
+    }); 
+            $('#send2').click(function(){
+
+        $.gritter.add({
+            // (string | mandatory) the heading of the notification
+             title: 'Tus datos fueron enviados con exito!',
+            // (string | mandatory) the text inside the notification
+            text: ' Formulario 1 completado ',
             // (string | optional) the image to display on the left
             
             // (bool | optional) if you want it to fade out on its own or just sit there

@@ -24,7 +24,7 @@
     <script type="text/css">
     #test{}
     </script>
-   <script src="/styles/assets/js/formjs.js"> </script>
+    
     
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>   
@@ -105,8 +105,9 @@
             .success(function (data, status, headers, config) { 
                 $scope.formm1 = true;
                 $('#myBtn').load('/styles/step2.html');
+                $('#myModal').load('/styles/formularios/form2.html');
                 
-                $scope.$apply();
+       
                // $('#myModal').load('/styles/formularios/form2.html');
       
             })

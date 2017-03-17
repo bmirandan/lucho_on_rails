@@ -25,14 +25,22 @@
     #test{}
     </script>
    <script src="/styles/assets/js/formjs.js"> </script>
+    
+    
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>   
+
+
 <script>
-       
+    
     var app = angular.module("myApp", []);
         
         // controladores de botones mainpage
     app.controller("putcontroller", function ($scope, $http) {
         
-
+    $scope.form1 = <%= form1 %>;
+    $scope.form2 = <%= form2 %>;
+    $scope.form3 = <%= form3 %>;
+    $scope.form4 = <%= form4 %>;
         
         
     // mensajes 
@@ -47,29 +55,33 @@
     $scope.notifymessage1="tengamos tus datos. Si  no lo haces";
     $scope.notifymessage2= "te llamaremos en unos días. ";
     
-    var form1 = <%= form1 %>;
-    var form2 = <%= form2 %>;
-    var form3 = <%= form3 %>;
-    var form4 = <%= form4 %>;
-    
-    if(form1){
+ 
+    if(!$scope.form1){
+                
+            $('#myBtn').load('/styles/step1.html');
         
+    }
+    
+    if($scope.form1){
+        $('#myBtn').load('/styles/step2.html');
         $scope.value2=1;
     }
-    if(form1 && form2 ){
-        
+    if($scope.form1 && $scope.form2 ){
+        $('#myBtn').load('/styles/step3.html');
         $scope.value2=2;
     }
-    if(form1 && form2 && form3){
-        
+    if($scope.form1 && $scope.form2 && $scope.form3){
+        $('#myBtn').load('/styles/step4.html');
         $scope.value2=3;
     }
-    if(form1 && form2 && form3 && form4){
+    if($scope.form1 && $scope.form2 && $scope.form3 && $scope.form4){
         $scope.notifytitle="Tus datos están completos";
         $scope.notifymessage=" Atento los proximos días,";
         $scope.notifymessage1="puede que te llamemos pronto";
         $scope.notifymessage2="";
         $scope.value2=4;
+        
+        $('#myBtn').load('/styles/another.html');
     }
     $scope.SendData = function () {
            // use $.param jQuery function to serialize data from JSON 
@@ -89,10 +101,8 @@
       
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) { 
-          
-    setTimeout(function(){
-   window.location.reload();
-}, 2000);
+                $scope.form1 = true;
+                $('#myBtn').load('/styles/step2.html');
       
             })
             .error(function (data, status, header, config) {
@@ -183,8 +193,10 @@
                   
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-            location.reload();   
+           $scope.form3=true;    
                 
+         
+        
             })
             .error(function (data, status, header, config) {
                 
@@ -243,7 +255,9 @@
                   
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-            location.reload();
+             $scope.form2=true;    
+                
+            $('#myBtn').load('/styles/step3.html');
         
                 
                 
@@ -269,6 +283,102 @@
         
        
   
+var modal1 = document.getElementById('myModal1');
+var modal2 = document.getElementById('myModal2');
+var modal3 = document.getElementById('myModal3');
+var modal4 = document.getElementById('myModal4');
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+var btn1 = document.getElementById("myBtn1");
+var btn11 = document.getElementById("send1");    
+var btn12 = document.getElementById("send2");    
+var btn13 = document.getElementById("send3");    
+var btn14 = document.getElementById("send4");    
+    
+var btn2 = document.getElementById("myBtn2");
+var btn3 = document.getElementById("myBtn3");
+
+// Get the <span> element that closes the modal
+var span1 = document.getElementsByClassName("close1")[0];
+var span2 = document.getElementsByClassName("close2")[0];
+var span3 = document.getElementsByClassName("close3")[0];
+var span4 = document.getElementsByClassName("close4")[0];
+
+// When the user clicks the button, open the modal 
+    
+btn11.onclick = function(){
+    modal1.style.display = "none";  
+     
+                
+}
+btn12.onclick = function(){
+    modal2.style.display = "none";   
+    location.update();
+  
+}
+
+btn13.onclick = function(){
+   
+}
+btn14.onclick = function(){
+    modal4.style.display = "none";   
+    location.update();
+  
+}
+
+    
+btn.onclick = function() {
+    if(!$scope.form1){modal1.style.display = "block";}
+    if(!$scope.form2 && !$scope.form3 && !$scope.form4 && $scope.form1){ modal2.style.display = "block";}
+    if(!$scope.form3 && $scope.form2 && !$scope.form4 && $scope.form1){ modal3.style.display = "block";}
+    if(!$scope.form4 && $scope.form2 && $scope.form3 && $scope.form1){ modal4.style.display = "block";}
+};
+// When the user clicks on <span> (x), close the modal
+span1.onclick = function() {
+    
+        modal1.style.display = "none";
+  
+     
+    
+}
+span2.onclick = function() {
+    
+        modal2.style.display = "none";
+  
+     
+    
+}
+span3.onclick = function() {
+    
+        modal3.style.display = "none";
+  
+     
+    
+}
+span4.onclick = function() {
+    
+        modal4.style.display = "none";
+  
+     
+    
+}
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+    if (event.target == modal1) {
+        modal1.style.display = "none";
+    }
+        if (event.target == modal2) {
+        modal2.style.display = "none";
+    }
+    
+    if (event.target == modal3) {
+        modal3.style.display = "none";
+    }
+    if (event.target == modal4) {
+        modal4.style.display = "none";
+    }
+}
         
 
     }); </script>
@@ -724,43 +834,13 @@
             
                      <!--Botones formulario-->     
                
-				<div onclick=" modal.style.display = "block";" id="myBtn"  class="col-lg-4 col-md-4 col-sm-4 mb">
-                <div class="al-panel pn" style="cursor:pointer; background: #4dbc5c;"  ng-if=<%= !form1 %> >
-						<i class="fa fa-phone-square fa-4x"></i>
-						<p>Formulario 1</p>
-                    	<p class="user">Rellena tu información de contacto</p>
-				</div>
-				</div>
-                <br>
-            
-                <div onclick=" modal.style.display = "block";" id="myBtn1" style="" class="col-lg-4 col-md-4 col-sm-4 mb" 	>
-				<div class="al-panel pn" style=" cursor:pointer; background: #bd6556;" ng-if=<%= form1 && !form2 %>>
-					        <i class="fa fa-briefcase fa-4x"></i>
-							<p>Formulario 2</p>
-							<p class="user"> Cuentanos sobre tu ocupación</p>
-				</div>
-				</div><!-- /col-md-4 -->
-            
-                <br>
-				<div onclick=" modal.style.display = "block";" id="myBtn2" class=" col-lg-4 col-md-4 col-sm-4 mb">
-                <div class="al-panel pn" style="cursor:pointer; background: #666666;"  ng-if=<%= form1 && form2 && !form3 %>	>
-								<i class="fa fa-briefcase fa-4x"></i>
-								<p>Formulario 3</p>
-								<p class="user">Cuentanos sobre tu experiencia laboral</p>
-                </div>
-				</div>
-                <br>
-        		<div onclick=" modal.style.display = "block";" id="myBtn3" class="col-lg-4 col-md-4 col-sm-4 mb" >
-				<div class="al-panel pn" style=" cursor:pointer; background: #56a4bd;" ng-if=<%= form1 && form2 && form3 && !form4 %> >
-								<i class="fa fa-wheelchair fa-4x"></i>
-								<p>Formulario 4</p>
-								<p class="user">Comenta acerca de tu discapacidad</p>
-				</div>
-                </div><!-- /col-md-4 -->
-				
+				<div style="margin-top:10% "onclick=" modal.style.display = "block";" id="myBtn"  class="col-lg-4 col-md-4 col-sm-4 mb">
+                </div>       
+                    
+     
                 <br>
 
-                <div ng-if=<%=!form4 %> >
+                <div  >
                 <div style=" margin-left:20% ; margin-right30%;" class="col-lg-5 col-md-5 col-sm-10">
  				<div style="border-radius: 5px 50px 5px; background:#56a4bd ; margin-top: 20px;" class="showback">
       					<h2 style="color: #fff">¿Cómo lo hacemos?</h2>
@@ -770,19 +850,7 @@
       			</div><!-- /showback -->
 				</div>
                 </div>
-                
-                <div ng-if= <%= form4 %>
-                <div style=" margin-left:60% ; margin-right30%;" class="col-lg-5 col-md-5 col-sm-10">
- 				<div style="border-radius: 5px 50px 5px; background:#56a4bd ; margin-top: 20px;" class="showback">
-      					<h2 style="color: #fff">¿Cómo lo hacemos?</h2>
-                        <div style="margin: inherit">
-                        <h5 style="color: #fff" >Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo personal como para enfrentar efectivamente los procesos de inserción laboral. Te ayudaremos a generar tu CV, y te ofreceremos ser parte de diversas Charlas y Talleres en la V Región. También te contactaremos con empresas y te acompañaremos en el proceso de adaptación a tu nuevo puesto de trabajo.</h5>
-                        </div>
-      		    </div><!-- /showback -->
-				</div>
-                </div><!-- --/END 1ST ROW OF PANELS ---->
-    
-  
+   
 				
         
 					<!-- -- 2ND ROW OF PANELS ---->
@@ -834,107 +902,6 @@
    
 <script>
 // Get the modal
-var modal1 = document.getElementById('myModal1');
-var modal2 = document.getElementById('myModal2');
-var modal3 = document.getElementById('myModal3');
-var modal4 = document.getElementById('myModal4');
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-var btn1 = document.getElementById("myBtn1");
-var btn11 = document.getElementById("send1");    
-var btn12 = document.getElementById("send2");    
-var btn13 = document.getElementById("send3");    
-var btn14 = document.getElementById("send4");    
-    
-var btn2 = document.getElementById("myBtn2");
-var btn3 = document.getElementById("myBtn3");
-
-// Get the <span> element that closes the modal
-var span1 = document.getElementsByClassName("close1")[0];
-var span2 = document.getElementsByClassName("close2")[0];
-var span3 = document.getElementsByClassName("close3")[0];
-var span4 = document.getElementsByClassName("close4")[0];
-
-// When the user clicks the button, open the modal 
-    
-btn11.onclick = function(){
-    modal1.style.display = "none";  
-     
-                
-}
-btn12.onclick = function(){
-    modal2.style.display = "none";   
-    location.update();
-  
-}
-
-btn13.onclick = function(){
-   
-}
-btn14.onclick = function(){
-    modal4.style.display = "none";   
-    location.update();
-  
-}
-
-btn.onclick = function() {
-    modal1.style.display = "block";
-}
-btn1.onclick = function() {
-    modal2.style.display = "block";
-}
-btn2.onclick = function() {
-    modal3.style.display = "block";
-}   
-btn3.onclick = function() {
-    modal4.style.display = "block";
-}
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
-    
-        modal1.style.display = "none";
-  
-     
-    
-}
-span2.onclick = function() {
-    
-        modal2.style.display = "none";
-  
-     
-    
-}
-span3.onclick = function() {
-    
-        modal3.style.display = "none";
-  
-     
-    
-}
-span4.onclick = function() {
-    
-        modal4.style.display = "none";
-  
-     
-    
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal1) {
-        modal1.style.display = "none";
-    }
-        if (event.target == modal2) {
-        modal2.style.display = "none";
-    }
-    
-    if (event.target == modal3) {
-        modal3.style.display = "none";
-    }
-    if (event.target == modal4) {
-        modal4.style.display = "none";
-    }
-}
 </script>
 
     <!-- js placed at the end of the document so the pages load faster -->

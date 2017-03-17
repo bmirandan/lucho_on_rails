@@ -96,7 +96,45 @@ var Gritter = function () {
             // (string | mandatory) the heading of the notification
              title: 'Tus datos fueron enviados con exito!',
             // (string | mandatory) the text inside the notification
-            text: ' Formulario 1 completado ',
+            text: ' Formulario 2 completado ',
+            // (string | optional) the image to display on the left
+            
+            // (bool | optional) if you want it to fade out on its own or just sit there
+            sticky: false,
+            // (int | optional) the time you want it to be alive for before fading out
+            time: ''
+        });
+        
+         
+        return false;
+
+    }); 
+      $('#send3').click(function(){
+
+        $.gritter.add({
+            // (string | mandatory) the heading of the notification
+             title: 'Tus datos fueron enviados con exito!',
+            // (string | mandatory) the text inside the notification
+            text: ' Formulario 3 completado ',
+            // (string | optional) the image to display on the left
+            
+            // (bool | optional) if you want it to fade out on its own or just sit there
+            sticky: false,
+            // (int | optional) the time you want it to be alive for before fading out
+            time: ''
+        });
+        
+         
+        return false;
+
+    }); 
+    $('#send4').click(function(){
+
+        $.gritter.add({
+            // (string | mandatory) the heading of the notification
+             title: 'Tus datos fueron enviados con exito!',
+            // (string | mandatory) the text inside the notification
+            text: ' Formulario 4 completado ',
             // (string | optional) the image to display on the left
             
             // (bool | optional) if you want it to fade out on its own or just sit there

@@ -86,7 +86,7 @@ var Gritter = function () {
             time: ''
         });
         
-         
+        
         return false;
 
     }); 

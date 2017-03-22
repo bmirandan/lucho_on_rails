@@ -8,7 +8,7 @@ module.exports = function(callback) {
         Model.User.create({
           id:'1',
           email:'hola@hola.com',
-          username: 'user',
+          username: 'hola@hola.com',
           firstName:'go',
           lastName: 'jaja', password:'$2a$10$QaT1MdQ2DRWuvIxtNQ1i5O9D93HKwPKFNWBqiiuc/IoMtIurRCT36',
           salt: '$2a$10$QaT1MdQ2DRWuvIxtNQ1i5O',

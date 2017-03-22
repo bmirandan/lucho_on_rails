@@ -18,13 +18,17 @@
 
     <!--Busqueda API-->
   
-        <script type="text/javascript" src="../app/controllers/app.js">  </script>
+    <script type="text/javascript" src="../app/controllers/app.js">  </script>
 
  <!--Escritura API-->
     <script type="text/css">
     #test{}
     </script>
+<<<<<<< HEAD
     
+=======
+    <script src="/styles/assets/js/formjs.js"> </script>
+>>>>>>> origin/master
     
     
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>   
@@ -34,21 +38,25 @@
     
     var app = angular.module("myApp", []);
         
-        // controladores de botones mainpage
+    // controladores de botones mainpage
     app.controller("putcontroller", function ($scope, $http) {
+         
+    $("#StaticMessage").load("styles/inicialText.html"); 
         
     $scope.form1 = <%= form1 %>; 
     $scope.formm1 = <%= form1 %>;
     $scope.form2 = <%= form2 %>;
+    $scope.formm2 = <%= form2 %>;
     $scope.form3 = <%= form3 %>;
+    $scope.formm3 = <%= form3 %>;
     $scope.form4 = <%= form4 %>;
-        
+    $scope.formm4 = <%= form4 %>;  
         
     // mensajes 
-     $scope.msg1=true;
-     $scope.msg2=false;
-     $scope.msg3=false;
-     $scope.msg4=false;
+    $scope.msg1=true;
+    $scope.msg2=false;
+    $scope.msg3=false;
+    $scope.msg4=false;
         
     $scope.value2=0;
     $scope.notifytitle=" Tus datos están incompletos";
@@ -58,15 +66,11 @@
     
  
     if(!$scope.form1){
-                
-        $('#myBtn').load('/styles/step1.html'); 
-        
+        $('#myBtn').load('/styles/step1.html');
     }
-    
     if($scope.form1){
         $('#myBtn').load('/styles/step2.html');
         $scope.value2=1;
-         
     }
     if($scope.form1 && $scope.form2 ){
         $('#myBtn').load('/styles/step3.html');
@@ -82,39 +86,93 @@
         $scope.notifymessage1="puede que te llamemos pronto";
         $scope.notifymessage2="";
         $scope.value2=4;
-        
-        
+        $('#myBtn').load('/styles/finalModalBoxEmpty.html');
+        $("#StaticMessage").load("styles/inicialTextEmpty.html"); 
+        $("#FinalMessage").load("styles/finalStep.html"); 
     }
     $scope.SendData = function () {
            // use $.param jQuery function to serialize data from JSON 
          
-           var ida= (<%= id %>).toString()  ;
+            var ida= (<%= id %>).toString()  ;
             var data = {
-               
                 firstName: $scope.firstName,  
                 lastName: $scope.lastName,
                 birthDate:$scope.birthDate,
                 address:$scope.address,
                 state:$scope.state,
                 form1: true
-                
-                
             };
       
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) { 
                 $scope.formm1 = true;
                 $('#myBtn').load('/styles/step2.html');
+<<<<<<< HEAD
                 $('#myModal').load('/styles/formularios/form2.html');
                 
        
+=======
+                $('#span1').load('/styles/formularios/form2.html');
+                $scope.$apply();
+>>>>>>> origin/master
                // $('#myModal').load('/styles/formularios/form2.html');
       
             })
             .error(function (data, status, header, config) {
                 
             });
-        }; 
+    }; 
+    
+    $scope.SendData2 = function () {
+           // use $.param jQuery function to serialize data from JSON 
+           var ida= (<%= id %>).toString()  ;
+            if ($scope.experiencialab == "no"){
+                var data = {
+                    ecolaridad: $scope.ecolaridad,
+                    ocupacion: $scope.ocupacion,
+                    omil: $scope.omil,
+                    experiencialab: $scope.experiencialab,
+                    form2: true,
+                    form3: true
+                };
+            }
+            else{
+                var data = {
+                        ecolaridad: $scope.ecolaridad,
+                        ocupacion: $scope.ocupacion,
+                        omil: $scope.omil,
+                        experiencialab: $scope.experiencialab,
+                        form2: true
+                };
+            }
+            
+                
+                  
+            $http.put('http://localhost:8080/users/'+ ida , data)
+            .success(function (data, status, headers, config) {
+                if( $scope.experiencialab == "no"){
+                    console.log("no exp: ");
+                    $scope.formm2 = true;
+                    $scope.formm3= true;
+                    $('#myBtn').load('/styles/step4.html');
+
+                    $scope.$apply();
+                   // $('#myModal').load('/styles/formularios/form2.html');
+                }
+                else{
+                    console.log("exp");
+                    $scope.formm2 = true;
+                    $('#myBtn').load('/styles/step3.html');
+
+                    $scope.$apply();
+                   // $('#myModal').load('/styles/formularios/form2.html');    
+                }
+            })
+            .error(function (data, status, header, config) {
+                
+            });
+        };
+        
         
     $scope.SendData3 = function () {
            // use $.param jQuery function to serialize data from JSON 
@@ -142,6 +200,7 @@
                        $scope.startDate = "" ;
                        $scope.endDate = "" ;
                        $scope.description = "" ;
+                       
                     })
                     .error(function (data, status, header, config) {
 
@@ -172,7 +231,11 @@
             .success(function (data2, status, headers, config) {
                 $http.post('http://localhost:8080/works/', data)
                     .success(function (data, status, headers, config) { 
-                    location.reload()          
+                        $scope.formm3 = true;
+                        $('#myBtn').load('/styles/step4.html');
+
+                        $scope.$apply();
+                       // $('#myModal').load('/styles/formularios/form2.html');
                     })
                     .error(function (data, status, header, config) {
 
@@ -183,11 +246,9 @@
             });
         };
         
-        
-        
-            $scope.reset = function () {
-           // use $.param jQuery function to serialize data from JSON 
-           var ida= (<%= id %>).toString()  ;
+    $scope.reset = function () {
+            // use $.param jQuery function to serialize data from JSON 
+            var ida= (<%= id %>).toString()  ;
             var data = {
                 form1:false,
                 form2:false,
@@ -195,14 +256,10 @@
                 form4:false
                 
             };
-                
-                  
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-           $scope.form3=true;    
-                
-         
-        
+                $scope.form3=true;
+                location.reload();
             })
             .error(function (data, status, header, config) {
                 
@@ -210,8 +267,8 @@
         };
         
     $scope.SendData4 = function () {
-           // use $.param jQuery function to serialize data from JSON 
-           var ida= (<%= id %>).toString()  ;
+            // use $.param jQuery function to serialize data from JSON 
+            var ida= (<%= id %>).toString()  ;
             var data = {
                
                tipoD: $scope.tipoD ,
@@ -225,263 +282,186 @@
                   
             $http.put('http://localhost:8080/users/'+ ida , data)
             .success(function (data, status, headers, config) {
-            $('#myBtn').load('/styles/another.html');
-                
-       
-                
+                $('#myBtn').load('/styles/finalModalBoxEmpty.html');
+                $("#StaticMessage").load("styles/inicialTextEmpty.html"); 
+                $("#FinalMessage").load("styles/finalStep.html");  
             })
             .error(function (data, status, header, config) {
                 
             });
         }; 
-    $scope.SendData2 = function () {
-           // use $.param jQuery function to serialize data from JSON 
-           var ida= (<%= id %>).toString()  ;
-            if ($scope.experiencialab == "no"){
-                var data = {
-                    ecolaridad: $scope.ecolaridad,
-                    ocupacion: $scope.ocupacion,
-                    omil: $scope.omil,
-                    experiencialab: $scope.experiencialab,
-                    form2: true,
-                    form3: true
-                };
-            }
-            else{
-            var data = {
-                    ecolaridad: $scope.ecolaridad,
-                    ocupacion: $scope.ocupacion,
-                    omil: $scope.omil,
-                    experiencialab: $scope.experiencialab,
-                    form2: true
-                };
-            }
-            
-                
-                  
-            $http.put('http://localhost:8080/users/'+ ida , data)
-            .success(function (data, status, headers, config) {
-             $scope.form2=true;    
-                
-            $('#myBtn').load('/styles/step3.html');
         
-                
-                
-            })
-            .error(function (data, status, header, config) {
-                
-            });
-        };
+    $scope.SendEmail = function () {
+        // use $.param jQuery function to serialize data from JSON 
+        var ida= (<%= id %>).toString()  ;
+        $http.get('http://localhost:8080/halp/'+ida);
+    }; 
         
-        
-        $scope.SendEmail = function () {
-            
-            
-            
-            
-           // use $.param jQuery function to serialize data from JSON 
-             var ida= (<%= id %>).toString()  ;
-    
-            $http.get('http://localhost:8080/halp/'+ida);
-            
-       
-        }; 
-        
-       
-  
-var modal1 = document.getElementById('myModal1');
-var modal = document.getElementById('myModal');
-var modal2 = document.getElementById('myModal2');
-var modal3 = document.getElementById('myModal3');
-var modal4 = document.getElementById('myModal4');
-// Get the button that opens the modal
-        
-//botón rectangular para abrir el formulario.        
-var btn = document.getElementById("myBtn");
+    var modal1 = document.getElementById('myModal1');
+    var modal = document.getElementById('myModal');
+    var modal2 = document.getElementById('myModal2');
+    var modal3 = document.getElementById('myModal3');
+    var modal4 = document.getElementById('myModal4');
+    // Get the button that opens the modal
 
-var btn1 = document.getElementById("myBtn1");
-var btn2 = document.getElementById("myBtn2");
-var btn3 = document.getElementById("myBtn3");
+    //botón rectangular para abrir el formulario.        
+    var btn = document.getElementById("myBtn");
 
-// notificaciones 
-var btn11 = document.getElementById("send1");    
-var btn12 = document.getElementById("send2");    
-var btn13 = document.getElementById("send3");    
-var btn14 = document.getElementById("send4");    
-    
+    var btn1 = document.getElementById("myBtn1");
+    var btn2 = document.getElementById("myBtn2");
+    var btn3 = document.getElementById("myBtn3");
 
+    // notificaciones 
+    var btn10 = document.getElementById("send");
+    var btn11 = document.getElementById("send1");    
+    var btn12 = document.getElementById("send2");    
+    var btn13 = document.getElementById("send3");    
+    var btn14 = document.getElementById("send4");    
 
-// Get the <span> element that closes the modal
-var span1 = document.getElementsByClassName("close1")[0];
-var span2 = document.getElementsByClassName("close2")[0];
-var span3 = document.getElementsByClassName("close3")[0];
-var span4 = document.getElementsByClassName("close4")[0];
+    // Get the <span> element that closes the modal
+    var span1 = document.getElementsByClassName("close1")[0];
+    var span2 = document.getElementsByClassName("close2")[0];
+    var span3 = document.getElementsByClassName("close3")[0];
+    var span4 = document.getElementsByClassName("close4")[0];
 
+    btn11.onclick = function(){
+        modal.style.display = "none";  
+    }
+    btn12.onclick = function(){
+        modal2.style.display = "none";   
+        location.update();
+    }
+    btn13.onclick = function(){
 
-    
-btn11.onclick = function(){
-    modal.style.display = "none";  
-     
-                
-}
-btn12.onclick = function(){
-    modal2.style.display = "none";   
-    location.update();
-  
-}
-
-btn13.onclick = function(){
-   
-}
-btn14.onclick = function(){
-    modal4.style.display = "none";   
-    location.update();
-  
-}
+    }
+    btn14.onclick = function(){
+        modal4.style.display = "none";   
+        location.update(); 
+    }
 
     // abre el modal al hacer click modal=formulario.
-btn.onclick = function() {
-   if(!$scope.form1){modal.style.display = "block";}
-   if(!$scope.form2 && !$scope.form3 && !$scope.form4 && $scope.formm1){ modal2.style.display = "block";}
-   if(!$scope.form3 && $scope.form2 && !$scope.form4 && $scope.form1){ modal3.style.display = "block";}
-   if(!$scope.form4 && $scope.form2 && $scope.form3 && $scope.form1){ modal4.style.display = "block";}
-};
-// When the user clicks on <span> (x), close the modal
-span1.onclick = function() {
+    btn.onclick = function() {
+       if(!$scope.form1){modal.style.display = "block";}
+       if( $scope.form1 && !$scope.form2 && !$scope.form3 && !$scope.form4 && $scope.formm1){ modal2.style.display = "block";}
+       if( $scope.form1 &&  $scope.form2 && !$scope.form3 && !$scope.form4 && $scope.formm2){ modal3.style.display = "block";}
+       if( $scope.form1 &&  $scope.form2 &&  $scope.form3 && !$scope.form4 && $scope.formm3){ modal4.style.display = "block";}
+    };
     
-        modal.style.display = "none";
-  
-     
-    
-}
-span2.onclick = function() {
-    
-        modal2.style.display = "none";
-  
-     
-    
-}
-span3.onclick = function() {
-    
-        modal3.style.display = "none";
-  
-     
-    
-}
-span4.onclick = function() {
-    
-        modal4.style.display = "none";
-  
-     
-    
-}
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
+    // When the user clicks on <span> (x), close the modal
+    span1.onclick = function() {
+            modal.style.display = "none";
     }
+    span2.onclick = function() {
+            modal2.style.display = "none";
+    }
+    span3.onclick = function() {
+            modal3.style.display = "none";
+    }
+    span4.onclick = function() {
+            modal4.style.display = "none";
+    }
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
         if (event.target == modal2) {
-        modal2.style.display = "none";
+            modal2.style.display = "none";
+        }
+        if (event.target == modal3) {
+            modal3.style.display = "none";
+        }
+        if (event.target == modal4) {
+            modal4.style.display = "none";
+        }
     }
-    
-    if (event.target == modal3) {
-        modal3.style.display = "none";
+
+
+        }); </script>
+
+        <script src="/styles/assets/js/chart-master/Chart.js"></script>
+        <style>
+    /* The Modal (background) */
+    .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 5%; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
     }
-    if (event.target == modal4) {
-        modal4.style.display = "none";
+
+    /* Modal Content */
+    .modal-content {
+
+
     }
-}
-        
 
-    }); </script>
-    
-    
-    
- 
-    
-    <script src="/styles/assets/js/chart-master/Chart.js"></script>
-    <style>
-/* The Modal (background) */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    padding-top: 5%; /* Location of the box */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-}
+    /* The Close Button */
+    .close4 {
+        color: #000;
+        float: right;
+        font-size: 28px;
+         text-decoration: none;
+        font-weight: bold;
+    }
 
-/* Modal Content */
-.modal-content {
-   
-   
-}
+    .close4:hover,
+    .close4:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .close1 {
+        color: #000;
+        float: right;
+        font-size: 28px;
+         text-decoration: none;
+        font-weight: bold;
+    }
 
-/* The Close Button */
-.close4 {
-    color: #000;
-    float: right;
-    font-size: 28px;
-     text-decoration: none;
-    font-weight: bold;
-}
+    .close1:hover,
+    .close1:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .close2 {
+        color: #000;
+        float: right;
+        font-size: 28px;
+         text-decoration: none;
+        font-weight: bold;
+    }
 
-.close4:hover,
-.close4:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-.close1 {
-    color: #000;
-    float: right;
-    font-size: 28px;
-     text-decoration: none;
-    font-weight: bold;
-}
+    .close2:hover,
+    .close2:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .close3 {
+        color: #000;
+        float: right;
+        font-size: 28px;
+         text-decoration: none;
+        font-weight: bold;
+    }
 
-.close1:hover,
-.close1:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-.close2 {
-    color: #000;
-    float: right;
-    font-size: 28px;
-     text-decoration: none;
-    font-weight: bold;
-}
-
-.close2:hover,
-.close2:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-.close3 {
-    color: #000;
-    float: right;
-    font-size: 28px;
-     text-decoration: none;
-    font-weight: bold;
-}
-
-.close3:hover,
-.close3:focus {
-    color: #fff;
-    text-decoration: none;
-    cursor: pointer;
-}
-</style>
-  <title> Amulekan</title>
-  <!-- Bootstrap -->
+    .close3:hover,
+    .close3:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    </style>
+      <title> Amulekan</title>
+      <!-- Bootstrap -->
 
 </head>
     
@@ -617,6 +597,7 @@ window.onclick = function(event) {
 <body ng-app="myApp" >
 
 <section id="main-content">
+
 
 
 <!-- Formulario1 -->
@@ -857,24 +838,20 @@ window.onclick = function(event) {
      
                 <br>
 
-                <div  >
-                <div style=" margin-left:20% ; margin-right30%;" class="col-lg-5 col-md-5 col-sm-10">
- 				<div style="border-radius: 5px 50px 5px; background:#56a4bd ; margin-top: 20px;" class="showback">
-      					<h2 style="color: #fff">¿Cómo lo hacemos?</h2>
-                        <div style="margin: inherit">
-                        <h5 style="color: #fff">Te apoyamos con las herramientas que necesitas, tanto para tu desarrollo personal como para enfrentar efectivamente los procesos de inserción laboral. Te ayudaremos a generar tu CV, y te ofreceremos ser parte de diversas Charlas y Talleres en la V Región. También te contactaremos con empresas y te acompañaremos en el proceso de adaptación a tu nuevo puesto de trabajo.</h5>
-                        </div>
-      			</div><!-- /showback -->
-				</div>
+                <div id = "StaticMessage">
+                
                 </div>
+            </div>
    
 				
         
 					<!-- -- 2ND ROW OF PANELS ---->
 				
 			
-		</section>
-      
+    </section>
+    <div id="FinalMessage">
+    
+    </div>
 <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->  

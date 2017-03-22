@@ -394,20 +394,6 @@
     }
 
     /* The Close Button */
-    .close4 {
-        color: #000;
-        float: right;
-        font-size: 28px;
-         text-decoration: none;
-        font-weight: bold;
-    }
-
-    .close4:hover,
-    .close4:focus {
-        color: #fff;
-        text-decoration: none;
-        cursor: pointer;
-    }
     .close1 {
         color: #000;
         float: right;
@@ -418,6 +404,20 @@
 
     .close1:hover,
     .close1:focus {
+        color: #fff;
+        text-decoration: none;
+        cursor: pointer;
+    }
+    .close4 {
+        color: #000;
+        float: right;
+        font-size: 28px;
+         text-decoration: none;
+        font-weight: bold;
+    }
+
+    .close4:hover,
+    .close4:focus {
         color: #fff;
         text-decoration: none;
         cursor: pointer;
@@ -473,14 +473,9 @@
                     <li id="header_inbox_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <i class="fa fa-bell" ></i>
-                            
-                           
                             <span class="badge bg-theme">  
-                                
-                                
-                                {{value2}} /4
-                                
-                               </span> <!--se debe actualizar -->
+                            {{value2}} /4
+                            </span> <!--se debe actualizar -->
                         </a>
                         <ul class="dropdown-menu extended inbox">
                             <div class="notify-arrow notify-arrow-green"></div>
@@ -493,7 +488,7 @@
                             </li>
                             <li>
                                 <a href="#">
-                                    <span class="photo"><img alt="avatar" src="/styles/assets/img/ui-zac.jpg"></span>
+                                  
                                     <span class="subject">
                                     <span class="from"> </span>
                                       
@@ -699,7 +694,7 @@
     <!-- Fomulario3-->
 <div id="myModal3" class="modal"><div class="modal-body">
         <div class="col-lg-6 ds" >          
-            <form ng-controller="putcontroller">
+            <form style="width:90%s" ng-controller="putcontroller">
             
         <div class="modal-content">
         <div class="modal-header">
@@ -713,7 +708,7 @@
                 <%= username %> </b> Recuerde rellenar todos los campos, una vez completado presione <b>Enviar</b>, para seguir rellenando la encuesta o <b>Salir </b> para cerrar tu sesión. Pasados unos días te llamaremos en caso de que no contestes la información.
             </p>
            <ul>
-    <li>
+                <li>
             <h2 style=" font-size: 12px ; color: #000">Cargo/Puesto</h2> 
             <input placeholder=" Ej: Ayudante Administrativo" type="text" class="form-control" style="color: #000" ng-model="position" required />
          
@@ -729,27 +724,26 @@
             <h2 style=" font-size: 12px ; color: #000">Fecha Término</h2> 
             <input placeholder=" Ej: 02-08-1995" type="text" class="form-control" style="color: #000" ng-model="endDate" required />
                 
-            </li>
-               <li>
-             <h2 style=" font-size: 12px ; color: #000">Descripción de responsabilidades/logros</h2> 
+          </li>
+          <li>
+          <h2 style=" font-size: 12px ; color: #000">Descripción de responsabilidades/logros</h2> 
           <textarea  placeholder=" Ej: Me dedicaba a cooperar en las tareas del administrador "type="textbox" class="form-control" style="color: #000" ng-model="description">
-            </textarea>
-
-             
-                   </li>
-<li>            <button id="send3" style=""class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Agregar</button>
+          </textarea>
+          </li>
+               
+    <li>           
+    <br><button id="send3" style="margin-left:62%; display: inline;margin-top:0px;  max-width:100px"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3()">Agregar</button>
             
-       <button id="send3v2" style="margin-left: 40%;"class="btn btn-theme btn-block"style="color: #FFF" ng-click="SendData3v2()">Terminar</button> <br>
-            </ul>    
-</li>
-               </div>
-            </form>
-            
-                 
-     </div>
-            <br>
-  </div>
-</div>
+    <button id="send3v2" style=" border-color:#d15a5a; background-color:#f06868 ;max-width:100px ; display: inline;margin-top:0px;" class="btn btn-theme btn-block"style="color: #FFF;" ng-click="SendData3v2()">Terminar</button> <br>
+    </li>
+    
+    </ul>    
+    </div>
+    </form>
+    </div>
+    <br>
+    </div>
+    </div>
     
     <!-- Formulario4 -->
     

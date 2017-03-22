@@ -5426,6 +5426,7 @@ a.list-group-item-danger.active:focus {
   filter: alpha(opacity=50);
   opacity: .5;
 }
+
 .close4 {
   float: right;
   font-size: 21px;
@@ -5444,6 +5445,7 @@ a.list-group-item-danger.active:focus {
   filter: alpha(opacity=50);
   opacity: .5;
 }
+
 
 button.close {
   -webkit-appearance: none;
@@ -5467,6 +5469,12 @@ button.close2 {
   border: 0;
 }
 button.close3 {
+  -webkit-appearance: none;
+  padding: 0;
+  cursor: pointer;
+  background: transparent;
+  border: 0;
+}button.close4 {
   -webkit-appearance: none;
   padding: 0;
   cursor: pointer;

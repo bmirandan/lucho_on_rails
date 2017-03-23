@@ -1,6 +1,7 @@
 var bcrypt = require('bcrypt-nodejs'),
  Model = require('../model/models.js');
 var nodemailer = require("nodemailer");
+var validator = require('validator');
 
 module.exports.show = function(req, res) {
     //res.render('signup')
@@ -23,18 +24,21 @@ module.exports.signup = function(req, res) {
   var mailRepresentative = req.body.mailRepresentative
   var telephoneRepresentative = req.body.telephoneRepresentative
   
-  if (!password || !password2 || !email || !telephone) {
+  if (!password || !password2 || !email || !telephone || password.toString.length < 6 || password.toString.length > 15) {
     
-      req.flash('error', "Please, fill in all the fields.")
+      req.flash('error', "Porfavor, rellene todos los campos.")
+      res.sendFile('signup.html', {
+        root: './views'
+      });
     
+  }
+    
+  if (password != password2) {
+    req.flash('error', "Por favor ingrese la misma constraseña.")
+    console.log("saaa");
   }
   
-  if (password !== password2) {
-    req.flash('error', "Please, enter the same password twice.")
-    res.sendFile('signup.html', {
-      root: './views'
-    });
-  }
+  
   
   var salt = bcrypt.genSaltSync(10)
   var hashedPassword = bcrypt.hashSync(password, salt)
@@ -53,10 +57,10 @@ module.exports.signup = function(req, res) {
   }
   
   Model.User.create(newUser).then(function() {
-
-    
+     res.redirect('/signup')
+     req.flash('notify', "Usuario creado con exito")    
   }).catch(function(error) {
-    req.flash('error', "Please, choose a different username.")
+    req.flash('error', "Porfavor, escoga un email distinto.")
     res.sendFile('signup.html', {
         root: './views'
     });

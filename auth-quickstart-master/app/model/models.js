@@ -18,7 +18,6 @@ module.exports.Company = Company;
 module.exports.Work = Work;
 module.exports.UserApplication = UserApplication;
 
-
 Offer.belongsTo(Company, {foreignKey: 'companyId', targetKey: 'id'});
 
 UserApplication.belongsTo(User);

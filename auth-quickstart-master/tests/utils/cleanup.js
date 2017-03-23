@@ -7,19 +7,19 @@ module.exports = function(callback) {
         
         Model.User.create({
           id:'1',
-          email:'hola@hola.com',
+          email:'hol@hola.com',
           username: 'hola@hola.com',
-          firstName:'go',
-          lastName: 'jaja', password:'$2a$10$QaT1MdQ2DRWuvIxtNQ1i5O9D93HKwPKFNWBqiiuc/IoMtIurRCT36',
+          firstName:'asd',
+          lastName: 'jajajajajajja', password:'$2a$10$QaT1MdQ2DRWuvIxtNQ1i5O9D93HKwPKFNWBqiiuc/IoMtIurRCT36',
           salt: '$2a$10$QaT1MdQ2DRWuvIxtNQ1i5O',
           password: '$2a$10$QaT1MdQ2DRWuvIxtNQ1i5O9D93HKwPKFNWBqiiuc/IoMtIurRCT36'
         }).then(callback);
 
         Model.Company.create({
           id: '1',
-          name: 'hh',
-          username: 'ss',
-          password: 'gg'
+          name: 'hhhhhhhhh',
+          username: 'sssssssss',
+          password: 'gggggggggg'
         }).then(callback);
 
         Model.Offer.create({

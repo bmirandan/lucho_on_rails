@@ -1,4 +1,5 @@
 // application
+var cleanup = require('./tests/utils/cleanup.js');
 
 var express = require('express'),
     app = express(),
@@ -10,6 +11,41 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     cookieParser = require('cookie-parser'),
     jsonParser = bodyParser.json();
+
+var pgtools = require('pgtools');
+const config = {
+  user: 'postgres',
+  password: '',
+  port: 5432,
+  host: 'localhost'
+};
+console.log("test1");
+/*
+pgtools.dropdb(config, 'example', function (err, res) {
+    console.log("test 3");
+    if (err) {
+      console.error(err);
+      process.exit(-1);
+    }
+    //console.log(res);
+    console.log("Database already exist");
+});*/
+console.log("test2");
+pgtools.createdb(config, 'example', function (err, res) {
+  if (err) {
+    console.error(err);
+    process.exit(-1);
+  }
+    else
+    {
+        cleanup(function() {
+          console.log('Setup finished.')
+          //process.exit()
+        })
+        console.log("Database created");
+    }
+        
+});
 
 var port = process.env.PORT || 8080
 

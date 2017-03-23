@@ -1,4 +1,5 @@
-var Sequelize = require('sequelize')
+var Sequelize = require('sequelize');
+var Model = require('../model/models.js');
 
 var attributes = {
     
@@ -7,23 +8,64 @@ var attributes = {
   username: {  
     type: Sequelize.STRING,
     validate: {
-      isEmail: true}
+      isEmail: true,
+        len: {
+            args: [10, 60],
+            msg: 'El campo debe tener entre 10 y 60 caracteres de largo'
+        },
+        isUnique: function(value, next){
+            var self = this;
+            Model.User.find({where: {username: {$iLike: value}}})
+               .then(function (user) {
+                            // reject if a different user wants to use the same email
+                            if (user && self.id !== user.id) {
+                                return next('El correo ya existe!');
+                            }
+                            return next();
+                        })
+                        .catch(function (err) {
+                            return next(err);
+                        });
+        }
+    }
     
   },
   email: {
     type: Sequelize.STRING,
     validate: {
-      isEmail: true
+      isEmail: true,
+      len: {
+            args: [10, 60],
+            msg: 'El campo debe tener entre 10 y 60 caracteres de largo'
+      }
     }
   },
   firstName: {
     type: Sequelize.STRING,
+    validate: {
+        len: {
+            args: [2, 50],
+            msg: 'El campo debe tener entre 2 y 50 caracteres de largo'
+        }
+    }
   },
   lastName: {
     type: Sequelize.STRING,
+    validate: {
+        len: {
+            args: [2, 50],
+            msg: 'El campo debe tener entre 2 y 50 caracteres de largo'
+        }
+    }
   },
   password: {
     type: Sequelize.STRING,
+    validate: {
+          len: {
+                args: [20, 150],
+                msg: 'El campo debe tener entre 20 y 150 caracteres de largo'
+          }
+    }
   },
 
     //Representative Info
@@ -32,35 +74,94 @@ var attributes = {
         type: Sequelize.STRING
     },
     relationWithUser: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            len: {
+                args: [20, 60],
+                msg: 'El campo debe tener entre 20 y 60 caracteres de largo'
+            }
+        }
     },
     nameRepresentative: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            len: {
+                args: [2, 50],
+                msg: 'El campo debe tener entre 2 y 50 caracteres de largo'
+            }
+        }
     },
     mailRepresentative: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            len: {
+                args: [10, 60],
+                msg: 'El campo debe tener entre 10 y 60 caracteres de largo'
+            }
+        }
     },
     telephoneRepresentative: {
-        type: Sequelize.STRING
+        type: Sequelize.STRING,
+        validate: {
+            len: {
+                args: [6, 20],
+                msg: 'El campo debe tener entre 6 y 20 caracteres de largo'
+            }
+        }
     },
 
     // < begin info primer form.
     
   telephone:{ 
-    type: Sequelize.STRING},
+    type: Sequelize.STRING,
+    validate: {
+            len: {
+                args: [6, 20],
+                msg: 'El campo debe tener entre 6 y 20 caracteres de largo'
+            }
+    }
+    },
 
   birthDate:{ 
-    type: Sequelize.STRING},
+    type: Sequelize.STRING,
+    validate: {
+            len: {
+                args: [10, 10],
+                msg: 'El campo debe tener 10 caracteres de largo'
+            }
+    }
+    },
     
   address:{ 
-    type: Sequelize.STRING},
+    type: Sequelize.STRING,
+    validate: {
+            len: {
+                args: [10, 60],
+                msg: 'El campo debe tener largo entre 10 y 60 caracteres de largo'
+            }
+    }
+  },
     
   state:{ 
-    type: Sequelize.STRING},  
+    type: Sequelize.STRING,
+    validate: {
+            len: {
+                args: [10, 60],
+                msg: 'El campo debe tener largo entre 10 y 60 caracteres de largo'
+            }
+    }
+  },  
     
      // begin info segundo form
     cargo:{ 
-    type: Sequelize.STRING},
+        type: Sequelize.STRING,
+        validate: {
+            len: {
+                args: [10, 60],
+                msg: 'El campo debe tener largo entre 10 y 60 caracteres de largo'
+            }
+        }
+    },
     
     
     // begin tercer form
@@ -68,7 +169,14 @@ var attributes = {
     type: Sequelize.STRING},
     
     techelp: {
-    type: Sequelize.STRING},
+        type: Sequelize.STRING,
+        validate: {
+            len: {
+                args: [10, 60],
+                msg: 'El campo debe tener largo entre 10 y 60 caracteres de largo'
+            }
+        }
+    },
     
     registrado: {
     type: Sequelize.STRING},
@@ -81,7 +189,14 @@ var attributes = {
     ecolaridad: {
         type: Sequelize.STRING},
     ocupacion: {
-        type: Sequelize.STRING},
+        type: Sequelize.STRING,
+        validate: {
+            len: {
+                args: [10, 60],
+                msg: 'El campo debe tener largo entre 10 y 60 caracteres de largo'
+            }
+        }
+    },
     omil: {
         type: Sequelize.STRING},
     experiencialab: {

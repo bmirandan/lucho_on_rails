@@ -8,7 +8,9 @@ validationApp.controller('mainController', function($scope) {
 
     // check to make sure the form is completely valid
     if (isValid) {
-      alert('our form is amazing');
+      
+        console.log("datos correctos");
+        
     }
 
   };

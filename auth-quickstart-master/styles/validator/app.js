@@ -8,9 +8,12 @@ validationApp.controller('mainController', function($scope) {
 
     // check to make sure the form is completely valid
     if (isValid) {
-      
+      	alert('Registro completo');
+    }
+    else{
+		alert('Complete todo los campos correctamente');
     }
 
   };
-
+  
 });

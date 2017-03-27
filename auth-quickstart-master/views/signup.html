@@ -24,10 +24,9 @@
                     document.getElementById("representativeData").style.display = "none";
                 }
 
-            };    
-            
-            
+            };   
 		</script>
+
         <script src="https://code.angularjs.org/1.4.0-rc.1/angular.js"></script>
         <script src="/styles/validator/app.js"></script>
 
@@ -68,7 +67,7 @@
     
     <div   id="login-page ">
 
-	  	<form  method="POST" action="signup" name="userForm" ng-submit="submitForm(userForm.$valid)"  class="form-login" novalidate >
+	  	<form  method="POST" action="signup" ng-submit="submitForm(userForm.$valid)" name="userForm" class="form-login" >
             
 		<h2  class="form-login-heading">Registrate</h2>
         <div class="login-wrap">
@@ -91,7 +90,7 @@
         <div class="form-group" ng-class="{ 'has-error' : userForm.mailRepresentative.$invalid && !userForm.mailRepresentative.$pristine }">
         <br/>
         <label for="mailRepresentative" class="sr-only">Correo representante</label><br/>
-        <input type="email" id="mailRepresentative" ng-model="mailRepresentative" name="mailRepresentative" ng-minlength="3" ng-maxlength="40" class="form-control" placeholder="Correo representante" required autofocus> 
+        <input type="email" id="mailRepresentative" ng-model="mailRepresentative" name="mailRepresentative" ng-minlength="3" ng-maxlength="40" class="form-control" placeholder="Correo representante" ng-required='representante=Si' autofocus> 
         <p ng-show="userForm.mailRepresentative.$invalid && !userForm.mailRepresentative.$pristine" class="help-block">Ingresa un correo válido</p>
         </div>
         
@@ -99,7 +98,7 @@
         <div class="form-group" ng-class="{ 'has-error' : userForm.telephoneRepresentative.$invalid && !userForm.telephoneRepresentative.$pristine}" >    
        <label for="telephoneRepresentative" class="sr-only">Telefono representante</label><br/>
             
-        <input type="text"  id="telephoneRepresentative" name="telephoneRepresentative" class="form-control" ng-model="telephoneRepresentative" placeholder="Telefono representante" ng-minlength="12" ng-maxlength="12" required autofocus>    
+        <input type="text"  id="telephoneRepresentative" name="telephoneRepresentative" class="form-control" ng-model="telephoneRepresentative" placeholder="Telefono representante" ng-minlength="12" ng-maxlength="12" autofocus>    
         
         <p ng-show="userForm.telephoneRepresentative.$error.maxlength" class="help-block">Ingresa un número válido</p>    
         <p ng-show="userForm.telephoneRepresentative.$error.minlength" class="help-block">Ingresa un número válido</p>    
@@ -133,17 +132,12 @@
         
         <div class="form-group"  ng-class="{ 'has-error' : userForm.password2.$invalid && !userForm.password2.$pristine }" >    
         <label for="inputPassword" class="sr-only">Contraseña</label><br/>
-        <input type="password" id="password2" name="password2" ng-model="password2"  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" ng-maxlength="12"  class="form-control" placeholder="Repita la contraseña" required>
+        <input type="password" id="password2" name="password2" ng-model="password2"  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" ng-maxlength="12" ng-match="password" class="form-control" placeholder="Repita la contraseña" required>
         <p ng-show="userForm.password2.$error.pattern">Solo caracteres alfanumericos </p>    
         <p ng-show="userForm.password2.$error.minlength" class="help-block">Constraseña muy corta</p>    
         <p ng-show="userForm.password2.$error.maxlength" class="help-block">Contraseña muy larga</p> 
-            
-        </div>
-            
-      
-
-        
-        <button style=" margin-left: 63%; background:#3881af" class="btn btn-theme btn-block" type="submit" ng-click=""><i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse </button>
+        <p ng-show="password !== password2" class="help-block">Ingrese la misma contraseña</p>
+        <button style=" margin-left: 63%; background:#3881af" class="btn btn-theme btn-block" type="submit" ng-click="" ng-disabled="password !== password2 || userForm.$invalid"><i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse </button>
         
         </div>
         </form>    

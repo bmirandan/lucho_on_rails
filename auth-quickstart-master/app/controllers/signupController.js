@@ -24,7 +24,7 @@ module.exports.signup = function(req, res) {
   var mailRepresentative = req.body.mailRepresentative
   var telephoneRepresentative = req.body.telephoneRepresentative
   
-  if (!password || !password2 || !email || !telephone || password.toString.length < 6 || password.toString.length > 15) {
+  if (!password || !password2 || !email || !telephone || password.toString.length < 6 || password.toString.length > 12) {
     
       req.flash('error', "Porfavor, rellene todos los campos.")
       res.sendFile('signup.html', {

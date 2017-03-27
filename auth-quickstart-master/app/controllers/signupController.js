@@ -39,7 +39,6 @@ module.exports.signup = function(req, res) {
   }
   
   
-  
   var salt = bcrypt.genSaltSync(10)
   var hashedPassword = bcrypt.hashSync(password, salt)
   

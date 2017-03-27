@@ -85,8 +85,7 @@
             <label for="relationWithUser" class="sr-only">Relacion con el usuario</label><br/>
             <input type="text" id="relationWithUser" name="relationWithUser" class="form-control" placeholder="Relacion con usuario" autofocus> 
             <label for="nameRepresentative" class="sr-only">Nombre representante</label><br/>
-            <input type="text" id="nameRepresentative" name="nameRepresentative" class="form-control" placeholder="Nombre representante" autofocus> 
-            
+            <input type="text" id="nameRepresentative" name="nameRepresentative" class="form-control" placeholder="Nombre representante" autofocus>  
         <div class="form-group" ng-class="{ 'has-error' : userForm.mailRepresentative.$invalid && !userForm.mailRepresentative.$pristine }">
         <br/>
         <label for="mailRepresentative" class="sr-only">Correo representante</label><br/>
@@ -108,14 +107,14 @@
         <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
      
         <br/>
-        <input type="email" id="inputEmail" name="email"class="form-control" ng-model="email" placeholder="Ej: lucas@mail.com" ng-minlength="3" ng-maxlength="40"required autofocus>
+        <input type="email" id="inputEmail" name="email"class="form-control" ng-model="email" placeholder="Ej: lucas@mail.com" ng-minlength="3" ng-maxlength="40" required title=" " autofocus >
         <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Ingresa un correo válido</p>
         </div>
             
         <div class="form-group" ng-class="{ 'has-error' : userForm.telephone.$invalid && !userForm.telephone.$pristine}" >    
         <label for="inputTelephone" class="sr-only">Teléfono</label><br/>
             
-        <input type="text"  id="telephone" name="telephone" class="form-control" ng-model="telephone" placeholder="Ej: +56978451220" ng-minlength="12" ng-maxlength="12" required autofocus>    
+        <input type="text"  id="telephone" name="telephone" class="form-control" ng-model="telephone" placeholder="Ej: +56978451220" ng-minlength="12" ng-maxlength="12" required title=" " autofocus>    
         
         <p ng-show="userForm.telephone.$error.maxlength" class="help-block">Ingresa un número válido</p>    
         <p ng-show="userForm.telephone.$error.minlength" class="help-block">Ingresa un número válido</p>    
@@ -123,7 +122,7 @@
             
         <div class="form-group"  ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }" >    
         <label for="inputPassword" class="sr-only">Contraseña</label><br/>
-       <input type="password"  id="password" name="password" ng-model="password"  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" ng-maxlength="12"  class="form-control" placeholder="Repita la contraseña" required>
+       <input type="password"  id="password" name="password" ng-model="password"  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" ng-maxlength="12"  class="form-control" placeholder="Repita la contraseña" required title=" ">
         <p ng-show="userForm.password.$error.minlength" class="help-block">Constraseña muy corta</p>    
         <p ng-show="userForm.password.$error.maxlength" class="help-block">Contraseña muy larga</p> 
             
@@ -132,7 +131,7 @@
         
         <div class="form-group"  ng-class="{ 'has-error' : userForm.password2.$invalid && !userForm.password2.$pristine }" >    
         <label for="inputPassword" class="sr-only">Contraseña</label><br/>
-        <input type="password" id="password2" name="password2" ng-model="password2"  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" ng-maxlength="12" ng-match="password" class="form-control" placeholder="Repita la contraseña" required>
+        <input type="password" id="password2" name="password2" ng-model="password2"  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" ng-maxlength="12" ng-match="password" class="form-control" placeholder="Repita la contraseña" required title=" ">
         <p ng-show="userForm.password2.$error.pattern">Solo caracteres alfanumericos </p>    
         <p ng-show="userForm.password2.$error.minlength" class="help-block">Constraseña muy corta</p>    
         <p ng-show="userForm.password2.$error.maxlength" class="help-block">Contraseña muy larga</p> 

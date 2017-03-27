@@ -23,33 +23,21 @@
                 } else {
                     document.getElementById("representativeData").style.display = "none";
                 }
-<<<<<<< HEAD
-            };
 
-            					
-				
- 
-		
-    </script>
-<script src="https://code.angularjs.org/1.4.0-rc.1/angular.js"></script>
-    
-<script src="/styles/validator/app.js"></script>
-=======
-            };		
-        </script>
+            };    
+            
+            
+		</script>
+        <script src="https://code.angularjs.org/1.4.0-rc.1/angular.js"></script>
+        <script src="/styles/validator/app.js"></script>
+
         
->>>>>>> origin/master
-        
+
 	</head>
 	
     <body ng-app="validationApp" ng-controller="mainController">
 
-        <section>
-            
-    
-            
-        </section>
-		<!-- Header -->
+        <!-- Header -->
 	<section>		
 
       
@@ -99,39 +87,61 @@
             <input type="text" id="relationWithUser" name="relationWithUser" class="form-control" placeholder="Relacion con usuario" autofocus> 
             <label for="nameRepresentative" class="sr-only">Nombre representante</label><br/>
             <input type="text" id="nameRepresentative" name="nameRepresentative" class="form-control" placeholder="Nombre representante" autofocus> 
-            <label for="mailRepresentative" class="sr-only">Correo representante</label><br/>
-            <input type="text" id="mailRepresentative" name="mailRepresentative" class="form-control" placeholder="Correo representante" autofocus> 
-            <label for="telephoneRepresentative" class="sr-only">Telefono representante</label><br/>
-            <input type="text" id="telephoneRepresentative" name="telephoneRepresentative" class="form-control" placeholder=" Teléfono representante " autofocus>     
+            
+        <div class="form-group" ng-class="{ 'has-error' : userForm.mailRepresentative.$invalid && !userForm.mailRepresentative.$pristine }">
+        <br/>
+        <label for="mailRepresentative" class="sr-only">Correo representante</label><br/>
+        <input type="email" id="mailRepresentative" ng-model="mailRepresentative" name="mailRepresentative" ng-minlength="3" ng-maxlength="40" class="form-control" placeholder="Correo representante" required autofocus> 
+        <p ng-show="userForm.mailRepresentative.$invalid && !userForm.mailRepresentative.$pristine" class="help-block">Ingresa un correo válido</p>
         </div>
         
+            
+        <div class="form-group" ng-class="{ 'has-error' : userForm.telephoneRepresentative.$invalid && !userForm.telephoneRepresentative.$pristine}" >    
+       <label for="telephoneRepresentative" class="sr-only">Telefono representante</label><br/>
+            
+        <input type="text"  id="telephoneRepresentative" name="telephoneRepresentative" class="form-control" ng-model="telephoneRepresentative" placeholder="Telefono representante" ng-minlength="12" ng-maxlength="12" required autofocus>    
+        
+        <p ng-show="userForm.telephoneRepresentative.$error.maxlength" class="help-block">Ingresa un número válido</p>    
+        <p ng-show="userForm.telephoneRepresentative.$error.minlength" class="help-block">Ingresa un número válido</p>    
+        </div>    
+            
+            </div>
         <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-       <label>Email</label>
-            
-        <input type="email"  id="inputEmail" name="email"class="form-control" ng-model="user.email" placeholder="Ej: lucas@mail.com" ng-minlength="5" ng-maxlength="25"required autofocus>
-      <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Enter a valid email.</p>
-
+     
+        <br/>
+        <input type="email" id="inputEmail" name="email"class="form-control" ng-model="email" placeholder="Ej: lucas@mail.com" ng-minlength="3" ng-maxlength="40"required autofocus>
+        <p ng-show="userForm.email.$invalid && !userForm.email.$pristine" class="help-block">Ingresa un correo válido</p>
         </div>
             
-        <div class="form-group" >    
+        <div class="form-group" ng-class="{ 'has-error' : userForm.telephone.$invalid && !userForm.telephone.$pristine}" >    
         <label for="inputTelephone" class="sr-only">Teléfono</label><br/>
-        <input type="text" id="inputTelephone" name="telephone" class="form-control" placeholder="Ej: +56978451220" ng-minlength="12" ng-maxlength="12" required autofocus>    
+            
+        <input type="text"  id="telephone" name="telephone" class="form-control" ng-model="telephone" placeholder="Ej: +56978451220" ng-minlength="12" ng-maxlength="12" required autofocus>    
+        
+        <p ng-show="userForm.telephone.$error.maxlength" class="help-block">Ingresa un número válido</p>    
+        <p ng-show="userForm.telephone.$error.minlength" class="help-block">Ingresa un número válido</p>    
         </div>
             
-        <div class="form-group">    
+        <div class="form-group"  ng-class="{ 'has-error' : userForm.password.$invalid && !userForm.password.$pristine }" >    
         <label for="inputPassword" class="sr-only">Contraseña</label><br/>
-<<<<<<< HEAD
-        <input type="password"  id="inputPassword" name="password" class="form-control" placeholder="Contraseña" ng-minlength="6" ng-maxlength="10"required>
-        
-        <label for="inputPassword" class="sr-only">Repita la contraseña</label><br/>
-        <input type="password" id="inputPassword2" name="password2" class="form-control" ng-minlength="6" ng-maxlength="12" placeholder="Repita la contraseña" required><br/>
+       <input type="password"  id="password" name="password" ng-model="password"  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" ng-maxlength="12"  class="form-control" placeholder="Repita la contraseña" required>
+        <p ng-show="userForm.password.$error.minlength" class="help-block">Constraseña muy corta</p>    
+        <p ng-show="userForm.password.$error.maxlength" class="help-block">Contraseña muy larga</p> 
+            
         </div>
-=======
-        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Contraseña" required>
-        <label for="inputPassword2" class="sr-only">Repita la contraseña</label><br/>
-        <input type="password" id="inputPassword2" name="password2" class="form-control" placeholder="Repita la contraseña" required> <br/>
-         
->>>>>>> origin/master
+            
+        
+        <div class="form-group"  ng-class="{ 'has-error' : userForm.password2.$invalid && !userForm.password2.$pristine }" >    
+        <label for="inputPassword" class="sr-only">Contraseña</label><br/>
+        <input type="password" id="password2" name="password2" ng-model="password2"  ng-pattern="/^[a-zA-Z0-9]*$/" ng-minlength="6" ng-maxlength="12"  class="form-control" placeholder="Repita la contraseña" required>
+        <p ng-show="userForm.password2.$error.pattern">Solo caracteres alfanumericos </p>    
+        <p ng-show="userForm.password2.$error.minlength" class="help-block">Constraseña muy corta</p>    
+        <p ng-show="userForm.password2.$error.maxlength" class="help-block">Contraseña muy larga</p> 
+            
+        </div>
+            
+      
+
         
         <button style=" margin-left: 63%; background:#3881af" class="btn btn-theme btn-block" type="submit" ng-click=""><i class="fa fa-user-plus" aria-hidden="true"></i> Registrarse </button>
         
